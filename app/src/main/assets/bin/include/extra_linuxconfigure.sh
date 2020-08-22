@@ -67,10 +67,12 @@ configure()
     exec_auto
     unset cmd2
     fi
-    # 设置密码
+    # set password
     export cmd2=chpasswd
     echo ${USER_NAME}:${USER_PASSWORD}|exec_auto
     unset cmd2
+    #  set bash.bashrc env
+    sed -i '$a\PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games:/usr/local/sbin:/sbin' $rootfs/etc/bash.bashrc
     echo "- setting up sudo ... "
     local sudo_str="${USER_NAME} ALL=(ALL:ALL) NOPASSWD:ALL"
     if ! grep -q "${sudo_str}" "$rootfs2/etc/sudoers"; then
