@@ -5,22 +5,22 @@ env_info() {
     
     android_version=$(getprop ro.build.version.release)
     if [ -n "$android_version" ]; then
-        echo -n "Android: "
+        echo -n "安卓版本: "
         echo "Android $android_version"
     fi
 
-    echo -n "Container installed system:"
+    echo -n "容器已安装系统:"
     if [ -f "$rootfs/etc/issue" ];then
     export linux_version=$(cat $rootfs/etc/issue)
     else
-    export linux_version="  UnSupported"
+    export linux_version="  未安装或无法识别"
     fi
     echo "$linux_version"
 
-    echo -n "CPU Arch: "
+    echo -n "CPU架构: "
     echo "$(uname -m)"
 
-    echo -n "Linux: "
+    echo -n "Linux版本: "
     echo "$(uname -r)"
 
     echo -n "RAM: "
@@ -30,23 +30,23 @@ env_info() {
     echo -n "SELinux: "
     selinux_inactive && echo "关闭" || echo "开启"
 
-    echo "FS Support:"
+    echo "文件系统支持:"
     supported_fs=$(cat /proc/filesystems)
     echo "$supported_fs"
     
-    echo 'busybox:'
+    echo 'busybox版本:'
     $TOOLKIT/busybox | grep BusyBox
 
-    echo "RunDir:"
+    echo "运行路径:"
     pwd
     
     echo ""
-    echo "CLI:"
+    echo "CLI版本:"
     sh $TOOLKIT/cli.sh version
 
-    echo "PRoot:"
+    echo "PRoot版本:"
     $TOOLKIT/proot -V
 
-    echo "chroot:"
+    echo "chroot状态:"
     $TOOLKIT/busybox chroot
 }

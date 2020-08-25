@@ -14,7 +14,6 @@ ssh-keygen -A
 chmod 555 /run/sshd
 echo "- SSH Port: 22222"
 /usr/sbin/sshd -p 22222 &
-echo -n ""
 }
 sshd_stop()
 {

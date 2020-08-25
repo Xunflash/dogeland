@@ -3,13 +3,13 @@
 # license: gpl-v3
 del_rootfs() {
 if [ -d "$rootfs/usr/" ];then
-  echo "- Disabling"
+  echo "- 正在关闭容器"
   stop_rootfs
   umount_part
-  echo "- Removing"
+  echo "- 正在移除容器"
   rm -rf $rootfs/*
-  echo "- Done"
+  echo "- 已完成"
   else
-  echo "- error"
+  echo "- 移除失败"
 fi
 }

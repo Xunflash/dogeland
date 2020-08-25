@@ -2,7 +2,7 @@
 <!-- LinuxTools Install Page -->
 <group>
 <action>
-            <title>Install</title>
+            <title>安装</title>
              <set>
              mkdir $rootfs/dogeland/
              cp $TOOLKIT/cli.sh $rootfs/dogeland/
@@ -12,7 +12,7 @@
 </group>
 <group>
 <action>
-            <title>Remove</title>
+            <title>移除</title>
              <set>
              rm -rf $rootfs/dogeland/cli.sh
              rm -rf $rootfs/dogeland/include
@@ -21,10 +21,10 @@
 <group>
 <group>
         <text>
-            <title>Why Install?</title>
+            <title>为什么要安装?</title>
             <desc>
-            Dogeland Linux extension components provide Linux with fast start, stop container... and other extension components support
-             Note: It is installed automatically when Rootfs is installed.
+            dogeland Linux扩展组件 为Linux提供快速启动,停止容器...等扩展组件支持
+            注意: 安装Rootfs时已自动安装。
             </desc>
         </text>
     </group>

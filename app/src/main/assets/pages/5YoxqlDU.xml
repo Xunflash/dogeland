@@ -3,11 +3,11 @@
  <group title="Rootfs ">
          <action>
             <title>Alpine</title>
-            <desc>apk series,8+mb,Need to connect to Github</desc>
-            <param name="USER_NAME" label="LoginUser" title="" placeholder="" type="text" />
-            <param name="USER_PASSWORD" label="Password" title="" placeholder="" type="text" />
+            <desc>apk系,8+mb,需要正常连接到Github</desc>
+            <param name="USER_NAME" label="登录用户" title="" placeholder="" type="text" />
+            <param name="USER_PASSWORD" label="登录密码" title="" placeholder="" type="text" />
             <set>
-            curl -O https://raw.githubusercontent.com/WhiteSky-Team/dogeland-assets/master/rootfs/alpine/$platform.tgz
+            curl -O https://raw.githubusercontent.com/dogelands/dogeland-assets/master/rootfs/alpine/$platform.tgz
             export file="$(pwd)/$platform.tgz"
             export datas=1
             export rootfs2="alpine-fs/"
@@ -21,10 +21,10 @@
         </slices>
     </text>
         </group>
-<group title="Patcher ">
+<group title="补丁 ">
 <action>
             <title>Ashmem</title>
-            <desc>Use this patch only when there are problems running certain graphical interface programs</desc>
+            <desc>只在运行某些图形界面程序出现问题时，才使用此补丁</desc>
             <param name="archs">
                 <option value="arm_64">arm64</option>
                 <option value="arm">arm</option>
@@ -38,7 +38,7 @@
 <group>
 <action>
             <title>XstartupAdd</title>
-            <desc>Only use this patch when starting the graphical interface only X</desc>
+            <desc>只在启动图形界面只有X时，才使用此补丁</desc>
             <param name="archs">
                 <option value="startxfce4">xfce</option>
                 <option value="startlxde">lxde</option>
@@ -51,8 +51,8 @@
 <group>
 <action>
             <title>DebianGroupAdd</title>
-            <desc>Use this patch only when the login terminal prompts that the group is missing</desc>
-            <param name="bug" label="" title="miss group id" placeholder="" type="text" />
+            <desc>只在登录终端提示缺少group组时，才使用此补丁</desc>
+            <param name="bug" label="" title="请输入缺少的group组ID" placeholder="" type="text" />
             <set>$TOOLKIT/cli.sh debiangroup_add</set>
 </action>
 </group>
@@ -60,10 +60,10 @@
 <group>
 <action>
             <title>FuckQ-dash</title>
-            <desc>Change sh from garbage dash to bash</desc>
+            <desc>使sh从垃圾的dash更换为bash</desc>
             <param name="type">
-                <option value="sh_patcher">Install</option>
-                <option value="">Cancel</option>
+                <option value="sh_patcher">安装</option>
+                <option value="">取消</option>
             </param>
             <set>$TOOLKIT/cli.sh $type</set>
 </action>
@@ -72,7 +72,7 @@
 <group>
 <action>
             <title>fs-perm</title>
-            <desc>Change Linux file system permissions globally to solve some bugs</desc>
+            <desc>全局更改Linux文件系统权限,用于解决一些bug</desc>
            <param name="perm" label="" title="" placeholder="0755" type="text" />
             <set>chmod -R $perm $rootfs/</set>
 </action>
@@ -81,7 +81,7 @@
 <group>
 <action>
             <title>fix-sudo</title>
-            <desc>Fix sudo failure problem</desc>
+            <desc>修复sudo失效问题</desc>
             <set>$TOOLKIT/cli.sh fix_sudo</set>
 </action>
 </group>
@@ -89,19 +89,19 @@
 <group>
 <action>
             <title>PRootSECCOMP</title>
-            <desc>Enable PRootSECCOMP KernelPatch</desc>
+            <desc>开启PRootSECCOMP内核补丁</desc>
             <param name="type">
-                <option value="enable_proot_seccomp">Install</option>
-                <option value="">Cancel</option>
+                <option value="enable_proot_seccomp">安装</option>
+                <option value="">取消</option>
             </param>
             <set>$TOOLKIT/cli.sh $type</set>
 </action>
 </group>
 
-<group title="Plugins ">
+<group title="插件 ">
 <action>
-            <title>InstallPlugin</title>
-            <param name="file" label="PluginPackage" type="file"
+            <title>安装插件</title>
+            <param name="file" label="插件包" type="file"
                 suffix="zip"
                 value="" editable="true" />
             <set>$TOOLKIT/cli.sh plugin_installer</set>
@@ -109,20 +109,20 @@
 </group>
 
  <group>
-   <page config="pages/hp4zq7bl.xml" title="GNU/Linux Addon" />
+   <page config="pages/hp4zq7bl.xml" title="GNU/Linux 扩展组件" />
  </group>
  
 <group>
          <action>
             <title>QEMU-User-Emulator</title>
-            <desc>Enable arch emulator for proot or chroot</desc>
+            <desc>开启PRoot/Chroot跨平台运行工具</desc>
             <set>am start --user 0 -a android.intent.action.VIEW -d https://github.com/WhiteSky-Team/dogeland-assets</set>
         </action>
         </group>
         <group>
          <action>
             <title>curl</title>
-            <desc>add file download for dogeland</desc>
+            <desc>为 dogeland 提供网络下载支持</desc>
             <set>am start --user 0 -a android.intent.action.VIEW -d https://github.com/WhiteSky-Team/dogeland-assets</set>
         </action>
         </group>

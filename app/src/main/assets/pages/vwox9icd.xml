@@ -3,28 +3,28 @@
 <items>
     <group>
         <action>
-            <title>Enable/Disable</title>
-            <desc>Manage your GNU/Linux containers </desc>
+            <title>开启/关闭</title>
+            <desc>管理你的 GNU/Linux 容器 </desc>
              <param name="start">
-                <option value="start_auto">[auto]</option>
+                <option value="start_auto">[自动选择]</option>
                 <option value="start_chroot">[chroot]</option>
                 <option value="start_proot">[proot]</option>
             </param>
-            <param name="addcmd" label="AddOptions" title="" placeholder="" type="text" />
+            <param name="addcmd" label="附加参数" title="" placeholder="" type="text" />
             <set>$TOOLKIT/cli.sh $start</set>
             </action>
             </group>
             
             <group>
               <action>
-            <title>RunShellCommand</title>
-            <desc>Quickly run container shell commands</desc>
+            <title>运行终端命令</title>
+            <desc>快速运行 容器Shell命令</desc>
             <param name="cmd2" label="" title="" placeholder="" type="text" />
              <param name="exec">
-                <option value="exec_auto">[auto]</option>
+                <option value="exec_auto">[自动选择]</option>
                 <option value="exec_chroot">[chroot]</option>
                 <option value="exec_proot">[proot]</option>
-                <option value="exec_localshell">[local-Shell]</option>
+                <option value="exec_localshell">[本地Shell]</option>
             </param>
             <set>$TOOLKIT/cli.sh $exec</set>
         </action>
@@ -34,11 +34,11 @@
 
 <items>
  <group>
-<page config="pages/wyr1nmlc.xml" title="Settings" />
+<page config="pages/wyr1nmlc.xml" title="设置" />
  </group>
 
   <group>
-   <page config="pages/5YoxqlDU.xml" title="Store" />
+   <page config="pages/5YoxqlDU.xml" title="商店" />
   </group>
  
   <group>

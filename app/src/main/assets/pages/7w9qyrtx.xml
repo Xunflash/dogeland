@@ -2,33 +2,33 @@
 <!-- FAQPage -->
     <group>
         <text>
-            <title> Q: Cannot access the network or disconnect after connecting to SSH</title>
-            <desc> A: Please ignore the battery optimization and lock the background, turn off the power consumption optimization and other functions.
+            <title> Q: 连接到SSH后无法访问网络或者断开连接</title>
+            <desc> A: 请忽略电池优化并锁定后台,关闭耗电优化等功能。
             </desc>
         </text>
     </group>
       <group>
         <text>
-            <title> Q: After installing the desktop environment, I only have X and a gray background when connecting to VNC?</title>
-            <desc> A: Store patch XStartupAdd-restart VNC.
+            <title> Q: 安装桌面环境后连接VNC只有X和灰色背景?</title>
+            <desc> A: 商店补丁XStartupAdd-重启VNC就行。
             </desc>
         </text>
     </group>
     <group>
         <text>
-            <title> Q: The container failed to start?</title>
-            <desc> A:Submit the error screenshot to Github Issue.
+            <title> Q: 容器启动失败?</title>
+            <desc> A: 将报错截图提交到Github Issue。
             </desc>
         </text>
     </group>
      <group>
         <text>
-            <title> Off-topic: How to use external Rootfs?</title>
-            <desc>A: AnLinux or termux and other rootfs can be used in dogeland.
-             installation steps:
-             1. Import the tar.xz or tar.gz package
-             2. Use the run terminal command, use the package manager (apt, pacman, apk...) to install dropbear (what specific Baidu
-             3. After installation, set up-quick start settings-select dropbear, and then install the GNU/LINUX extension components in the store
-             4. Start the container and connect using ssh</desc>
+            <title> 题外:如何使用外部的Rootfs?</title>
+            <desc>A: AnLinux或者termux的和其他的rootfs都可以在dogeland里面使用.
+            安装步骤:
+            1.导入tar.xz或者tar.gz包
+            2.用运行终端命令,使用软件包管理器(apt,pacman,apk..)安装dropbear(是什么具体百度
+            3.安装之后,设置-快速启动设置-选dropbear,然后商店里面GNU/LINUX扩展组件安装
+            4.启动容器使用ssh连接</desc>
         </text>
     </group>

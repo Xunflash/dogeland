@@ -14,7 +14,7 @@ check_rootfs
 
 debiangroup_add(){
 check_rootfs
-sed -i "$ a\aid_other:x:$bug:" $rootfs/etc/group
+sed -i "$ a\aid_$(id -un):x:$bug:" $rootfs/etc/group
 }
 
 sh_patcher(){

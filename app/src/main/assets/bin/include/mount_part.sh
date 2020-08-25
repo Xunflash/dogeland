@@ -2,7 +2,7 @@
 #
 # license: gpl-v3
 mount_part(){
-if [ -d "$rootfs/proc/1/" ];then
+if [ -e "$rootfs/proc/self/" ];then
  echo "">/dev/null
   else
  echo "- /proc ..."
@@ -16,7 +16,7 @@ if [ -d "$rootfs/sys/kernel/" ];then
   mount -t sysfs sysfs $rootfs/sys
 fi
 
-if [ -d "$rootfs/dev/block/" ];then
+if [ -d "$rootfs/dev/tty/" ];then
   echo "">/dev/null
   else
   echo "- /dev ..."
@@ -30,30 +30,23 @@ if [ -e "$rootfs/dev/pts/0" ];then
   mount -t devpts devpts $rootfs/dev/pts
 fi
 
-if [ -d "/dev/net/tun" ];then
-  # Mount Network
-  if [ -d "$rootfs/dev/net/tun" ];then
-  echo "">/dev/null
-  else
-  echo "- /dev ..."
-  mount -o bind /dev/net/tun $rootfs/dev/net/tun
-  fi
-  #
-  else
-  echo "">/dev/null
-fi
-
 if [ ! -e "/dev/tty0" ]; then
   echo "">/dev/null
   else
   echo "- /dev/tty ... "
   ln -s /dev/null /dev/tty0
 fi
-
+if [ ! -e "/dev/fd" -o ! -e "/dev/stdin" -o ! -e "/dev/stdout" -o ! -e "/dev/stderr" ]; then
+    echo "/dev/fd ... "
+    [ -e "/dev/stdin" ] || ln -s /proc/self/fd/0 /dev/stdin
+    [ -e "/dev/stdout" ] || ln -s /proc/self/fd/1 /dev/stdout
+    [ -e "/dev/stderr" ] || ln -s /proc/self/fd/2 /dev/stderr
+fi
+        
 if [ -e "$rootfs/mnt/host-rootfs" ];then
   echo "">/dev/null
   else
   echo "- /mnt/host-rootfs ..."
-  ln -s /proc/1/cwd $rootfs/mnt/host-rootfs
+  ln -s /proc/self/cwd $rootfs/mnt/host-rootfs
 fi
 }

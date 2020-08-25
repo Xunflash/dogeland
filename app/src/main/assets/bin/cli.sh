@@ -62,7 +62,6 @@ fi
 #
 # extensions
 #
-. $TOOLKIT/include/add_plugin.sh
 . $TOOLKIT/include/extra_dropbear.sh
 . $TOOLKIT/include/extra_sshd.sh
 . $TOOLKIT/include/extra_vncserver.sh

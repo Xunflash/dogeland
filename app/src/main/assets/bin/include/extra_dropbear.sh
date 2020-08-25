@@ -3,7 +3,7 @@
 # license: gpl-v3
 dropbear_start(){
 echo "- dropbear::start..."
-# First creact key
+# configure keys
 if [ -f "/etc/dropbear/dropbear_dss_host_key" ];then
 echo "">/dev/null
 else
@@ -19,6 +19,7 @@ echo "">/dev/null
 else
 dropbearkey -t ecdsa -s 521 -f /etc/dropbear/dropbear_ecdsa_host_key
 fi
+# START
 echo "- SSH Port: 22222"
 dropbear -E -p 22222 &
 echo -n ""

@@ -2,18 +2,18 @@
 <!-- InstallPage -->
 <group>
       <action>
-            <title>Install→tgz</title>
-            <param name="file" label="source file" type="file"
+            <title>安装→tgz</title>
+            <param name="file" label="包文件" type="file"
                 suffix="tgz"
                 value="" editable="true" />
-            <param name="rootfs2" label="InstallDIR" title="" placeholder="" type="text" editable="true" />
-                <param name="USER_NAME" label="LoginUser" title="" placeholder="" type="text" />
-                <param name="USER_PASSWORD" label="LoginPassword" title="" placeholder="" type="text" />
-                <param name="datas" label="NoRoot" type="bool" />
+            <param name="rootfs2" label="安装路径" title="" placeholder="" type="text" editable="true" />
+                <param name="USER_NAME" label="登录用户" title="" placeholder="" type="text" />
+                <param name="USER_PASSWORD" label="登录密码" title="" placeholder="" type="text" />
+                <param name="datas" label="安装到私有数据目录" type="bool" />
              <param name="language">
-                <option value="en_US.UTF-8">English en_US.UTF-8</option>
                 <option value="zh_CN.UTF-8">中文简体zh_CN.UTF-8</option>
-                <option value="zh_TW.UTF-8">中文繁體zh_TW.UTF-8</option>
+                <option value="zh_TW.UTF-8">中文繁体zh_TW.UTF-8</option>
+                <option value="英文en_US.UTF-8">英文en_US.UTF-8</option>
             </param>
             <set>$TOOLKIT/cli.sh deploy_linux</set>
               <param name="type">
@@ -23,18 +23,23 @@
             </param>
         </action>
         </group>
-        <group title="Tips:Importing Rootfs from unofficial warehouses may cause some problems, please use it with caution">
+        <group title="Tips:导入非官方仓库的Rootfs可能会引发一些问题,谨慎使用">
         <action>
-            <title>Install→tar.xz</title>
-            <param name="file" label="source file" type="file" suffix="tar.xz" value="" editable="true" />
-           <param name="rootfs2" label="InstallDIR" title="" placeholder="" type="text" editable="true" />
-                <param name="USER_NAME" label="LoginUser" title="" placeholder="" type="text" />
-                <param name="USER_PASSWORD" label="LoginPassword" title="" placeholder="" type="text" />
-                <param name="datas" label="NoRoot" type="bool" />
-             <param name="language">
-                <option value="en_US.UTF-8">English en_US.UTF-8</option>
+            <title>安装→tar.xz</title>
+            <param name="file" label="包文件" type="file" suffix="tar.xz" value="" editable="true" />
+            <param name="rootfs2" label="安装路径" title="" placeholder="" type="text" editable="true" />
+                <param name="USER_NAME" label="登录用户" title="" placeholder="" type="text" />
+                <param name="USER_PASSWORD" label="登录密码" title="" placeholder="" type="text" />
+                <param name="datas" label="安装到私有数据目录" type="bool" />
+                 <param name="language">
                 <option value="zh_CN.UTF-8">中文简体zh_CN.UTF-8</option>
-                <option value="zh_TW.UTF-8">中文繁體zh_TW.UTF-8</option>
+                <option value="zh_TW.UTF-8">中文繁体zh_TW.UTF-8</option>
+                <option value="英文en_US.UTF-8">英文en_US.UTF-8</option>
+            </param>
+                <param name="type">
+                <option value="/bin/sh /dogeland/cli.sh dropbear_start">dropbear</option>
+                <option value="/bin/sh /dogeland/cli.sh sshd_start">sshd</option>
+                <option value="/bin/sh /dogeland/cli.sh vncserver_start">vncserver</option>
             </param>
             <set>$TOOLKIT/cli.sh deploy_linux1</set>
         </action>

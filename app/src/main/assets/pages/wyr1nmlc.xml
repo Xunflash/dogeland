@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- SettingsPage -->
   <page>
- <group title="Basic">
+ <group title="基础">
      <action>
          <title>Rootfs</title>
              <param name="Input" label="" title="" placeholder="/data/data/me.flytree.dogeland/files/linux/" type="text" />
             <set>$TOOLKIT/cli.sh set_rootfsdir</set>
              </action>
         <action>
-            <title>InitCmd</title>
+            <title>初始化命令行</title>
             <param name="Input" label="" title="" placeholder="/bin/sh" type="text" />
             <set>$TOOLKIT/cli.sh set_initcmd</set>
         </action>
           <action>
-            <title>QuickStart</title>
+            <title>快速启动</title>
              <param name="type">
-                <option value="/bin/sh /dogeland/cli.sh sshd_start">openssh-sshd</option>
-                <option value="/bin/sh /dogeland/cli.sh dropbear_start">dropbear</option>
-                <option value="/bin/sh /dogeland/cli.sh vncserver_start">vncserver</option>
+                <option value="/bin/sh /dogeland/cli.sh sshd_start">启动openssh-sshd</option>
+                <option value="/bin/sh /dogeland/cli.sh dropbear_start">启动dropbear</option>
+                <option value="/bin/sh /dogeland/cli.sh vncserver_start">启动vncserver</option>
             </param>
             <set>
             rm -rf $CONFIG_DIR/cmd.conf
@@ -25,93 +25,110 @@
             </set>
              </action>
           </group>
-       <group title="Advanced">
+       <group title="进阶">
          <action bg-task="true">
-            <title>EnableBackgroudLock</title>
-            <desc>Keep the application running in the foreground and the CPU waking up to prevent the container from freezing or being killed</desc>
+            <title>开启后台锁定</title>
+            <desc>保持应用前台运行和CPU唤醒,防止容器卡顿或被杀死</desc>
             <set>sleep 9999</set>
         </action>
         <action>
-            <title>BackupRootfs</title>
+            <title>备份Rootfs</title>
              <param name="dir" type="folder" value="/sdcard/Android/data/me.flytree.dogeland/" editable="true"/>
             <set>$TOOLKIT/cli.sh backup_rootfs</set>
         </action>
         <action>
-            <title>CheckRunEnv</title>
+            <title>检查运行环境</title>
             <set>$TOOLKIT/cli.sh env_info</set>
         </action>
               <action>
-            <title>SetCheckArch</title>
-            <desc>If the system lacks uname or cannot be detected correctly, please use this option</desc>
+            <title>设置运行平台</title>
+            <desc>如系统缺少uname或无法正确检测,请使用此选项</desc>
              <param name="type">
                 <option value="arm">arm</option>
                 <option value="arm64">arm64</option>
                 <option value="x86">x86</option>
                  <option value="x86_64">x86_64</option>
             </param>
-            <set>. $TOOLKIT/include/extra_setrunarch.sh set_runarch</set>
+            <set>
+            sed "24c export platform=$type" $START_DIR/shell_init.sh
+            rm $TOOLKIT/install_bin_done
+            if [[ -f "$TMPDIR/install_bin.shbak" ]]; then
+             . $TMPDIR/install_bin.shbak
+            fi
+            if [[ -f "$TOOLKIT/install_bin.sh" ]]; then
+            . $TOOLKIT/install_bin.sh
+            fi
+            </set>
              </action>
            </group>
-           <group title="Warning">
+           <group title="高级">
              <action>
-            <title>RemoveRootfs</title>
+            <title>删除Rootfs</title>
              <param name="type">
-                <option value="">Cancel</option>
-                <option value="del_rootfs">Yes</option>
+                <option value="">取消</option>
+                <option value="del_rootfs">确定删除</option>
             </param>
             <set>$TOOLKIT/cli.sh $type</set>
         </action>
-          
+            <action>
+            <title>移除运行环境</title>
+             <param name="test">
+                <option value="echo 已取消">取消</option>
+                <option value="rm -rf $TOOLKIT">继续</option>
+            </param>
+            <set>$test</set>
+        </action>
+     
         <action>
-            <title>Set custom PATH variable</title>
+            <title>设置自定义 PATH 变量</title>
             <param name="Input" label="" title="" placeholder="/bin:/usr/sbin" type="text" />
             <set>$TOOLKIT/cli.sh set_path</set>
         </action>
          <action>
-            <title>EnableQEMU-USER Support</title>
+            <title>开启QEMU-USER支持</title>
               <param name="qemu">
                 <option value="x86_64">qemu-x86_64</option>
                 <option value="x86">qemu-i386</option>
                 <option value="arm_64">qemu-aarch64</option>
                 <option value="arm">qemu-arm</option>
                 <option value="armeb">qemu-armeb</option>
-                <option value="0">Disable</option>
+                <option value="0">关闭</option>
             </param>
             <set>$TOOLKIT/cli.sh set_emulator_qemu</set>
         </action>
     </group>
     <group title="PRoot">
     <action>
-            <title>set fake Kernel version</title>
-             <param name="kernel" label="" title="" placeholder="4.19" type="text" />
+            <title>FakeKernel</title>
+             <param name="kernel" label="" title="" placeholder="5.4.0-fakehost" type="text" />
             <set>$TOOLKIT/cli.sh proot_fake_kernel</set>
-        </action>
-        <action>
-            <title>Kill</title>
-            <set>$TOOLKIT/proot -r $START_DIR -b /system -b /proc -b /sys /bin/pkill $PACKAGE_NAME</set>
         </action>
     </group>
     
      <group title="Other">
             <action>
-            <title>change GNU / Linux 系统密码</title>
-            <param name="username" label="" title="User" placeholder="" type="text" />
-            <param name="password" label="" title="Password" placeholder="" type="text" />
+            <title>修改 GNU / Linux 系统密码</title>
+            <param name="username" label="" title="用户名" placeholder="" type="text" />
+            <param name="password" label="" title="密码" placeholder="" type="text" />
             <set>$TOOLKIT/cli.sh edit_passwd</set>
         </action>
           <action>
-            <title>FixRunEnvPerm</title>
+            <title>修复运行环境权限</title>
             <set>$TOOLKIT/cli.sh fix_perm</set>
         </action>
+        <action>
+            <title>杀死App容器</title>
+            <set>$TOOLKIT/proot -r $START_DIR -b /system -b /proc -b /sys /bin/pkill $PACKAGE_NAME</set>
+        </action>
     </group>
-     <group title="about">
+     <group title="关于">
             <action>
-            <title>Rate the app</title>
-            <desc>If you find it easy to use, you might as well give a star~</desc>
+            <title>给app评价</title>
+            <desc>如果觉得好用,不妨给个star~</desc>
             <set>am start --user 0 -a android.intent.action.VIEW -d https://github.com/dogelands/dogeland.git</set>
         </action>
           <action>
-            <title>version</title>
+            <title>版本</title>
             <desc>dogeland 1.3.5</desc>
              <set>am start --user 0 -a android.intent.action.VIEW -d https://github.com/dogelands/dogeland.git</set>
         </action>

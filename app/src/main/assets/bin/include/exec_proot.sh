@@ -6,8 +6,8 @@ check_rootfs
 set_env
 # Enable FakeKernel
 if [ -f "$CONFIG_DIR/fake_kernel" ];then
-export fake=$(cat $CONFIG_DIR/fake_kernel)
-export addcmd="$addcmd -k $fake"
+export fake_kernel=$(cat $CONFIG_DIR/fake_kernel)
+export addcmd="$addcmd -k $fake_kernel -b $rootfs/proc/.version:/proc/version"
 else
 echo "">/dev/null
 fi 
@@ -22,7 +22,8 @@ fi
 startcmd="$addcmd --kill-on-exit "
 startcmd+="--link2symlink -0 -r $rootfs -b /dev "
 startcmd+="-b /proc -b /sys -b /proc/self/fd:/dev/fd -b /dev/null:/dev/tty0 "
-startcmd+="-b /:/mnt/host-rootfs "
+startcmd+="-b /dev/urandom:/dev/random -b /:/mnt/host-rootfs "
+#startcmd+="-b /proc/self/fd/0:/dev/stdin -b /proc/self/fd/1:/dev/stdout -b /proc/self/fd/2:/dev/stderr "
 startcmd+="-w /root $cmd2"
 $TOOLKIT/proot $startcmd
 unset startcmd

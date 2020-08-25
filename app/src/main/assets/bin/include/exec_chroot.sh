@@ -48,7 +48,8 @@ if [ -f "$rootfs/bin/zsh" ];then
 $chroot "$rootfs" /bin/zsh /dogeland/runcmd.sh
 pkill zsh
 else
-echo "UnSupport Shell"
+echo "?无法启动到Shell入口"
+$chroot "$rootfs" $(cat /dogeland/runcmd.sh)
 fi
 echo "">/dev/null
 fi
@@ -58,5 +59,5 @@ echo "">/dev/null
 fi
 echo "">/dev/null
 fi
-rm -rf $rootfs/dogeland/runcmd.sh
+rm $rootfs/dogeland/runcmd.sh
 }

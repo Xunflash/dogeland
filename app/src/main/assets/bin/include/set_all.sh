@@ -7,35 +7,26 @@ echo "$Input">$CONFIG_DIR/path.conf
 }
 set_tempdir(){
     if [ ! -n "$Input" ]; then
-    echo "- Cancel."
+    echo "- 检测到没有输入内容,取消更改."
     else
-    echo "- Setting up"
-    sleep 1
     rm -rf $CONFIG_DIR/tmpdir.conf
     echo "$Input">$CONFIG_DIR/tmpdir.conf
-    echo "- done"
-    sleep 1
-    exit
 fi
 }
 set_rootfsdir(){
 if [ ! -n "$Input" ]; then
-echo "- cancel."
+echo "- 检测到没有输入内容,取消更改."
     else
-    echo "- Setting up"
     rm -rf $CONFIG_DIR/rootfs.conf
     echo "$Input">$CONFIG_DIR/rootfs.conf
-    echo "- done"
     fi
 }
 set_initcmd(){
 if [ ! -n "$Input" ]; then
- echo "- cancel."
+ echo "- 检测到没有输入内容,取消更改."
 else
- echo "- Setting up"
  rm -rf $CONFIG_DIR/cmd.conf
  echo "$Input">$CONFIG_DIR/cmd.conf
- echo "- done"
 fi
 }
 set_emulator_qemu(){

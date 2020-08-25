@@ -11,35 +11,36 @@ license: GPL-v3.0
 
 ABOUT
 }
-help() {
-cat <<HELP
 
-USAGE:
-   cli.sh [COMMAND] ...
+enable_proot_fakekernel(){
+if [ -e "$CONFIG_DIR/fake_kernel" ];then
+rm $CONFIG_DIR/fake_kernel
+rm $rootfs/proc/.version
 
-COMMANDS:
-   [...] 
-   
-   start_chroot: 使用chroot启动Linux
-   start_proot: 使用proot启动Linux
-   start_auto: 启动Linux
-   
-   exec_chroot: 使用chroot运行Linux命令
-   exec_proot: 使用proot运行Linux命令
-   exec_auto: 运行Linux命令
-   
-   del_rootfs: 删除Rootfs
-   stop_rootfs: 停止Linux容器运行
-   set_env: 设置Linux终端环境
-   loop_support: 检查设备是否支持loop
-   mount_part: 挂载内核分区到Rootfs
-   umount_part: 取消挂载内核分区到Rootfs
-   selinux_inactive: 检查SeLinux状态
-   env_info: 运行环境测试
-   deploy_linux: 安装Linux系统包
-   backup_rootfs: 备份Rootfs
-   
-   ...其他就你自己挖掘把
-   
-HELP
+
+else
+echo "$kernel" > $CONFIG_DIR/fake_kernel
+cat <<- EOF > "$rootfs/proc/.version"
+Linux version $kernel (dogeland@fakehost) (gcc version 4.9.x 20150123 (prerelease) (GCC) ) #1 SMP PREEMPT Fri Jul 10 00:00:00 UTC 2020
+EOF
+fi
+
+else
+rm $TOOLKIT/fake_kernel
+rm $rootfs/proc/.version
+fi
+}
+
+edit_passwd(){
+export cmd2=chpasswd
+echo "$username:$password"|exec_auto
+unset cmd2
+}
+plugin_installer(){
+echo "- 正在解压"
+unzip $file -d $START_DIR/
+echo "- 正在安装"
+. $START_DIR/install.sh
+rm $START_DIR/install.sh
+echo "- 已完成"
 }

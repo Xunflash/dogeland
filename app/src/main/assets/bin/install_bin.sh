@@ -9,13 +9,13 @@ if [ -f "$TOOLKIT/install_bin_done" ];then
 quit
 else
 
-echo "- Initializing (errors are normal 🐳 phenomenon)"
+echo "- 正在初始化(报错属于正常🐳现象)"
 
 if [[ "$platform" != "unknown" ]]
 then
 echo "">/dev/null
 else
-echo "- $platform is detected, uname does not exist or your device is not supported"
+echo "- 检测到 $platform ,uname不存在或者不支持你的设备"
 exit 5
 fi
 
@@ -66,10 +66,10 @@ if [ -d "$DATA2_DIR" ];then
   if [ -d "$DATA2_DIR" ];then
   echo "">/dev/null
   else
-  echo "!Data initialization failed"
-  echo "Detected that no storage permissions or Android10+"
+  echo "!数据初始化失败"
+  echo "检测到没有得到 存储权限 或者是 Android10+"
   echo "----------"
-  echo "To put it bluntly, you need to manually create a new folder named me.flytree.dogeland in the (internal storage/Android/data/) folder and then open this application to solve the problem.."
+  echo "说白了就是需要手动在(内部存储/Android/data/)文件夹中新建一个名称为 me.flytree.dogeland 的文件夹之后再打开本应用问题才能解决."
   exit 2
   sleep 1000
   fi
@@ -86,7 +86,7 @@ if [ -d "$CONFIG_DIR/" ];then
 fi
 
 # Kill
-echo "- done🍉"
+echo "- 初始化完成🍉"
 echo "" >$TOOLKIT/install_bin_done
 mv $TOOLKIT/install_bin.sh $TMPDIR/install_bin.shbak
 echo && echo && echo && echo
