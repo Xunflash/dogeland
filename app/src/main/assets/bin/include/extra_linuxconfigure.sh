@@ -103,9 +103,21 @@ configure()
         echo "GID_MIN 5000" >>"$login_defs"
         sed -i 's|^[#]\?GID_MIN.*|GID_MIN 5000|' "$login_defs"
     fi
-   # Add Android-specific things
+   # Add Android-specific group
     echo "aid_$(id -un):x:$(id -u):$(id -g):Android user:/:/usr/sbin/nologin" >> "$rootfs/etc/passwd"
     echo "aid_$(id -un):*:18446:0:99999:7:::" >> "$rootfs/etc/shadow"
-    
+    local aid
+        for aid in $(cat "$TOOLKIT/android_groups")
+        do
+            local xname=$(echo ${aid} | awk -F: '{print $1}')
+            local xid=$(echo ${aid} | awk -F: '{print $2}')
+            sed -i "s|^${xname}:.*|${xname}:x:${xid}:|" "${CHROOT_DIR}/etc/group"
+            if ! $(grep -q "^${xname}:" "${CHROOT_DIR}/etc/group"); then
+                echo "${xname}:x:${xid}:" >> "${CHROOT_DIR}/etc/group"
+            fi
+            if ! $(grep -q "^${xname}:" "${CHROOT_DIR}/etc/passwd"); then
+                echo "${xname}:x:${xid}:${xid}::/:/bin/false" >> "${CHROOT_DIR}/etc/passwd"
+            fi
+        done
 }
 $@

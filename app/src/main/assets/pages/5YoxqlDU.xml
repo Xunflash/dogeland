@@ -52,7 +52,7 @@
 <action>
             <title>DebianGroupAdd</title>
             <desc>只在登录终端提示缺少group组时，才使用此补丁</desc>
-            <param name="bug" label="" title="请输入缺少的group组ID" placeholder="" type="text" />
+            <param name="bug" label="" title="GroupID" placeholder="" type="text" />
             <set>$TOOLKIT/cli.sh debiangroup_add</set>
 </action>
 </group>
@@ -81,7 +81,7 @@
 <group>
 <action>
             <title>fix-sudo</title>
-            <desc>修复sudo失效问题</desc>
+            <desc>修复sudo关键文件权限错误问题</desc>
             <set>$TOOLKIT/cli.sh fix_sudo</set>
 </action>
 </group>

@@ -101,7 +101,7 @@
     <action>
             <title>FakeKernel</title>
              <param name="kernel" label="" title="" placeholder="5.4.0-fakehost" type="text" />
-            <set>$TOOLKIT/cli.sh proot_fake_kernel</set>
+            <set>$TOOLKIT/cli.sh enable_proot_fakekernel</set>
         </action>
     </group>
     
