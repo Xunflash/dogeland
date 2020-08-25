@@ -5,6 +5,13 @@ quit(){
 echo "">/dev/null
 exit
 }
+if [ ! $TOOLKIT ];then
+    echo "检测到未在dogeland环境运行"
+    exit 9
+else
+    echo  "">/dev/null
+fi
+
 if [ -f "$TOOLKIT/install_bin_done" ];then
 quit
 else
