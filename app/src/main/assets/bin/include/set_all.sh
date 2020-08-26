@@ -2,8 +2,7 @@
 #
 # license: gpl-v3
 set_path(){
-rm -rf $CONFIG_DIR/path.conf
-echo "$Input">$CONFIG_DIR/path.conf
+echo $Input:"$PATH">$rootfs/etc/profile
 }
 set_tempdir(){
     if [ ! -n "$Input" ]; then

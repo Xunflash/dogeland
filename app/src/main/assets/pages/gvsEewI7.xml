@@ -24,9 +24,9 @@
 </group>
   <group title="Ansole ">
         <action title="SSH工具">
-         <param name="address" label="" title="地址" placeholder="" type="text" />
-          <param name="port" label="" title="端口" placeholder="" type="text" />
-          <param name="user" label="" title="用户" placeholder="" type="text" />
+         <param name="address" label="" title="地址" placeholder="localhost" type="text" />
+          <param name="port" label="" title="端口" placeholder="22222" type="text" />
+          <param name="user" label="" title="用户" placeholder="root" type="text" />
             <script>
                 ssh_sh="/data/data/com.romide.terminal/lib/libdbclient.so $user@$address -p $port"
                 if [[ `pm list package com.romide.terminal` != "" ]]; then
