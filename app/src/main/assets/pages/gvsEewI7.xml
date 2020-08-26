@@ -22,3 +22,18 @@
 <group>
 <page config="pages/EMT9DJAH.xml" title="快速开始↗" />
 </group>
+  <group title="Ansole ">
+        <action title="SSH工具">
+         <param name="address" label="" title="地址" placeholder="" type="text" />
+          <param name="port" label="" title="端口" placeholder="" type="text" />
+          <param name="user" label="" title="用户" placeholder="" type="text" />
+            <script>
+                ssh_sh="/data/data/com.romide.terminal/lib/libdbclient.so $user@$address -p $port"
+                if [[ `pm list package com.romide.terminal` != "" ]]; then
+                    am start -a jackpal.androidterm.RUN_SCRIPT --es cmd "$ssh_sh" --es title "dogeland > Ansole" --activity-multiple-task
+                else
+                    echo '你没有安装可用的Ansole'
+                fi
+            </script>
+        </action>
+    </group>

@@ -107,7 +107,7 @@ configure()
     echo "aid_$(id -un):x:$(id -u):$(id -g):Android user:/:/usr/sbin/nologin" >> "$rootfs/etc/passwd"
     echo "aid_$(id -un):*:18446:0:99999:7:::" >> "$rootfs/etc/shadow"
     local aid
-        for aid in $(cat "$TOOLKIT/android_groups")
+        for aid in $(cat "$TOOLKIT/include/android_groups")
         do
             local xname=$(echo ${aid} | awk -F: '{print $1}')
             local xid=$(echo ${aid} | awk -F: '{print $2}')

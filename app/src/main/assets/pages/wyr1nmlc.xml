@@ -70,19 +70,11 @@
             </param>
             <set>$TOOLKIT/cli.sh $type</set>
         </action>
-            <action>
-            <title>移除运行环境</title>
-             <param name="test">
-                <option value="echo 已取消">取消</option>
-                <option value="rm -rf $TOOLKIT">继续</option>
-            </param>
-            <set>$test</set>
-        </action>
-     
+          
         <action>
             <title>设置自定义 PATH 变量</title>
             <param name="Input" label="" title="" placeholder="/bin:/usr/sbin" type="text" />
-            <set>$TOOLKIT/cli.sh set_path</set>
+            <script>$TOOLKIT/cli.sh set_path</script>
         </action>
          <action>
             <title>开启QEMU-USER支持</title>
@@ -94,14 +86,14 @@
                 <option value="armeb">qemu-armeb</option>
                 <option value="0">关闭</option>
             </param>
-            <set>$TOOLKIT/cli.sh set_emulator_qemu</set>
+            <script>$TOOLKIT/cli.sh set_emulator_qemu</script>
         </action>
     </group>
     <group title="PRoot">
     <action>
             <title>FakeKernel</title>
              <param name="kernel" label="" title="" placeholder="5.4.0-fakehost" type="text" />
-            <set>$TOOLKIT/cli.sh enable_proot_fakekernel</set>
+            <script>$TOOLKIT/cli.sh enable_proot_fakekernel</script>
         </action>
     </group>
     
@@ -110,27 +102,27 @@
             <title>修改 GNU / Linux 系统密码</title>
             <param name="username" label="" title="用户名" placeholder="" type="text" />
             <param name="password" label="" title="密码" placeholder="" type="text" />
-            <set>$TOOLKIT/cli.sh edit_passwd</set>
+            <script>$TOOLKIT/cli.sh edit_passwd</script>
         </action>
           <action>
             <title>修复运行环境权限</title>
-            <set>$TOOLKIT/cli.sh fix_perm</set>
+            <script>$TOOLKIT/cli.sh fix_perm</script>
         </action>
         <action>
             <title>杀死App容器</title>
-            <set>$TOOLKIT/proot -r $START_DIR -b /system -b /proc -b /sys /bin/pkill $PACKAGE_NAME</set>
+            <script>$TOOLKIT/proot -r $START_DIR -b /system -b /proc -b /sys /bin/pkill $PACKAGE_NAME</script>
         </action>
     </group>
      <group title="关于">
             <action>
             <title>给app评价</title>
             <desc>如果觉得好用,不妨给个star~</desc>
-            <set>am start --user 0 -a android.intent.action.VIEW -d https://github.com/dogelands/dogeland.git</set>
+            <script>am start --user 0 -a android.intent.action.VIEW -d https://github.com/dogelands/dogeland.git</script>
         </action>
           <action>
             <title>版本</title>
             <desc>dogeland 1.3.5</desc>
-             <set>am start --user 0 -a android.intent.action.VIEW -d https://github.com/dogelands/dogeland.git</set>
+             <script>am start --user 0 -a android.intent.action.VIEW -d https://github.com/dogelands/dogeland.git</script>
         </action>
     </group>
     </page>
