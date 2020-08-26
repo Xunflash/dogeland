@@ -59,7 +59,7 @@
     <string name="kr_page_load_success"></string>
     <string name="kr_auto_run_item_losted"></string>
 
-    <string name="pio_starting">dogeland</string>
+    <string name="pio_starting"></string>
     <string name="pop_before_start"></string>
     <string name="pop_started"></string>
     <string name="pio_permission_checking"></string>
