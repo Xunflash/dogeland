@@ -23,13 +23,13 @@ rm -rf $rootfs/bin/sh
 ln -s $rootfs/bin/bash $rootfs/bin/sh
 }
 enable_proot_seccomp(){
-sed -i '29i\PROOT_NO_SECCOMP=1' $START_DIR/exec_start.sh
+sed -i '29i\PROOT_NO_SECCOMP=1' $START_DIR/shell_init.sh
 }
 fix_sudo(){
-cmd2=chown 0 /etc/sudoers
+cmd2="chown 0 /etc/sudoers"
 exec_auto && unset cmd2
-cmd2=chown -R 0 /etc/sudoers.d
+cmd2="chown -R 0 /etc/sudoers.d"
 exec_auto && unset cmd2
-cmd2=chown -R 0 /usr/lib/sudo/
+cmd2="chown -R 0 /usr/lib/sudo/"
 exec_auto && unset cmd2
 }

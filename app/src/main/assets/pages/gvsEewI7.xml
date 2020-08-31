@@ -22,8 +22,8 @@
 <group>
 <page config="pages/EMT9DJAH.xml" title="快速开始↗" />
 </group>
-  <group title="Ansole ">
-        <action title="SSH工具">
+  <group>
+        <action title="AnsoleSSH">
          <param name="address" label="" title="地址" placeholder="localhost" type="text" />
           <param name="port" label="" title="端口" placeholder="22222" type="text" />
           <param name="user" label="" title="用户" placeholder="root" type="text" />

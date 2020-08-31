@@ -24,6 +24,7 @@ echo "">/dev/null
 else
 echo "- 检测到 $platform ,uname不存在或者不支持你的设备"
 exit 5
+sleep 9999
 fi
 
 busybox_$platform chmod -R 0777 $TOOLKIT/

@@ -111,7 +111,7 @@
  <group>
    <page config="pages/hp4zq7bl.xml" title="GNU/Linux 扩展组件" />
  </group>
- 
+
 <group>
          <action>
             <title>QEMU-User-Emulator</title>

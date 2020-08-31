@@ -21,7 +21,7 @@ platform()
         echo "x86"
     ;;
     *)
-        echo "unknown" && exit 4
+        echo "unknown"
     ;;
     esac
 }

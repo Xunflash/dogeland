@@ -27,6 +27,7 @@ export platform=$(sh $TOOLKIT/cli.sh platform)
 #
 export PROOT_TMP_DIR="$TMPDIR"
 export PROOT_LOADER="$PREFIX/lib/lib_loader.so"
+# Enable 64-bit compatible 32-bit support
 if [[ "$platform" != "x86_64" ]] && [[ "$platform" != "arm64" ]]
 then
 echo "">/dev/null
@@ -50,5 +51,5 @@ if [[ -f "$run" ]]; then
     #chmod 755 "$run"
     sh "$run"
 else
-    echo "!ShellFaild"
+    echo "command not found!"
 fi

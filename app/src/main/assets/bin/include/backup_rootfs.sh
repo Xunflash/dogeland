@@ -2,9 +2,7 @@
 #
 # license: gpl-v3
 backup_rootfs(){
-echo "- 正在关闭容器 "
-stop_rootfs
-umount_part
+check_rootfs_status
 echo "- 正在备份"
 cd $rootfs/
 if [[ "$(pwd)" != "/" ]]
