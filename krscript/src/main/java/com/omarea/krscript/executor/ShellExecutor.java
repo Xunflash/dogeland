@@ -13,11 +13,11 @@ import java.io.OutputStream;
 import java.util.HashMap;
 
 /**
- * Created by Hello on 2018/04/01.
+ * Created by Hello on 2018/04/01. custom by Flytree on 2020/09/01.
  */
 public class ShellExecutor {
     private boolean started = false;
-    private String sessionTag = "pio_" + System.currentTimeMillis();
+    private String sessionTag = "appshd_" + System.currentTimeMillis();
     private void killProcess(Context context) {
         ScriptEnvironmen.executeResultRoot(
                 context,
