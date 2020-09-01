@@ -69,10 +69,10 @@ configure()
    [ -n "$USER_PASSWORD" ] || USER_PASSWORD="root"
     # user profile
     if [ "$USER_NAME" != "root" ]; then
-    echo "">/dev/null
-    else
     cmd2="useradd $USER_NAME"
     exec_auto && unset cmd2
+    else
+    echo "">/dev/null
     fi
     # Password
     cmd2="chpasswd"
