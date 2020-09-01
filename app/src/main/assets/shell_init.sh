@@ -9,7 +9,7 @@ export START_DIR=$({START_DIR})
 export SDCARD_PATH=$({SDCARD_PATH})
 export PACKAGE_NAME=$({PACKAGE_NAME})
 export TOOLKIT=$START_DIR/bin
-export TMPDIR=$START_DIR/kr-script/cache/
+export TMPDIR=$START_DIR/cache
 #
 # RunEnv
 #
