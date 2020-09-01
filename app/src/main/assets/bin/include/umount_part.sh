@@ -11,6 +11,7 @@ umount $rootfs/dev/shm
 umount $rootfs/dev
 rm $rootfs/mnt/host-rootfs
 else
- echo "">/dev/null
+ rm $rootfs/mnt/host-rootfs
+ echo "!Checkd NonRoot,then ignore."
 fi
 }

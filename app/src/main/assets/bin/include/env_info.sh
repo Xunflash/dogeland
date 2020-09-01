@@ -17,10 +17,10 @@ env_info() {
     fi
     echo "$linux_version"
 
-    echo -n "CPU架构: "
+    echo -n "CPU Arch: "
     echo "$(uname -m)"
 
-    echo -n "Linux版本: "
+    echo -n "Linux内核: "
     echo "$(uname -r)"
 
     echo -n "RAM: "
@@ -40,13 +40,4 @@ env_info() {
     echo "运行路径:"
     pwd
     
-    echo ""
-    echo "CLI版本:"
-    sh $TOOLKIT/cli.sh version
-
-    echo "PRoot版本:"
-    $TOOLKIT/proot -V
-
-    echo "chroot状态:"
-    $TOOLKIT/busybox chroot
 }

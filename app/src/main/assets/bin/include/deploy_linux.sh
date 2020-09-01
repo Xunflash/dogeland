@@ -13,7 +13,7 @@ mkdir -p $rootfs2/
 if [ `id -u` -eq 0 ];then
     $TOOLKIT/busybox tar -xzvf $file -C $rootfs2 >/dev/null
 else
-    proot --link2symlink $TOOLKIT/busybox tar -xzvf $file -C $rootfs2 >/dev/null
+    proot --link2symlink $TOOLKIT/busybox tar --no-same-owner -xzvf $file -C $rootfs2 >/dev/null
 fi
 deploy_linux_step2
 }
@@ -30,7 +30,7 @@ mkdir -p $rootfs2/
 if [ `id -u` -eq 0 ];then
     $TOOLKIT/busybox tar -xJf $file -C $rootfs2
 else
-    proot --link2symlink $TOOLKIT/busybox tar -xJf $file -C $rootfs2 >/dev/null
+    proot --link2symlink $TOOLKIT/busybox tar --no-same-owner -xJf $file -C $rootfs2 >/dev/null
 fi
 deploy_linux_step2
 }
@@ -77,7 +77,7 @@ fi
 #
 # Settings
 #
-echo "- 正在设置"
+echo "- 正在执行附加操作"
 # Set CONFIG
 if [ -d "$rootfs2/dogeland/" ];then
   echo "">/dev/null
@@ -106,8 +106,7 @@ chmod -R 0777 $rootfs2/etc/dropbear/
 cp $TOOLKIT/cli.sh $rootfs2/dogeland/
 mkdir $rootfs2/dogeland/include/
 cp -R $TOOLKIT/include/* $rootfs2/dogeland/include/
-# CatRootfsInfo
-echo "- 正在解析"
+# ReadRootfsInfo
 if [ -f "$rootfs2/info.log" ];then
 cat $rootfs2/info.log
 rm -rf $rootfs2/info.log
@@ -115,5 +114,5 @@ else
 echo "">/dev/null
 fi
 . $TOOLKIT/include/extra_linuxconfigure.sh configure
-echo "- 完成"
+echo "- 已完成"
 }

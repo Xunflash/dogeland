@@ -6,14 +6,14 @@ if [[ "$(cat $rootfs/dogeland/status)" != "Run" ]]
 then
 echo "">/dev/null
 else
-# Stop Service
+# Stop SomeLinuxApp
 pkill sshd
 pkill dropbear
 pkill vncserver
 pkill ash
 pkill zsh
 pkill bash
-# Change Status
+# Change RunStatus
 rm -rf $rootfs/dogeland/status
 echo "Stop">$rootfs/dogeland/status
 # Stop Core
