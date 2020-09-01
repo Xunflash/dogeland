@@ -134,7 +134,7 @@ public class ScriptEnvironmen {
      */
     private static String createShellCache(Context context, String script) {
         String md5 = md5(script);
-        String outputPath = "kr-script/cache/" + md5 + ".sh";
+        String outputPath = "cache/" + md5 + ".sh";
         if (new File(outputPath).exists()) {
             return outputPath;
         }
