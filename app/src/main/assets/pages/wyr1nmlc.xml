@@ -109,7 +109,7 @@
             <set>$TOOLKIT/cli.sh fix_perm</set>
         </action>
         <action>
-            <title>杀死App容器</title>
+            <title>KillApp!</title>
             <set>$TOOLKIT/proot -r $START_DIR -b /system -b /proc -b /sys /bin/pkill $PACKAGE_NAME</set>
         </action>
     </group>

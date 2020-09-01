@@ -69,7 +69,9 @@ configure()
    [ -n "$USER_PASSWORD" ] || USER_PASSWORD="root"
     # user profile
     if [ "$USER_NAME" != "root" ]; then
-    cmd2="groupadd $USER_NAME && useradd -m -g $USER_NAME -s /bin/sh $USER_NAME && usermod -g $USER_NAME $USER_NAME"
+    echo "">/dev/null
+    else
+    cmd2="useradd $USER_NAME"
     exec_auto && unset cmd2
     fi
     # Password
