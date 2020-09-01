@@ -40,9 +40,9 @@
     <string name="kr_script_task_notification">后台任务通知</string>
     <string name="kr_bg_task_start">后台运行中</string>
     <string name="kr_script_task_running">开始运行</string>
-    <string name="kr_script_task_has_error">出现错误</string>
-    <string name="kr_script_task_finished">任务结束</string>
-    <string name="kr_bg_task_start_desc">你可以通过系统的通知,查看任务运行进度和日志</string>
+    <string name="kr_script_task_has_error">maybe error</string>
+    <string name="kr_script_task_finished">done</string>
+    <string name="kr_bg_task_start_desc">运行在后台,请查看通知</string>
     <string name="kr_slice_script_result"></string>
     <string name="kr_slice_activity_fail">无法打开</string>
 
@@ -54,5 +54,5 @@
     <string name="kr_page_load_fail"></string>
     <string name="kr_page_load_success"></string>
     <string name="kr_auto_run_item_losted"></string>
-    <string name="kr_hidden_task_running">手速太快了,上个操作还没完成呢!</string>
+    <string name="kr_hidden_task_running">!</string>
 </resources>
