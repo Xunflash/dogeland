@@ -10,7 +10,7 @@ if [ -d "$rootfs" ];then
 fi
 }
 check_rootfs_status(){
-if [[ "$(cat $rootfs/dogeland/status)" != "Stop" ]]
+if [[ "$(cat $rootfs/dogeland/status)" != "Run" ]]
 then
 # if Run,then tip to stop
 echo "!容器正在运行,无法执行当前操作,请先停止容器"
