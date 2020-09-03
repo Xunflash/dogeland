@@ -7,7 +7,7 @@
 ![img3.png](docs/images/img3.png)
 ![img4.png](docs/images/img4.png)
 
-## Thanks for:
+## Thanks
   
 busybox  
   
@@ -16,8 +16,4 @@ proot
 libandroid-shmem  
   
 libtalloc  
-  
-termux-elf-cleaner  
-
-PIO  
   
