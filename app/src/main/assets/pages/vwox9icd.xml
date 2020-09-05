@@ -4,7 +4,7 @@
     <group>
         <action>
             <title>开启/关闭</title>
-            <summary sh="echo -n '管理你的 GNU/Linux 容器 '; sh $TOOLKIT/app-addon/cat-status.sh" />
+             <desc>管理你的 GNU/Linux 容器 </desc>
              <param name="start">
                 <option value="start_auto">[自动选择]</option>
                 <option value="start_chroot">[chroot]</option>
