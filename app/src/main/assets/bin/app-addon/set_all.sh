@@ -1,6 +1,4 @@
-# dogeland cli module
 #
-# license: gpl-v3
 set_path(){
 echo $Input:"$PATH">$rootfs/etc/profile
 }
@@ -37,3 +35,4 @@ else
 rm -rf $CONFIG_DIR/emulator_qemu
 fi
 }
+$1

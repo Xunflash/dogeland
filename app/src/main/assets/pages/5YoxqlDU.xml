@@ -3,7 +3,7 @@
  <group title="Rootfs ">
          <action>
             <title>Alpine</title>
-            <desc>apk系,8+mb,需要正常连接到Github</desc>
+            <desc>apk系,8mb,需要正常连接到Github</desc>
             <param name="USER_NAME" label="登录用户" title="" placeholder="" type="text" />
             <param name="USER_PASSWORD" label="登录密码" title="" placeholder="" type="text" />
             <set>
@@ -42,7 +42,7 @@
             <param name="archs">
                 <option value="startxfce4">xfce</option>
                 <option value="startlxde">lxde</option>
-                <option value="export PULSE_SERVER=tcp:0.0.0.0:4713">PulseAudio</option>
+                <option value="PULSE_SERVER=tcp:0.0.0.0:4713">PulseAudio</option>
             </param>
             <set>$TOOLKIT/cli.sh xstartup_add</set>
 </action>
@@ -89,9 +89,8 @@
 <group>
 <action>
             <title>PRootSECCOMP</title>
-            <desc>开启PRootSECCOMP内核补丁</desc>
             <param name="type">
-                <option value="enable_proot_seccomp">安装</option>
+                <option value="enable_proot_seccomp">开!</option>
                 <option value="">取消</option>
             </param>
             <set>$TOOLKIT/cli.sh $type</set>
@@ -104,7 +103,7 @@
             <param name="file" label="插件包" type="file"
                 suffix="zip"
                 value="" editable="true" />
-            <set>$TOOLKIT/cli.sh plugin_installer</set>
+            <set>$TOOLKIT/app-addon/plugin_installer.sh</set>
         </action>
 </group>
 
@@ -116,13 +115,13 @@
          <action>
             <title>QEMU-User-Emulator</title>
             <desc>开启PRoot/Chroot跨平台运行工具</desc>
-            <set>am start --user 0 -a android.intent.action.VIEW -d https://github.com/WhiteSky-Team/dogeland-assets</set>
+            <set>am start --user 0 -a android.intent.action.VIEW -d https://github.com/dogelands/dogeland-assets</set>
         </action>
         </group>
         <group>
          <action>
             <title>curl</title>
             <desc>为 dogeland 提供网络下载支持</desc>
-            <set>am start --user 0 -a android.intent.action.VIEW -d https://github.com/WhiteSky-Team/dogeland-assets</set>
+            <set>am start --user 0 -a android.intent.action.VIEW -d https://github.com/dogelands/dogeland-assets</set>
         </action>
         </group>

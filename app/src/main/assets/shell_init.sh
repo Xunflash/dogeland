@@ -28,7 +28,7 @@ export platform=$(sh $TOOLKIT/cli.sh platform)
 export PROOT_TMP_DIR="$TMPDIR"
 ###
 export PROOT_LOADER="$PREFIX/lib/lib_loader.so"
-# Enable 64-bit compatible 32-bit support
+# Enable PRoot 64-bit compatible 32-bit support
 if [[ "$platform" != "x86_64" ]] && [[ "$platform" != "arm64" ]]
 then
 echo "">/dev/null

@@ -5,15 +5,15 @@
      <action>
          <title>Rootfs</title>
              <param name="Input" label="" title="" placeholder="/data/data/me.flytree.dogeland/files/linux/" type="text" />
-            <set>$TOOLKIT/cli.sh set_rootfsdir</set>
+            <set>$TOOLKIT/app-addon/set_all.sh set_rootfsdir</set>
              </action>
         <action>
             <title>初始化命令行</title>
             <param name="Input" label="" title="" placeholder="/bin/sh" type="text" />
-            <set>$TOOLKIT/cli.sh set_initcmd</set>
+            <set>$TOOLKIT/app-addon/set_all.sh set_initcmd</set>
         </action>
           <action>
-            <title>快速启动</title>
+            <title>快速初始化启动</title>
              <param name="type">
                 <option value="/bin/sh /dogeland/cli.sh sshd_start">启动openssh-sshd</option>
                 <option value="/bin/sh /dogeland/cli.sh dropbear_start">启动dropbear</option>
@@ -38,11 +38,11 @@
         </action>
         <action>
             <title>检查运行环境</title>
-            <set>$TOOLKIT/cli.sh env_info</set>
+            <set>$TOOLKIT/app-addon/env_info.sh</set>
         </action>
               <action>
-            <title>设置运行平台</title>
-            <desc>如系统缺少uname或无法正确检测,请使用此选项</desc>
+            <title>设置系统架构</title>
+            <desc>如系统不存在uname或无法正确检测,请使用此选项</desc>
              <param name="type">
                 <option value="arm">arm</option>
                 <option value="arm64">arm64</option>
@@ -63,16 +63,16 @@
            </group>
            <group title="高级">
              <action>
-            <title>删除Rootfs</title>
+            <title>移除已安装Rootfs</title>
              <param name="type">
-                <option value="">取消</option>
-                <option value="del_rootfs">确定删除</option>
+                <option value="">取消还是</option>
+                <option value="del_rootfs">确定删除(将永远消失!)</option>
             </param>
             <set>$TOOLKIT/cli.sh $type</set>
         </action>
           
         <action>
-            <title>设置自定义 PATH 变量</title>
+            <title>设置自定义 PATH 环境</title>
             <param name="Input" label="" title="" placeholder="/bin:/usr/sbin" type="text" />
             <set>$TOOLKIT/cli.sh set_path</set>
         </action>
@@ -109,20 +109,23 @@
             <set>$TOOLKIT/cli.sh fix_perm</set>
         </action>
         <action>
-            <title>KillApp!</title>
-            <set>$TOOLKIT/proot -r $START_DIR -b /system -b /proc -b /sys /bin/pkill $PACKAGE_NAME</set>
+            <title>关闭App</title>
+            <set>
+            $TOOLKIT/proot -r $START_DIR -b /system -b /proc -b /sys /bin/pkill $PACKAGE_NAME
+            pkill me.flytree.dogeland
+            </set>
         </action>
     </group>
      <group title="关于">
             <action>
             <title>给app评价</title>
-            <desc>如果觉得好用,不妨给个star~</desc>
+            <desc>如果觉得好用,可给个star~</desc>
             <set>am start --user 0 -a android.intent.action.VIEW -d https://github.com/dogelands/dogeland.git</set>
         </action>
           <action>
             <title>版本</title>
-            <desc>dogeland 1.3.6_1</desc>
-             <set>am start --user 0 -a android.intent.action.VIEW -d https://github.com/dogelands/dogeland.git</set>
+            <desc>dogeland 1.3.6_2</desc>
+             <set>echo "Thanks..."</set>
         </action>
     </group>
     </page>

@@ -1,23 +1,23 @@
 #
 # dogeland CLI
-# v2.2.4
+# v2.2.5
 # 
 # license: GPL-v3.0
 #
-VERSION=2.2.4_DEBUG
+VERSION=2.2.5_DEBUG
+
 #
-# Common
+# Setup Running Env
 #
 
-# Check Container Env
 if [ -d "/dogeland/" ];then
   TOOLKIT=/dogeland/
   else
   echo "">/dev/null
 fi
-# Check Android Linux Env
+# 
 if [ ! -n "$START_DIR" ]; then
-# for Android / Linux Terminal Env
+#  Set for Terminal
 TOOLKIT=./
 export START_DIR=./
 export PREFIX=$PREFIX:./
@@ -29,18 +29,16 @@ else
 fi
 
 #
-# LoadList
+# LoadModule
 #
 
 . $TOOLKIT/include/others.sh
 . $TOOLKIT/include/stop_rootfs.sh
 . $TOOLKIT/include/del_rootfs.sh
-. $TOOLKIT/include/env_info.sh
 . $TOOLKIT/include/platform.sh
 . $TOOLKIT/include/mount_part.sh
 . $TOOLKIT/include/umount_part.sh
 . $TOOLKIT/include/selinux_inactive.sh
-. $TOOLKIT/include/set_all.sh
 . $TOOLKIT/include/set_env.sh
 . $TOOLKIT/include/check_rootfs.sh
 . $TOOLKIT/include/del_rootfs.sh

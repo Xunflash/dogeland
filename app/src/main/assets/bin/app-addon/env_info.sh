@@ -1,8 +1,4 @@
-# dogeland cli module
 #
-# license: gpl-v3
-env_info() {
-    
     android_version=$(getprop ro.build.version.release)
     if [ -n "$android_version" ]; then
         echo -n "安卓版本: "
@@ -20,7 +16,7 @@ env_info() {
     echo -n "CPU Arch: "
     echo "$(uname -m)"
 
-    echo -n "Linux内核: "
+    echo -n "Kernel: "
     echo "$(uname -r)"
 
     echo -n "RAM: "
@@ -28,6 +24,13 @@ env_info() {
     echo "$mem_status"
 
     echo -n "SELinux: "
+    selinux_inactive(){
+    if [ -e "/sys/fs/selinux/enforce" ]; then
+        return $(cat /sys/fs/selinux/enforce)
+    else
+        return 0
+    fi
+    }
     selinux_inactive && echo "关闭" || echo "开启"
 
     echo "文件系统支持:"
@@ -36,8 +39,6 @@ env_info() {
     
     echo 'busybox版本:'
     $TOOLKIT/busybox | grep BusyBox
-
+    
     echo "运行路径:"
     pwd
-    
-}

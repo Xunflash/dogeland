@@ -1,9 +1,9 @@
 #
-# GNU / Linux Rootfs AutoSetupTools
-# by Flytree
+# dogeland CLI LinuxConfigure
+# 
 #
 
-#
+# Set your rootfs path.
 export rootfs="$rootfs2"
 #
 configure()
