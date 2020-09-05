@@ -1,5 +1,6 @@
 # dogeland
 ![ic_launcher.png](app/src/main/res/mipmap-xhdpi/ic_launcher.png)
+  
 在Android上运行任意 GNU / Linux 发行版.  
 支持无需ROOT  
 (Alpine是测试使用的,实际的发行版不只有alpine)  
