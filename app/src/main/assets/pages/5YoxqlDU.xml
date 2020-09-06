@@ -101,7 +101,6 @@
 <action>
             <title>安装插件</title>
             <param name="file" label="插件包" type="file"
-                suffix="zip"
                 value="" editable="true" />
             <set>$TOOLKIT/app-addon/plugin_installer.sh</set>
         </action>
