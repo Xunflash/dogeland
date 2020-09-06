@@ -36,7 +36,6 @@ class OpenPageHelper(private var activity: Activity) {
         try {
             var intent: Intent? = null
             if (!pageNode.onlineHtmlPage.isEmpty()) {
-                intent = Intent(activity, ActionPageOnline::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 intent.putExtra("config", pageNode.onlineHtmlPage)
             }

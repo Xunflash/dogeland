@@ -88,16 +88,6 @@ class ActionPage : AppCompatActivity() {
                         }
                     }
 
-                    if (page.onlineHtmlPage.isNotEmpty()) {
-                        try {
-                            startActivity(Intent(this, ActionPageOnline::class.java).apply {
-                                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                                putExtra("config", page.onlineHtmlPage)
-                            })
-                        } catch (ex: Exception) {
-                        }
-                    }
-
                     if (page.title.isNotEmpty()) {
                         title = page.title
                     }
@@ -162,22 +152,18 @@ class ActionPage : AppCompatActivity() {
 
     private fun chooseFilePath(extension: String) {
         try {
-            val intent = Intent(this, ActivityFileSelector::class.java)
             intent.putExtra("extension", extension)
-            intent.putExtra("mode", ActivityFileSelector.MODE_FILE)
             startActivityForResult(intent, ACTION_FILE_PATH_CHOOSER_INNER)
         } catch (ex: Exception) {
-            Toast.makeText(this, "启动内置文件选择器失败！", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "文件选择失败!", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun chooseFolderPath() {
         try {
-            val intent = Intent(this, ActivityFileSelector::class.java)
-            intent.putExtra("mode", ActivityFileSelector.MODE_FOLDER)
             startActivityForResult(intent, ACTION_FILE_PATH_CHOOSER_INNER)
         } catch (ex: Exception) {
-            Toast.makeText(this, "启动内置文件选择器失败！", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "文件选择失败!", Toast.LENGTH_SHORT).show()
         }
     }
 
