@@ -8,7 +8,9 @@
 ![img2.png](docs/images/img2.png)
 ![img3.png](docs/images/img3.png)
 ![img4.png](docs/images/img4.png)
-
+  
+[rootfs仓库](https://cloud.189.cn/t/mqay2enyyuMj)
+  
 ## Thanks
   
 busybox  
