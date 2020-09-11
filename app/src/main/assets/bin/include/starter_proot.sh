@@ -11,6 +11,13 @@ stop_rootfs
 else
 # Start
 
+# Enable Fake ProcStat
+if [ -e "$rootfs/proc/.stat" ];then
+export addcmd="$addcmd -b $rootfs/proc/.stat:/proc/stat"
+else
+echo "">/dev/null
+fi 
+
 # Enable FakeKernel
 if [ -e "$CONFIG_DIR/fake_kernel" ];then
 export fake_kernel=$(cat $CONFIG_DIR/fake_kernel)
@@ -18,6 +25,7 @@ export addcmd="$addcmd -k $fake_kernel -b $rootfs/proc/.version:/proc/version"
 else
 echo "">/dev/null
 fi 
+
 # Enable QEMU Emulator
 if [ -f "$CONFIG_DIR/emulator_qemu" ];then
 export qemu="$TOOLKIT/qemu-$(cat $CONFIG_DIR/emulator_qemu)"

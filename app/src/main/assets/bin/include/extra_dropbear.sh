@@ -3,6 +3,7 @@
 # license: gpl-v3
 dropbear_start(){
 echo "- dropbear::start..."
+
 # configure keys
 if [ -f "/etc/dropbear/dropbear_dss_host_key" ];then
 echo "">/dev/null

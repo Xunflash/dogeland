@@ -83,7 +83,6 @@
                 <option value="x86">qemu-i386</option>
                 <option value="arm_64">qemu-aarch64</option>
                 <option value="arm">qemu-arm</option>
-                <option value="armeb">qemu-armeb</option>
                 <option value="0">关闭</option>
             </param>
             <set>$TOOLKIT/cli.sh set_emulator_qemu</set>
@@ -91,7 +90,7 @@
     </group>
     <group title="PRoot">
     <action>
-            <title>FakeKernel</title>
+            <title>Enable FakeKernel</title>
              <param name="kernel" label="" title="" placeholder="5.4.0-fakehost" type="text" />
             <set>$TOOLKIT/cli.sh enable_proot_fakekernel</set>
         </action>
@@ -106,7 +105,7 @@
         </action>
           <action>
             <title>修复运行环境权限</title>
-            <set>$TOOLKIT/cli.sh fix_perm</set>
+            <set>chmod -R 0777 $TOOLKIT/*</set>
         </action>
         <action>
             <title>关闭App</title>

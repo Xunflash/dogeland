@@ -2,7 +2,7 @@
 <!-- InstallPage -->
 <group>
       <action>
-            <title>安装→tgz</title>
+            <title>安装→tgz/tar.gz</title>
             <param name="file" label="源文件" type="file" value="" editable="true" />
             <param name="rootfs2" label="安装路径" title="" placeholder="" type="text" editable="true" />
                 <param name="USER_NAME" label="登录用户" title="" placeholder="" type="text" />
@@ -16,7 +16,7 @@
             <set>$TOOLKIT/cli.sh deploy_linux</set>
               <param name="type">
                 <option value="/bin/sh /dogeland/cli.sh dropbear_start">dropbear</option>
-                <option value="/bin/sh /dogeland/cli.sh sshd_start">sshd</option>
+                <option value="/bin/sh /dogeland/cli.sh sshd_start">openssh</option>
                 <option value="/bin/sh /dogeland/cli.sh vncserver_start">vncserver</option>
             </param>
         </action>
@@ -36,7 +36,7 @@
             </param>
                 <param name="type">
                 <option value="/bin/sh /dogeland/cli.sh dropbear_start">dropbear</option>
-                <option value="/bin/sh /dogeland/cli.sh sshd_start">sshd</option>
+                <option value="/bin/sh /dogeland/cli.sh sshd_start">openssh</option>
                 <option value="/bin/sh /dogeland/cli.sh vncserver_start">vncserver</option>
             </param>
             <set>$TOOLKIT/cli.sh deploy_linux1</set>

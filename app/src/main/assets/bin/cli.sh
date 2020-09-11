@@ -38,7 +38,6 @@ fi
 . $TOOLKIT/include/platform.sh
 . $TOOLKIT/include/mount_part.sh
 . $TOOLKIT/include/umount_part.sh
-. $TOOLKIT/include/selinux_inactive.sh
 . $TOOLKIT/include/set_env.sh
 . $TOOLKIT/include/check_rootfs.sh
 . $TOOLKIT/include/del_rootfs.sh
@@ -64,7 +63,6 @@ fi
 . $TOOLKIT/include/extra_sshd.sh
 . $TOOLKIT/include/extra_vncserver.sh
 . $TOOLKIT/include/extra_patcher.sh
-. $TOOLKIT/include/fix_permission.sh
 # RunHelp
 if [ ! -n "${1}" ]; then
   version

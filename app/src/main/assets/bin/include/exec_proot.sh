@@ -4,6 +4,12 @@
 exec_proot(){
 check_rootfs 
 set_env
+# Enable Fake ProcStat
+if [ -e "$rootfs/proc/.stat" ];then
+export addcmd="$addcmd -b $rootfs/proc/.stat:/proc/stat"
+else
+echo "">/dev/null
+fi 
 # Enable FakeKernel
 if [ -f "$CONFIG_DIR/fake_kernel" ];then
 export fake_kernel=$(cat $CONFIG_DIR/fake_kernel)
