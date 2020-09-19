@@ -48,12 +48,14 @@ fi
 #
 . $TOOLKIT/include/starter_chroot.sh
 . $TOOLKIT/include/starter_proot.sh
+. $TOOLKIT/include/starter_unshare.sh
 . $TOOLKIT/include/starter_auto.sh
 #
 # Exec
 #
 . $TOOLKIT/include/exec_chroot.sh
 . $TOOLKIT/include/exec_proot.sh
+. $TOOLKIT/include/exec_unshare.sh
 . $TOOLKIT/include/exec_auto.sh
 . $TOOLKIT/include/exec_local-shell.sh
 #
