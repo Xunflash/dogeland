@@ -65,6 +65,11 @@ if [[ ! -f $TOOLKIT/proot ]]; then
 ln -s $PREFIX/lib/lib_proot.so $TOOLKIT/proot
 fi
 
+# Unshare
+if [[ ! -f $TOOLKIT/unshare ]]; then
+ln -s $TOOLKIT/unshare_$platform $TOOLKIT/unshare
+fi
+
 # DATA2_DIR
 if [ -d "$DATA2_DIR" ];then
   echo "">/dev/null

@@ -14,10 +14,8 @@
 ## Thanks
   
 busybox  
-  
 proot  
-  
 libandroid-shmem  
-  
 libtalloc  
+util-linux  
   

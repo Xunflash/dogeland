@@ -43,7 +43,47 @@ if [ ! -e "/dev/fd" -o ! -e "/dev/stdin" -o ! -e "/dev/stdout" -o ! -e "/dev/std
     [ -e "/dev/stderr" ] || ln -s /proc/self/fd/2 /dev/stderr
 fi
         
-if [ -e "$rootfs/mnt/host-rootfs" ];then
+if [ -d "$rootfs/mnt/host-rootfs/" ];then
+  echo "">/dev/null
+  else
+  echo "- /mnt/host-rootfs ..."
+  ln -s /proc/self/cwd $rootfs/mnt/host-rootfs
+fi
+}
+
+mount_part_proclink(){
+
+if [ -d "$rootfs/sys/kernel/" ];then
+ echo "">/dev/null
+  else
+ echo "- /sys ..."
+  rm $rootfs/sys
+  ln -s /proc/self/cwd/sys/ $rootfs/sys/
+fi
+
+if [ -e "$rootfs/dev/pts/0" ];then
+  echo "">/dev/null
+  else
+  echo "- /dev/pts ..."
+  rm $rootfs/dev/pts
+  ln -s /proc/self/cwd/dev/pts/ $rootfs/dev/pts
+fi
+
+#if [ ! -e "/dev/tty0" ]; then
+#  echo "">/dev/null
+#  else
+#  echo "- /dev/tty ... "
+#  ln -s /dev/null /dev/tty0
+#fi
+
+#if [ ! -e "/dev/fd" -o ! -e "/dev/stdin" -o ! -e "/dev/stdout" -o ! -e "/dev/stderr" ]; then
+#    echo "/dev/fd ... "
+#    [ -e "/dev/stdin" ] || ln -s /proc/self/fd/0 /dev/stdin
+#    [ -e "/dev/stdout" ] || ln -s /proc/self/fd/1 /dev/stdout
+#    [ -e "/dev/stderr" ] || ln -s /proc/self/fd/2 /dev/stderr
+#fi
+        
+if [ -d "$rootfs/mnt/host-rootfs/" ];then
   echo "">/dev/null
   else
   echo "- /mnt/host-rootfs ..."

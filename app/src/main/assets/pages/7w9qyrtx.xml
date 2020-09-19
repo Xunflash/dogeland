@@ -7,6 +7,7 @@
             </desc>
         </text>
     </group>
+    
       <group>
         <text>
             <title> Q: 安装桌面环境后连接VNC只有X和灰色背景?</title>
@@ -14,16 +15,27 @@
             </desc>
         </text>
     </group>
+    
     <group>
         <text>
             <title> Q: 容器启动失败?</title>
-            <desc> A: 将报错截图提交到Github Issue。
+            <desc> A: 将报错截图提交到Issue。
             </desc>
         </text>
     </group>
+    
+    <group>
+        <text>
+            <title> Q: 无法使用unshare?</title>
+            <desc> A: 目前unshare依赖于内核功能,处于实验阶段,部分无法使用属于正常现象
+            使用安卓内核无法使用命令空间隔离。
+            </desc>
+        </text>
+    </group>
+    
      <group>
         <text>
-            <title> 题外:如何使用外部的Rootfs?</title>
+            <title> 题外:如何使用其他的的Rootfs?</title>
             <desc>A: AnLinux或者termux的和其他的rootfs都可以在dogeland里面使用.
             安装步骤:
             1.导入tar.xz或者tar.gz包

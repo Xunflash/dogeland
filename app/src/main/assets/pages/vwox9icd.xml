@@ -9,6 +9,7 @@
                 <option value="start_auto">[自动选择]</option>
                 <option value="start_chroot">[chroot]</option>
                 <option value="start_proot">[proot]</option>
+                <option value="start_unshare">[unshare]</option>
             </param>
             <param name="addcmd" label="附加参数" title="" placeholder="" type="text" />
             <set>$TOOLKIT/cli.sh $start</set>
@@ -24,6 +25,7 @@
                 <option value="exec_auto">[自动选择]</option>
                 <option value="exec_chroot">[chroot]</option>
                 <option value="exec_proot">[proot]</option>
+                <option value="exec_unshare">[unshare]</option>
                 <option value="exec_localshell">[本地Shell]</option>
             </param>
             <set>$TOOLKIT/cli.sh $exec</set>

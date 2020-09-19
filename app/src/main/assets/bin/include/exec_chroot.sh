@@ -25,7 +25,7 @@ fi
 set_env
 
 echo "$cmd2">$rootfs/dogeland/runcmd.sh
-chmod 755 $rootfs/dogeland/runcmd.sh
+chmod 0777 $rootfs/dogeland/runcmd.sh
 
 if [ -f "$rootfs/bin/su" ];then
 $chroot "$rootfs" /bin/su -c /dogeland/runcmd.sh
