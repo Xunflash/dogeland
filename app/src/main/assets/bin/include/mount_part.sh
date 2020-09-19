@@ -64,6 +64,9 @@ if [ -d "$rootfs/dev/pts/" ];then
   echo "">/dev/null
   else
   echo "- /dev ..."
+  rm -rf $rootfs/dev/pts
+  rm -rf $rootfs/dev/net
+  rm -f $rootfs/dev/null
   mount -o bind /dev/ $rootfs/dev
   mount -t devpts devpts $rootfs/dev/pts
   # ln -s /proc/self/cwd/dev $rootfs/dev
