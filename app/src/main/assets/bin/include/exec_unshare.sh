@@ -4,7 +4,7 @@ mount_part_proclink
 set_env
 echo "$cmd2">$rootfs/dogeland/runcmd.sh
 chmod 0777 $rootfs/dogeland/runcmd.sh
-export unshare="unshare $addcmd -R $rootfs --mount-proc "
+export unshare="$TOOLKIT/unshare $addcmd -R $rootfs --mount-proc "
 if [ -f "$rootfs/bin/su" ];then
 $unshare /bin/su -c /dogeland/runcmd.sh
 else

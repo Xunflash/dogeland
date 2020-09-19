@@ -10,6 +10,6 @@ mount_part_proclink
 set_env
 # Change Status and Start
 echo "Run">$rootfs/dogeland/status
-unshare $addcmd -R $rootfs --mount-proc $cmd
+$TOOLKIT/unshare $addcmd -R $rootfs --mount-proc $cmd
 fi
 }

@@ -57,16 +57,16 @@ if [ -d "$rootfs/sys/kernel/" ];then
  echo "">/dev/null
   else
  echo "- /sys ..."
-  rm $rootfs/sys
+  rm -r $rootfs/sys
   ln -s /proc/self/cwd/sys/ $rootfs/sys/
 fi
 
-if [ -e "$rootfs/dev/pts/0" ];then
+if [ -d "$rootfs/dev/pts/" ];then
   echo "">/dev/null
   else
-  echo "- /dev/pts ..."
-  rm $rootfs/dev/pts
-  ln -s /proc/self/cwd/dev/pts/ $rootfs/dev/pts
+  echo "- /dev ..."
+  rm -r $rootfs/dev
+  ln -s /proc/self/cwd/dev/ $rootfs/dev/
 fi
 
 #if [ ! -e "/dev/tty0" ]; then
