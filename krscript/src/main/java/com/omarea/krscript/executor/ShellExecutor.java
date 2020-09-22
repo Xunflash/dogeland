@@ -17,7 +17,7 @@ import java.util.HashMap;
  */
 public class ShellExecutor {
     private boolean started = false;
-    private String sessionTag = "appshd_" + System.currentTimeMillis();
+    private String sessionTag = "appsh_" + System.currentTimeMillis();
     private void killProcess(Context context) {
         ScriptEnvironmen.executeResultRoot(
                 context,
@@ -36,7 +36,7 @@ public class ShellExecutor {
 
         final Process process = ScriptEnvironmen.getRuntime();
         if (process == null) {
-            Toast.makeText(context, "未能启动命令行进程", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "未能启动/system/bin/sh进程", Toast.LENGTH_SHORT).show();
             if (onExit != null) {
                 onExit.run();
             }

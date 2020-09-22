@@ -22,12 +22,12 @@ if [[ "$platform" != "unknown" ]]
 then
 echo "">/dev/null
 else
-echo "- 检测到 $platform ,uname不存在或者不支持你的设备"
+echo "- 检测到 $platform ,可能不支持你的设备"
 exit 5
 fi
 
 busybox_$platform chmod -R 0777 $TOOLKIT/
-# lib
+# libs
 if [ -d "$PREFIX/lib/" ];then
   echo "">/dev/null
   else
@@ -35,7 +35,6 @@ if [ -d "$PREFIX/lib/" ];then
   busybox_$platform mv $TOOLKIT/libs/$platform/* $PREFIX/lib/
   busybox_$platform rm -rf $TOOLKIT/libs/
 fi
-
 
 # Busybox
 function busybox_install() {
@@ -64,10 +63,9 @@ fi
 if [[ ! -f $TOOLKIT/proot ]]; then
 ln -s $PREFIX/lib/lib_proot.so $TOOLKIT/proot
 fi
-
 # Unshare
 if [[ ! -f $TOOLKIT/unshare ]]; then
-ln -s $TOOLKIT/unshare_$platform $TOOLKIT/unshare
+ln -s  $PREFIX/lib/lib_unshare.so $TOOLKIT/unshare
 fi
 
 # DATA2_DIR
@@ -83,11 +81,10 @@ if [ -d "$DATA2_DIR" ];then
   echo "----------"
   echo "说白了就是需要手动在(内部存储/Android/data/)文件夹中新建一个名称为 me.flytree.dogeland 的文件夹之后再打开本应用问题才能解决."
   exit 2
-  sleep 1000
   fi
 fi
 
-# Default Config Install
+# configure init
 if [ -d "$CONFIG_DIR/" ];then
   echo "">/dev/null
   else
@@ -98,9 +95,8 @@ if [ -d "$CONFIG_DIR/" ];then
 fi
 
 # Kill
-echo "- 初始化完成🍉"
+echo "- 完成🍉"
 echo "" >$TOOLKIT/install_bin_done
 mv $TOOLKIT/install_bin.sh $TMPDIR/install_bin.shbak
-echo && echo && echo && echo
 sleep 1
 fi

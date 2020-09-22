@@ -42,7 +42,7 @@
         </action>
               <action>
             <title>设置系统架构</title>
-            <desc>如系统不存在uname或无法正确检测,请使用此选项</desc>
+            <desc>系统不存在uname命令或无法正确检测,请使用此选项</desc>
              <param name="type">
                 <option value="arm">arm</option>
                 <option value="arm64">arm64</option>
@@ -91,7 +91,7 @@
     <group title="PRoot">
     <action>
             <title>Enable FakeKernel</title>
-             <param name="kernel" label="" title="" placeholder="5.4.0-fakehost" type="text" />
+             <param name="kernel" label="" title="" placeholder="5.4.0-fakehost(留空关闭)" type="text" />
             <set>$TOOLKIT/cli.sh enable_proot_fakekernel</set>
         </action>
     </group>
