@@ -49,7 +49,7 @@ fi
 if [[ -f "$run" ]]; then
     cd $START_DIR
     #chmod 755 "$run"
-    sh "$run"
+    . "$run"
 else
     echo "command not found!"
 fi
