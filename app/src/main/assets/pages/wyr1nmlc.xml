@@ -73,8 +73,16 @@
           
         <action>
             <title>设置自定义 PATH 环境</title>
-            <param name="Input" label="" title="" placeholder="/bin:/usr/sbin" type="text" />
-            <set>$TOOLKIT/cli.sh set_path</set>
+            <param name="Input" label="" title="" placeholder="/bin:/usr/sbin(留空关闭)" type="text" />
+            <set>
+            echo "$Input">$DATA2_DIR/custom_path.conf
+            if [[ "$Input" != "" ]]
+            then
+            echo "">/dev/null
+            else
+            rm -rf $DATA2_DIR/custom_path.conf
+            fi
+            </set>
         </action>
          <action>
             <title>开启QEMU-USER支持</title>
