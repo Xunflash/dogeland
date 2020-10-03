@@ -32,7 +32,7 @@ echo "">/dev/null
 fi 
 # Exec Command
 startcmd="$addcmd --kill-on-exit "
-startcmd+="--link2symlink -0 -r $rootfs -b /dev "
+startcmd+="--link2symlink -0 -r $rootfs -b /dev  -b $rootfs/home:/dev/shm "
 startcmd+="-b /proc -b /sys -b /proc/self/fd:/dev/fd -b /dev/null:/dev/tty0 "
 startcmd+="-b /dev/urandom:/dev/random -b /:/mnt/host-rootfs "
 #startcmd+="-b /proc/self/fd/0:/dev/stdin -b /proc/self/fd/1:/dev/stdout -b /proc/self/fd/2:/dev/stderr "

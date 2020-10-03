@@ -30,6 +30,13 @@ if [ -e "$rootfs/dev/pts/0" ];then
   mount -t devpts devpts $rootfs/dev/pts
 fi
 
+if [ -d "/dev/shm" ];then
+ echo "">/dev/null
+  else
+ echo "- /dev/shm ..."
+  mkdir -p /dev/shm
+fi
+
 if [ ! -e "/dev/tty0" ]; then
   echo "">/dev/null
   else
@@ -72,6 +79,13 @@ if [ -d "$rootfs/dev/pts/" ];then
   mount -o bind /dev/ $rootfs/dev
   mount -t devpts devpts $rootfs/dev/pts
   # ln -s /proc/self/cwd/dev $rootfs/dev
+fi
+
+if [ -d "/dev/shm" ];then
+ echo "">/dev/null
+  else
+ echo "- /dev/shm ..."
+  mkdir -p /dev/shm
 fi
 
 #if [ ! -e "/dev/tty0" ]; then
