@@ -10,6 +10,12 @@ export addcmd="$addcmd -b $rootfs/proc/.stat:/proc/stat"
 else
 echo "">/dev/null
 fi 
+# Enable DebugMessage
+if [ -e "$CONFIG_DIR/.debug" ];then
+export addcmd="$addcmd -v $(cat $CONFIG_DIR/.debug)"
+else
+echo "">/dev/null
+fi 
 # Enable FakeKernel
 if [ -f "$CONFIG_DIR/fake_kernel" ];then
 export fake_kernel=$(cat $CONFIG_DIR/fake_kernel)

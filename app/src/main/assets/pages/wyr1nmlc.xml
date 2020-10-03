@@ -102,6 +102,19 @@
              <param name="kernel" label="" title="" placeholder="5.4.0-fakehost(留空关闭)" type="text" />
             <set>$TOOLKIT/cli.sh enable_proot_fakekernel</set>
         </action>
+      <action>
+            <title>Enable DebugMessage</title>
+             <param name="data" label="" title="输出级别" placeholder="(值越大,输出多,留空关闭)" type="text" />
+            <set>
+            echo "$data">$CONFIG_DIR/.debug
+            if [[ "$data" != "" ]]
+            then
+            echo "">/dev/null
+            else
+            rm -rf $CONFIG_DIR/.debug
+            fi
+            </set>
+       </action>
     </group>
     
      <group title="Other">

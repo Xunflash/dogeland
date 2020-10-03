@@ -11,6 +11,13 @@ stop_rootfs
 else
 # Start
 
+# Enable DebugMessage
+if [ -e "$CONFIG_DIR/.debug" ];then
+export addcmd="$addcmd -v $(cat $CONFIG_DIR/.debug)"
+else
+echo "">/dev/null
+fi 
+
 # Enable Fake ProcStat
 if [ -e "$rootfs/proc/.stat" ];then
 export addcmd="$addcmd -b $rootfs/proc/.stat:/proc/stat"
