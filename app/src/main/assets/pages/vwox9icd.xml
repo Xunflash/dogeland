@@ -11,7 +11,7 @@
                 <option value="start_proot">[proot]</option>
                 <option value="start_unshare">[unshare]</option>
             </param>
-            <param name="addcmd" label="附加参数" title="" placeholder="" type="text" />
+            <param name="addcmd" label="AddonCmd" title="" placeholder="" type="text" />
             <set>$TOOLKIT/cli.sh $start</set>
             </action>
             </group>
@@ -42,9 +42,5 @@
   <group>
    <page config="pages/5YoxqlDU.xml" title="商店" />
   </group>
- 
-  <group>
-   <page config="pages/7w9qyrtx.xml" title="FAQ" />
- </group>
  
 </items>

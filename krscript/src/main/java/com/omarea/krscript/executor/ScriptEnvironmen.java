@@ -134,7 +134,8 @@ public class ScriptEnvironmen {
      */
     private static String createShellCache(Context context, String script) {
         String md5 = md5(script);
-        String outputPath = "cache/" + md5 + ".sh";
+        String cache = getCacheDir().getAbsolutePath();
+        String outputPath = cache + md5 + ".sh";
         if (new File(outputPath).exists()) {
             return outputPath;
         }
@@ -188,26 +189,6 @@ public class ScriptEnvironmen {
         StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append("\n");
-        if (nodeInfoBase != null && !nodeInfoBase.getCurrentPageConfigPath().isEmpty()) {
-            String parentPageConfigDir = nodeInfoBase.getPageConfigDir();
-            String currentPageConfigPath = nodeInfoBase.getCurrentPageConfigPath();
-            stringBuilder.append("export PAGE_CONFIG_DIR='").append(parentPageConfigDir).append("'\n");
-            stringBuilder.append("export PAGE_CONFIG_FILE='").append(currentPageConfigPath).append("'\n");
-
-            if (currentPageConfigPath.startsWith("file:///android_asset/")) {
-                stringBuilder.append("export PAGE_WORK_DIR='").append(new ExtractAssets(context).getExtractPath(parentPageConfigDir)).append("'\n");
-                stringBuilder.append("export PAGE_WORK_FILE='").append(new ExtractAssets(context).getExtractPath(currentPageConfigPath)).append("'\n");
-            } else {
-                stringBuilder.append("export PAGE_WORK_DIR='").append(parentPageConfigDir).append("'\n");
-                stringBuilder.append("export PAGE_WORK_FILE='").append(currentPageConfigPath).append("'\n");
-            }
-        } else {
-            stringBuilder.append("export PAGE_CONFIG_DIR=''\n");
-            stringBuilder.append("export PAGE_CONFIG_FILE=''\n");
-            stringBuilder.append("export PAGE_WORK_DIR=''\n");
-            stringBuilder.append("export PAGE_WORK_DIR=''\n");
-        }
-
         stringBuilder.append("\n\n");
         stringBuilder.append(environmentPath + " \"" + path + "\"");
         return privateShell.doCmdSync(stringBuilder.toString());
@@ -243,48 +224,14 @@ public class ScriptEnvironmen {
         HashMap<String, String> params = new HashMap<>();
 
         params.put("TOOLKIT", TOOKIT_DIR);
-        if (MagiskExtend.moduleInstalled()) {
-            String magiskPath = MagiskExtend.MAGISK_PATH.endsWith("/") ? (MagiskExtend.MAGISK_PATH.substring(0, MagiskExtend.MAGISK_PATH.length() - 1)) : MagiskExtend.MAGISK_PATH;
-            params.put("MAGISK_PATH", magiskPath);
-        } else {
-            params.put("MAGISK_PATH", "");
-        }
         params.put("START_DIR", getStartPath(context));
-        // params.put("EXECUTOR_PATH", environmentPath);
         params.put("TEMP_DIR", context.getCacheDir().getAbsolutePath());
-
-        FileOwner fileOwner = new FileOwner(context);
-        int androidUid = fileOwner.getUserId();
-        params.put("ANDROID_UID", "" + androidUid);
-
-        try {
-            // @ https://blog.csdn.net/Gaugamela/article/details/78689580
-            params.put("APP_USER_ID", fileOwner.getFileOwner());
-            // params.put("APP_UID", "" + android.os.Process.myPid());
-            // params.put("APP_PID", "" + android.os.Process.myPid());
-            // params.put("APP_TID", "" + android.os.Process.myTid());
-        } catch (Exception ignored) {
-        }
-
-        params.put("ANDROID_SDK", "" + Build.VERSION.SDK_INT);
-        // params.put("ROOT_PERMISSION", rooted ? "granted" : "denied");
-        params.put("ROOT_PERMISSION", rooted ? "true" : "false");
+        params.put("DATA2_DIR", context.getExternalFilesDir().getAbsolutePath());
         params.put("SDCARD_PATH", Environment.getExternalStorageDirectory().getAbsolutePath());
-        String busyboxPath = FileWrite.INSTANCE.getPrivateFilePath(context, "busybox");
-        if (new File(FileWrite.INSTANCE.getPrivateFilePath(context, "busybox")).exists()) {
-            params.put("BUSYBOX", busyboxPath);
-        } else {
-            params.put("BUSYBOX", "busybox");
-        }
+        
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
             params.put("PACKAGE_NAME", context.getPackageName());
-            params.put("PACKAGE_VERSION_NAME", packageInfo.versionName);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                params.put("PACKAGE_VERSION_CODE", "" + packageInfo.getLongVersionCode());
-            } else {
-                params.put("PACKAGE_VERSION_CODE", "" + packageInfo.versionCode);
-            }
         } catch (Exception ex) {
         }
 
@@ -367,26 +314,6 @@ public class ScriptEnvironmen {
 
         if (params == null) {
             params = new HashMap<>();
-        }
-
-        // 页面配置文件路径
-        if (nodeInfo != null) {
-            String parentPageConfigDir = nodeInfo.getPageConfigDir();
-            String currentPageConfigPath = nodeInfo.getCurrentPageConfigPath();
-            params.put("PAGE_CONFIG_DIR", parentPageConfigDir);
-            params.put("PAGE_CONFIG_FILE", currentPageConfigPath);
-            if (currentPageConfigPath.startsWith("file:///android_asset/")) {
-                params.put("PAGE_WORK_DIR", new ExtractAssets(context).getExtractPath(parentPageConfigDir));
-                params.put("PAGE_WORK_FILE", new ExtractAssets(context).getExtractPath(currentPageConfigPath));
-            } else {
-                params.put("PAGE_WORK_DIR", parentPageConfigDir);
-                params.put("PAGE_WORK_FILE", currentPageConfigPath);
-            }
-        } else {
-            params.put("PAGE_CONFIG_DIR", "");
-            params.put("PAGE_CONFIG_FILE", "");
-            params.put("PAGE_WORK_DIR", "");
-            params.put("PAGE_WORK_FILE", "");
         }
 
         ArrayList<String> envp = getVariables(params);

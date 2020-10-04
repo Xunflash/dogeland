@@ -7,7 +7,7 @@
             <param name="rootfs2" label="安装路径" title="" placeholder="" type="text" editable="true" />
                 <param name="USER_NAME" label="登录用户" title="" placeholder="" type="text" />
                 <param name="USER_PASSWORD" label="登录密码" title="" placeholder="" type="text" />
-                <param name="datas" label="安装到私有数据目录" type="bool" />
+                <param name="datas" label="安装到App数据目录(无ROOT)" type="bool" />
              <param name="language">
                 <option value="zh_CN.UTF-8">zh_CN.UTF-8</option>
                 <option value="zh_TW.UTF-8">zh_TW.UTF-8</option>
@@ -21,14 +21,14 @@
             </param>
         </action>
         </group>
-        <group title="Tips:导入非官方仓库的Rootfs可能会引发一些问题,谨慎使用">
+        <group>
         <action>
             <title>安装→tar.xz</title>
             <param name="file" label="源文件" type="file" value="" editable="true" />
             <param name="rootfs2" label="安装路径" title="" placeholder="" type="text" editable="true" />
                 <param name="USER_NAME" label="登录用户" title="" placeholder="" type="text" />
                 <param name="USER_PASSWORD" label="登录密码" title="" placeholder="" type="text" />
-                <param name="datas" label="安装到私有数据目录" type="bool" />
+                <param name="datas" label="安装到App数据目录(无ROOT)" type="bool" />
                  <param name="language">
                 <option value="zh_CN.UTF-8">zh_CN.UTF-8</option>
                 <option value="zh_TW.UTF-8">zh_TW.UTF-8</option>

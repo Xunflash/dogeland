@@ -22,7 +22,7 @@ if [[ "$platform" != "unknown" ]]
 then
 echo "">/dev/null
 else
-echo "! $platform ,可能不支持你的设备或系统命令缺失"
+echo "- 检测到 $platform ,可能不支持你的设备"
 exit 5
 fi
 
@@ -31,7 +31,9 @@ busybox_$platform chmod -R 0777 $TOOLKIT/
 if [ -d "$PREFIX/lib/" ];then
   echo "">/dev/null
   else
-  busybox_$platform ln -s $TOOLKIT/libs/$platform $PREFIX/lib
+  busybox_$platform mkdir $PREFIX/lib
+  busybox_$platform mv $TOOLKIT/libs/$platform/* $PREFIX/lib/
+  busybox_$platform rm -rf $TOOLKIT/libs/
 fi
 
 # Busybox
@@ -93,7 +95,8 @@ if [ -d "$CONFIG_DIR/" ];then
 fi
 
 # Kill
-echo -n "! 完成🍉"
+echo "- 完成🍉"
 echo "" >$TOOLKIT/install_bin_done
 mv $TOOLKIT/install_bin.sh $TMPDIR/install_bin.shbak
+sleep 1
 fi

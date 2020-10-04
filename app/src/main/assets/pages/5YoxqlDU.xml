@@ -1,26 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- StorePage -->
- <group title="Rootfs ">
-         <action>
-            <title>Alpine</title>
-            <desc>apk系,8mb,需要正常连接到Github</desc>
-            <param name="USER_NAME" label="登录用户" title="" placeholder="" type="text" />
-            <param name="USER_PASSWORD" label="登录密码" title="" placeholder="" type="text" />
-            <set>
-            curl -O https://raw.githubusercontent.com/dogelands/dogeland-assets/master/rootfs/alpine/$platform.tgz
-            export file="$(pwd)/$platform.tgz"
-            export datas=1
-            export rootfs2="alpine-fs/"
-            sh $TOOLKIT/cli.sh deploy_linux
-            rm -rf $platform.tgz
-            </set>
-        </action>
-         <text>
-        <slices>
-            <slice run="am start -n android/com.android.internal.app.PlatLogoActivity" size="15" color="#00000000" u="1">  </slice>
-        </slices>
-    </text>
-        </group>
 <group title="补丁 ">
 <action>
             <title>Ashmem</title>
@@ -57,17 +36,6 @@
 </action>
 </group>
 
-<group>
-<action>
-            <title>FuckQ-dash</title>
-            <desc>使sh从垃圾的dash更换为bash</desc>
-            <param name="type">
-                <option value="sh_patcher">安装</option>
-                <option value="">取消</option>
-            </param>
-            <set>$TOOLKIT/cli.sh $type</set>
-</action>
-</group>
 
 <group>
 <action>

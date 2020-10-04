@@ -27,39 +27,19 @@
           </group>
        <group title="进阶">
          <action bg-task="true">
-            <title>开启后台锁定</title>
+            <title>开启通知常驻</title>
             <desc>保持应用前台运行和CPU唤醒,防止容器卡顿或被杀死</desc>
             <set>sleep 9999</set>
         </action>
         <action>
-            <title>备份Rootfs</title>
+            <title>导出Rootfs</title>
              <param name="dir" type="folder" value="/sdcard/Android/data/me.flytree.dogeland/" editable="true"/>
             <set>$TOOLKIT/cli.sh backup_rootfs</set>
         </action>
         <action>
-            <title>检查运行环境</title>
+            <title>Export Logs</title>
             <set>$TOOLKIT/app-addon/env_info.sh</set>
         </action>
-              <action>
-            <title>设置系统架构</title>
-            <desc>系统不存在uname命令或无法正确检测,请使用此选项</desc>
-             <param name="type">
-                <option value="arm">arm</option>
-                <option value="arm64">arm64</option>
-                <option value="x86">x86</option>
-                 <option value="x86_64">x86_64</option>
-            </param>
-            <set>
-            sed "24c export platform=$type" $START_DIR/shell_init.sh
-            rm $TOOLKIT/install_bin_done
-            if [[ -f "$TMPDIR/install_bin.shbak" ]]; then
-             . $TMPDIR/install_bin.shbak
-            fi
-            if [[ -f "$TOOLKIT/install_bin.sh" ]]; then
-            . $TOOLKIT/install_bin.sh
-            fi
-            </set>
-             </action>
            </group>
            <group title="高级">
              <action>
@@ -85,7 +65,7 @@
             </set>
         </action>
          <action>
-            <title>开启QEMU-USER支持</title>
+            <title>Enable QEMU-USER Support</title>
               <param name="qemu">
                 <option value="x86_64">qemu-x86_64</option>
                 <option value="x86">qemu-i386</option>
@@ -134,18 +114,6 @@
             $TOOLKIT/proot -r $START_DIR -b /system -b /proc -b /sys /bin/pkill $PACKAGE_NAME
             pkill me.flytree.dogeland
             </set>
-        </action>
-    </group>
-     <group title="关于">
-            <action>
-            <title>给app评价</title>
-            <desc>如果觉得好用,可给个star~</desc>
-            <set>am start --user 0 -a android.intent.action.VIEW -d https://github.com/dogelands/dogeland.git</set>
-        </action>
-          <action>
-            <title>版本</title>
-            <desc>dogeland 1.3.6_2</desc>
-             <set>echo "Thanks..."</set>
         </action>
     </group>
     </page>
