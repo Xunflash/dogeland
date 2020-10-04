@@ -4,20 +4,19 @@
 platform()
 {
     local arch="$1"
-    if [ -z "${arch}" ]; then
-        arch=$(uname -m)
-    fi
+    # arch=$(uname -m)
+    arch=$(getprop ro.product.cpu.abi)
     case "${arch}" in
-    arm64|aarch64|armv8l)
+    arm64-v8a|aarch64|armv8l)
         echo "arm64"
     ;;
-    arm*)
+    armeabi-v7a|armeabi|arm*)
         echo "arm"
     ;;
     x86_64|amd64)
         echo "x86_64"
     ;;
-    i[3-6]86|x86)
+    x86|i[3-6]86)
         echo "x86"
     ;;
     *)
