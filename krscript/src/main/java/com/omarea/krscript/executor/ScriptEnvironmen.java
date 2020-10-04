@@ -134,7 +134,7 @@ public class ScriptEnvironmen {
      */
     private static String createShellCache(Context context, String script) {
         String md5 = md5(script);
-        String cache = Environment.getCacheDir().getAbsolutePath();
+        String cache = Environment.getCacheDir("").getAbsolutePath();
         String outputPath = cache + md5 + ".sh";
         if (new File(outputPath).exists()) {
             return outputPath;
@@ -226,7 +226,7 @@ public class ScriptEnvironmen {
         params.put("TOOLKIT", TOOKIT_DIR);
         params.put("START_DIR", getStartPath(context));
         params.put("TEMP_DIR", context.getCacheDir().getAbsolutePath());
-        params.put("DATA2_DIR", Environment.getExternalFilesDir().getAbsolutePath());
+        params.put("DATA2_DIR", context.getExternalFilesDir().getAbsolutePath());
         params.put("SDCARD_PATH", Environment.getExternalStorageDirectory().getAbsolutePath());
         
         try {
