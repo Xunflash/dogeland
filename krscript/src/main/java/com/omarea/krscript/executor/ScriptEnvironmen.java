@@ -225,7 +225,6 @@ public class ScriptEnvironmen {
         params.put("TOOLKIT", TOOKIT_DIR);
         params.put("START_DIR", getStartPath(context));
         params.put("TEMP_DIR", context.getCacheDir().getAbsolutePath());
-        params.put("DATA2_DIR", context.getExternalFilesDir().getAbsolutePath());
         params.put("SDCARD_PATH", Environment.getExternalStorageDirectory().getAbsolutePath());
         
         try {
