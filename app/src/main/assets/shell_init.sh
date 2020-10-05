@@ -19,6 +19,7 @@ export PATH="$PATH:$TOOLKIT:$PREFIX/lib"
 #
 # DATA
 #
+export DATA2_DIR="$SDCARD_PATH/Android/data/$PACKAGE_NAME/files/"
 export CONFIG_DIR="$DATA2_DIR/config/"
 export platform=$(sh $TOOLKIT/cli.sh platform)
 #
