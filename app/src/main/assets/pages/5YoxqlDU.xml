@@ -56,7 +56,7 @@
 
 <group>
 <action>
-            <title>PRootSECCOMP</title>
+            <title>PRoot-SECCOMP</title>
             <param name="type">
                 <option value="enable_proot_seccomp">开!</option>
                 <option value="">取消</option>
@@ -82,13 +82,6 @@
          <action>
             <title>QEMU-User-Emulator</title>
             <desc>开启PRoot/Chroot跨平台运行工具</desc>
-            <set>am start --user 0 -a android.intent.action.VIEW -d https://github.com/dogelands/dogeland-assets</set>
-        </action>
-        </group>
-        <group>
-         <action>
-            <title>curl</title>
-            <desc>为 dogeland 提供网络下载支持</desc>
             <set>am start --user 0 -a android.intent.action.VIEW -d https://github.com/dogelands/dogeland-assets</set>
         </action>
         </group>

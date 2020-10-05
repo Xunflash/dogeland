@@ -18,7 +18,7 @@
             
             <group>
               <action>
-            <title>LiteTerminal</title>
+            <title>LiteTerm</title>
             <desc>快速执行 LinuxShell命令</desc>
             <param name="cmd2" label="" title="" placeholder="" type="text" />
              <param name="exec">
@@ -39,6 +39,10 @@
 <page config="pages/wyr1nmlc.xml" title="设置" />
  </group>
 
+<group>
+   <page config="pages/p2Y8F6le.xml" title="FAQ" />
+  </group>
+ 
   <group>
    <page config="pages/5YoxqlDU.xml" title="商店" />
   </group>
