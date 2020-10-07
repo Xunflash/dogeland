@@ -3,7 +3,7 @@
 # license: gpl-v3
 backup_rootfs(){
 check_rootfs_status
-echo "- 正在备份"
+echo "- Exporting rootfs "
 cd $rootfs/
 if [[ "$(pwd)" != "/" ]]
 then
@@ -14,9 +14,9 @@ else
     $TOOLKIT/proot --link2symlink $TOOLKIT/busybox tar czvf "$dir/backup.tgz" --exclude='./dev' --exclude='./sys' --exclude='./proc' --exclude='./mnt'  --exclude='./sdcard'  --exclude='./dogeland' ./ >/dev/null
 fi
 
-echo "已保存到 $dir/backup.tgz"
+echo "Saved to $dir/backup.tgz"
 else
-echo "!打包时出现错误"
+echo "!An error occurred while exporting"
 exit 1
 fi
 echo "- 完成"

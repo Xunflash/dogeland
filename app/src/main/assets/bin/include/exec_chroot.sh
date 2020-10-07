@@ -48,7 +48,7 @@ if [ -f "$rootfs/bin/zsh" ];then
 $chroot "$rootfs" /bin/zsh /dogeland/runcmd.sh
 pkill zsh
 else
-echo "?无法启动到Shell入口"
+echo "? Can't found the shell to run command"
 $chroot "$rootfs" $(cat /dogeland/runcmd.sh)
 fi
 echo "">/dev/null

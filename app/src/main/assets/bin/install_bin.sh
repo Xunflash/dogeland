@@ -6,7 +6,7 @@ echo "">/dev/null
 exit
 }
 if [ ! $TOOLKIT ];then
-    echo "检测到未在dogeland环境运行"
+    echo "!Environment error"
     exit 9
 else
     echo  "">/dev/null
@@ -16,13 +16,13 @@ if [ -f "$TOOLKIT/install_bin_done" ];then
 quit
 else
 
-echo "- 正在初始化(报错属于正常🐳现象)"
+echo "- Initializing resource"
 
 if [[ "$platform" != "unknown" ]]
 then
 echo "">/dev/null
 else
-echo "! $platform ,可能不支持你的设备或系统命令缺失"
+echo "! $platform ,Your device may not be supported or system commands are missing"
 exit 5
 fi
 
@@ -74,10 +74,9 @@ if [ -d "$DATA2_DIR" ];then
   if [ -d "$DATA2_DIR" ];then
   echo "">/dev/null
   else
-  echo "!数据初始化失败"
-  echo "检测到没有得到 存储权限 或者是 Android10+"
+  echo "!Data initialization failed"
   echo "----------"
-  echo "说白了就是需要手动在(内部存储/Android/data/)文件夹中新建一个名称为 me.flytree.dogeland 的文件夹之后再打开本应用问题才能解决."
+  echo "Please create a new folder named me.flytree.dogeland in the (internal storage/Android/data/) folder before reopening the application."
   exit 2
   fi
 fi
@@ -93,7 +92,7 @@ if [ -d "$CONFIG_DIR/" ];then
 fi
 
 # Kill
-echo -n "! 完成🍉"
+echo -n "!done🍉"
 echo "" >$TOOLKIT/install_bin_done
 mv $TOOLKIT/install_bin.sh $TMPDIR/install_bin.shbak
 fi

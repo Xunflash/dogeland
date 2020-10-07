@@ -15,8 +15,7 @@ then
 echo "">/dev/null
 else
 # if Run,then tip to stop
-echo "!容器正在运行,无法执行当前操作,请先停止容器"
+echo "!The container is running and the current operation cannot be performed, please stop the container first"
 exit 6
-sleep 9999
 fi
 }

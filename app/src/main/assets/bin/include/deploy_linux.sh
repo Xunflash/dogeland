@@ -6,7 +6,7 @@ deploy_linux_step1
 #
 # Install
 #
-echo "- 正在安装 $file"
+echo "- Installing $file"
 rm -rf $rootfs2
 mkdir -p $rootfs2/
 # for tgz
@@ -23,7 +23,7 @@ deploy_linux_step1
 #
 # Install
 #
-echo "- 正在安装 $file"
+echo "- Installing $file"
 rm -rf $rootfs2
 mkdir -p $rootfs2/
 # for tar.xz
@@ -39,17 +39,15 @@ deploy_linux_step2
 
 deploy_linux_step1(){
 if [ ! -n "$rootfs2" ]; then
-    echo "- Failed 1"
+    echo "!The selected directory is not available"
     exit 1
-    sleep 1000
     else
     echo "">/dev/null
 fi
 if [ ! -n "$file" ]; then
     if [ ! -n "$file2" ]; then
-    echo "- Failed 2"
+    echo "!The selected source file is not available"
     exit 2
-    sleep 1000
     else
     echo "">/dev/null
     fi
@@ -69,14 +67,13 @@ deploy_linux_step2(){
 if [ -d "$rootfs2/bin/" ];then
   echo "">/dev/null
   else
-  echo "!解压时出现异常"
+  echo "!An exception occurred during decompression"
   exit 255
-  sleep 9999
 fi
 #
 # Settings
 #
-echo "- 正在执行附加操作"
+echo "- Performing additional operation"
 # Setting up configure
 if [ -d "$rootfs2/dogeland/" ];then
   echo "">/dev/null
@@ -133,5 +130,5 @@ mkdir $rootfs2/etc/dropbear
 chmod -R 0777 $rootfs2/etc/dropbear/
 
 . $TOOLKIT/include/extra_linuxconfigure.sh configure
-echo "- 已完成"
+echo "! all done"
 }
