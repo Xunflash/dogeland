@@ -4,15 +4,15 @@ echo $Input:"$PATH">$rootfs/etc/profile
 }
 set_tempdir(){
     if [ ! -n "$Input" ]; then
-    echo "- 检测到没有输入内容,取消更改."
+    echo "- No input is detected, cancel the change."
     else
     rm -rf $CONFIG_DIR/tmpdir.conf
     echo "$Input">$CONFIG_DIR/tmpdir.conf
 fi
 }
 set_rootfsdir(){
-if [ ! -n "$Input" ]; then
-echo "- 检测到没有输入内容,取消更改."
+    if [ ! -n "$Input" ]; then
+    echo "- No input is detected, cancel the change."
     else
     rm -rf $CONFIG_DIR/rootfs.conf
     echo "$Input">$CONFIG_DIR/rootfs.conf
@@ -20,7 +20,7 @@ echo "- 检测到没有输入内容,取消更改."
 }
 set_initcmd(){
 if [ ! -n "$Input" ]; then
- echo "- 检测到没有输入内容,取消更改."
+ echo "- No input is detected, cancel the change."
 else
  rm -rf $CONFIG_DIR/cmd.conf
  echo "$Input">$CONFIG_DIR/cmd.conf

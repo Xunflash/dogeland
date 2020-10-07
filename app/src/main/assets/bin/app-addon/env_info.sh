@@ -1,19 +1,19 @@
 #
     android_version=$(getprop ro.build.version.release)
     if [ -n "$android_version" ]; then
-        echo -n "安卓版本: "
-        echo "Android $android_version"
+        echo -n "Android: "
+        echo " $android_version"
     fi
 
-    echo -n "容器已安装系统:"
+    echo -n "Container installed system:"
     if [ -f "$rootfs/etc/issue" ];then
     export linux_version=$(cat $rootfs/etc/issue)
     else
-    export linux_version="  未安装或无法识别"
+    export linux_version="  Not installed or not recognized"
     fi
     echo "$linux_version"
 
-    echo -n "CPU Arch: "
+    echo -n "Architecture: "
     echo "$(uname -m)"
 
     echo -n "Kernel: "
@@ -31,14 +31,14 @@
         return 0
     fi
     }
-    selinux_inactive && echo "关闭" || echo "开启"
+    selinux_inactive && echo "Disable" || echo "Enable"
 
-    echo "文件系统支持:"
+    echo "File system support:"
     supported_fs=$(cat /proc/filesystems)
     echo "$supported_fs"
     
-    echo 'busybox版本:'
+    echo 'busybox:'
     $TOOLKIT/busybox | grep BusyBox
     
-    echo "运行路径:"
+    echo "Running path:"
     pwd
