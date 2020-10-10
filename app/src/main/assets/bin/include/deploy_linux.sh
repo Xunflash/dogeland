@@ -9,7 +9,7 @@ deploy_linux_step1
 echo "- Installing $file"
 rm -rf $rootfs2
 mkdir -p $rootfs2/
-# for tgz
+# tar.gz or tgz
 if [ `id -u` -eq 0 ];then
     $TOOLKIT/busybox tar -xzvf $file -C $rootfs2 >/dev/null
 else
@@ -26,7 +26,7 @@ deploy_linux_step1
 echo "- Installing $file"
 rm -rf $rootfs2
 mkdir -p $rootfs2/
-# for tar.xz
+# tar.xz or txz
 if [ `id -u` -eq 0 ];then
     $TOOLKIT/busybox tar -xJf $file -C $rootfs2
 else
@@ -76,16 +76,20 @@ fi
 echo "- Performing additional operation"
 # Setting up configure
 if [ -d "$rootfs2/dogeland/" ];then
-  echo "">/dev/null
+ # Setup from RootfsPackageData
+  cat $rootfs2/dogeland/cmd.conf >$CONFIG_DIR/cmd.conf
+  . $rootfs2/dogeland/patch.sh
+  rm -rf  $rootfs2/dogeland/*
+  echo "$rootfs2" >$CONFIG_DIR/rootfs.conf
   else
   mkdir $rootfs2/dogeland/
+  # Use Empty ConfigData
+  echo "$type">$CONFIG_DIR/cmd.conf
+  echo "$rootfs2" >$CONFIG_DIR/rootfs.conf
 fi
-# Initial config
+
+# make empty status 
 echo "Stop">$rootfs2/dogeland/status
-rm -rf $CONFIG_DIR/cmd.conf
-echo "$type">$CONFIG_DIR/cmd.conf
-rm -rf $CONFIG_DIR/rootfs.conf
-echo "$rootfs2" >$CONFIG_DIR/rootfs.conf
 # Create Basic Folder
 mkdir $rootfs2/sys $rootfs2/dev $rootfs2/dev/pts $rootfs2/proc
 chmod 770 $rootfs2/proc
@@ -115,20 +119,7 @@ EOF
 cp $TOOLKIT/cli.sh $rootfs2/dogeland/
 mkdir $rootfs2/dogeland/include/
 cp -R $TOOLKIT/include/* $rootfs2/dogeland/include/
-
-# EchoRootfsInfo
-if [ -f "$rootfs2/info.log" ];then
-cat $rootfs2/info.log
-rm -rf $rootfs2/info.log
-else
-echo "">/dev/null
-fi
-
-# clean dropbear old key
-rm -rf $rootfs2/etc/dropbear
-mkdir $rootfs2/etc/dropbear
-chmod -R 0777 $rootfs2/etc/dropbear/
-
+# Run Other Setup
 . $TOOLKIT/include/extra_linuxconfigure.sh configure
 echo "! all done"
 }
