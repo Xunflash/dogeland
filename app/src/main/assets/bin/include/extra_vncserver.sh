@@ -4,5 +4,5 @@
 vncserver_start(){
 echo "- vncserver::start..."
 echo "- Port: 22221"
-/bin/sh vncserver :22221 &
+/bin/bash vncserver :22221 &
 }

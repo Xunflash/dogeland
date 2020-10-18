@@ -3,8 +3,10 @@
 # license: gpl-v3
 backup_rootfs(){
 check_rootfs_status
-echo "- Exporting rootfs "
 cd $rootfs/
+echo "- Wiping /tmp "
+rm -rf ./tmp/*
+echo "- Exporting rootfs "
 if [[ "$(pwd)" != "/" ]]
 then
 

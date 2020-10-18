@@ -29,8 +29,7 @@ configure()
 		EOF
 
     echo "- 正在设置 locale ... "
-   [ -n "${LOCALE}" ] || LOCALE="$language"
-   [ -n "${LOCALE}" ] || LOCALE="C"
+    LOCALE="C"
     if $(echo ${LOCALE} | grep -q '$rootfs\.'); then
         local inputfile=$(echo ${LOCALE} | awk -F. '{print $1}')
         local charmapfile=$(echo ${LOCALE} | awk -F. '{print $2}')
