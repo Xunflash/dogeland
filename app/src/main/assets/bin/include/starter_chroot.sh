@@ -10,20 +10,6 @@ stop_rootfs
 else
 # Start
 
-# Enable QEMU Emulator
-if [ -f "$CONFIG_DIR/emulator_qemu" ];then
-export qemu="$(cat $CONFIG_DIR/emulator_qemu)"
-export qemu_enable=1
-else
-echo "">/dev/null
-fi 
-if [[ "$qemu_enable" != "1" ]]
-then
-export chroot="$TOOLKIT/busybox chroot $addcmd "
-else
-export chroot="$TOOLKIT/qemu-$qemu $TOOLKIT/busybox_$qemu chroot $addcmd "
-fi
-
 check_rootfs 
 mount_part
 set_env
