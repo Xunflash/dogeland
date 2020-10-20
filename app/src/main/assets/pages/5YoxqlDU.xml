@@ -48,15 +48,7 @@
 
 <group>
 <action>
-            <title>fix-sudo</title>
-            <desc>修复sudo关键文件权限错误问题</desc>
-            <set>$TOOLKIT/cli.sh fix_sudo</set>
-</action>
-</group>
-
-<group>
-<action>
-            <title>PRoot-SECCOMP</title>
+            <title>proot_secomp</title>
             <param name="type">
                 <option value="enable_proot_seccomp">开!</option>
                 <option value="">取消</option>
