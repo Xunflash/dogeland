@@ -1,23 +1,6 @@
 # dogeland cli module
 #
 # license: gpl-v3
-
-deploy_linux_step1(){
-if [ ! -n "$file" ]; then
-    if [ ! -n "$file2" ]; then
-    echo "!The selected source file is not available"
-    exit 2
-    else
-    echo "">/dev/null
-    fi
-    else
-    echo "">/dev/null
-fi
-export rootfs2="$START_DIR/$(head /dev/urandom | tr -dc 0-9 | head -c 5)/"
-}
-
-
-
 deploy_linux(){
 deploy_linux_step1
 #
@@ -50,6 +33,33 @@ else
     $TOOLKIT/proot --link2symlink -0 $TOOLKIT/busybox tar --no-same-owner -xJf $file -C $rootfs2 >/dev/null
 fi
 deploy_linux_step2
+}
+
+
+
+deploy_linux_step1(){
+if [ ! -n "$rootfs2" ]; then
+    echo "!The selected directory is not available"
+    exit 1
+    else
+    echo "">/dev/null
+fi
+if [ ! -n "$file" ]; then
+    if [ ! -n "$file2" ]; then
+    echo "!The selected source file is not available"
+    exit 2
+    else
+    echo "">/dev/null
+    fi
+    else
+    echo "">/dev/null
+fi
+if [[ "$datas" != "1" ]]
+then
+echo "">/dev/null
+else
+export rootfs2="$START_DIR/$rootfs2/"
+fi
 }
 
 deploy_linux_step2(){
