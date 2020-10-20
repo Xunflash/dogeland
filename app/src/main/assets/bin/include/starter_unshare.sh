@@ -6,7 +6,7 @@ then
 # if Run,Then Stop
 stop_rootfs
 else
-mount_part_proclink
+mount_part
 set_env
 # Change Status and Start
 echo "Run">$rootfs/dogeland/status

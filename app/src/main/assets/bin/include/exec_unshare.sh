@@ -1,6 +1,6 @@
 exec_unshare(){
 check_rootfs
-mount_part_proclink
+mount_part
 set_env
 echo "$cmd2">$rootfs/dogeland/runcmd.sh
 chmod 0777 $rootfs/dogeland/runcmd.sh
