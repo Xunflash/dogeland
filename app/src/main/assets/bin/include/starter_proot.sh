@@ -52,6 +52,5 @@ startcmd+="-b /dev/urandom:/dev/random -b /:/mnt/host-rootfs "
 startcmd+="-w /root $cmd"
 $TOOLKIT/proot $startcmd
 unset startcmd
-echo "- Done"
 fi
 }

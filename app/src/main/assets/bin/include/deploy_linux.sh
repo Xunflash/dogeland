@@ -8,11 +8,11 @@ rm -rf $rootfs2
 mkdir -p $rootfs2/
 # Enbale Link2SymLink for NonRoot
 if [ `id -u` -eq 0 ];then
-    tar="$TOOLKIT/busybox tar -xJf $file -C $rootfs2"
+    tar="$TOOLKIT/busybox tar -xzvf $file -C $rootfs2"
 else
-    tar="$TOOLKIT/proot --link2symlink -0 $TOOLKIT/busybox tar --no-same-owner -xJf $file -C $rootfs2 >/dev/null"
+    tar="$TOOLKIT/proot --link2symlink -0 $TOOLKIT/busybox tar --no-same-owner -xzvf $file -C $rootfs2"
 fi
-exec $tar
+$tar >/dev/null
 deploy_linux_step2
 }
 
@@ -25,9 +25,9 @@ mkdir -p $rootfs2/
 if [ `id -u` -eq 0 ];then
     tar="$TOOLKIT/busybox tar -xJf $file -C $rootfs2"
 else
-    tar="$TOOLKIT/proot --link2symlink -0 $TOOLKIT/busybox tar --no-same-owner -xJf $file -C $rootfs2 >/dev/null"
+    tar="$TOOLKIT/proot --link2symlink -0 $TOOLKIT/busybox tar --no-same-owner -xJf $file -C $rootfs2"
 fi
-exec $tar
+$tar >/dev/null
 deploy_linux_step2
 }
 
@@ -50,19 +50,22 @@ else
 echo "! Download Faild"
 exit 1
 fi
-echo"- Extracting LXC Image"
+echo "- Extracting LXC Image"
 # Enbale Link2SymLink for NonRoot
 if [ `id -u` -eq 0 ];then
     tar="$TOOLKIT/busybox tar -xJf $TMPDIR/image_tmp.tar.xz -C $rootfs2"
 else
-    tar="$TOOLKIT/proot --link2symlink -0 $TOOLKIT/busybox tar --no-same-owner -xJf $TMPDIR/image_tmp.tar.xz -C $rootfs2 >/dev/null"
+    tar="$TOOLKIT/proot --link2symlink -0 $TOOLKIT/busybox tar --no-same-owner -xJf $TMPDIR/image_tmp.tar.xz -C $rootfs2"
 fi
-exec $tar
-echo"- Clearing LXC Image"
+$tar >/dev/null
+echo "- Clearing LXC Image"
 rm $TMPDIR/image_tmp.tar.xz
+# Modded for dogeland
 mkdir -p $rootfs2/dogeland/
-echo "/bin/sh /dogeland/cli.sh sshd_start">$rootfs2/dogeland/cmd.conf
+touch $rootfs2/dogeland/cmd.conf
 touch $rootfs2/dogeland/patch.sh
+# Repair NetworkResolv
+echo "nameserver 8.8.8.8">$rootfs2/etc/resolv.conf
 deploy_linux_step2
 }
 

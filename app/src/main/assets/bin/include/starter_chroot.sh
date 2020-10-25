@@ -16,6 +16,5 @@ set_env
 # Change Status and Start
 echo "Run">$rootfs/dogeland/status
 $chroot $addcmd $rootfs $cmd
-echo "- All Done"
 fi
 }
