@@ -3,40 +3,70 @@
 # license: gpl-v3
 deploy_linux(){
 deploy_linux_step1
-#
-# Install
-#
-echo "- Installing $file"
+echo "- Extracting Rootfs"
 rm -rf $rootfs2
 mkdir -p $rootfs2/
-# tar.gz or tgz
+# Enbale Link2SymLink for NonRoot
 if [ `id -u` -eq 0 ];then
-    $TOOLKIT/busybox tar -xzvf $file -C $rootfs2 >/dev/null
+    tar="$TOOLKIT/busybox tar -xJf $file -C $rootfs2"
 else
-    $TOOLKIT/proot --link2symlink -0 $TOOLKIT/busybox tar --no-same-owner -xzvf $file -C $rootfs2 >/dev/null
+    tar="$TOOLKIT/proot --link2symlink -0 $TOOLKIT/busybox tar --no-same-owner -xJf $file -C $rootfs2 >/dev/null"
 fi
+exec $tar
 deploy_linux_step2
 }
 
 deploy_linux1(){
 deploy_linux_step1
-#
-# Install
-#
-echo "- Installing $file"
+echo "- Extracting Rootfs"
 rm -rf $rootfs2
 mkdir -p $rootfs2/
-# tar.xz or txz
+# Enbale Link2SymLink for NonRoot
 if [ `id -u` -eq 0 ];then
-    $TOOLKIT/busybox tar -xJf $file -C $rootfs2
+    tar="$TOOLKIT/busybox tar -xJf $file -C $rootfs2"
 else
-    $TOOLKIT/proot --link2symlink -0 $TOOLKIT/busybox tar --no-same-owner -xJf $file -C $rootfs2 >/dev/null
+    tar="$TOOLKIT/proot --link2symlink -0 $TOOLKIT/busybox tar --no-same-owner -xJf $file -C $rootfs2 >/dev/null"
 fi
+exec $tar
 deploy_linux_step2
 }
 
 
+deploy_from_lxcimage(){
+if [[ "$datas" != "1" ]]
+then
+echo "">/dev/null
+else
+export rootfs2="$START_DIR/$rootfs2/"
+fi
+echo "- Downloading LXC Image"
+rm -rf $rootfs2
+mkdir -p $rootfs2/
+$TOOLKIT/wget $image_url -O $TMPDIR/image_tmp.tar.xz
 
+if [ -e "$TMPDIR/image_tmp.tar.xz" ];then
+echo "">/dev/null
+else
+echo "! Download Faild"
+exit 1
+fi
+echo"- Extracting LXC Image"
+# Enbale Link2SymLink for NonRoot
+if [ `id -u` -eq 0 ];then
+    tar="$TOOLKIT/busybox tar -xJf $TMPDIR/image_tmp.tar.xz -C $rootfs2"
+else
+    tar="$TOOLKIT/proot --link2symlink -0 $TOOLKIT/busybox tar --no-same-owner -xJf $TMPDIR/image_tmp.tar.xz -C $rootfs2 >/dev/null"
+fi
+exec $tar
+echo"- Clearing LXC Image"
+rm $TMPDIR/image_tmp.tar.xz
+mkdir -p $rootfs2/dogeland/
+echo "/bin/sh /dogeland/cli.sh sshd_start">$rootfs2/dogeland/cmd.conf
+touch $rootfs2/dogeland/patch.sh
+deploy_linux_step2
+}
+
+# Post Installed Before
 deploy_linux_step1(){
 if [ ! -n "$rootfs2" ]; then
     echo "!The selected directory is not available"
@@ -62,19 +92,15 @@ export rootfs2="$START_DIR/$rootfs2/"
 fi
 }
 
+# Post Installed Later
 deploy_linux_step2(){
-# Check 
 if [ -d "$rootfs2/bin/" ];then
   echo "">/dev/null
   else
   echo "!An exception occurred during decompression"
   exit 255
 fi
-#
-# Settings
-#
 echo "- Performing additional operation"
-# Setting up configure
 if [ -d "$rootfs2/dogeland/" ];then
  # Setup from RootfsPackageData
   cat $rootfs2/dogeland/cmd.conf >$CONFIG_DIR/cmd.conf
@@ -90,7 +116,6 @@ fi
 
 # make empty status 
 echo "Stop">$rootfs2/dogeland/status
-# Create Basic Folder
 mkdir $rootfs2/sys $rootfs2/dev $rootfs2/dev/pts $rootfs2/proc
 chmod 770 $rootfs2/proc
 mkdir -p $rootfs2/dev/net
