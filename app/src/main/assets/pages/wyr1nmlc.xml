@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- SettingsPage -->
-  <page>
+<page>
  <group title="基础">
      <action>
          <title>Rootfs</title>
@@ -50,7 +50,6 @@
             </param>
             <set>$TOOLKIT/cli.sh $type</set>
         </action>
-          
         <action>
             <title>设置自定义 PATH 环境</title>
             <param name="Input" label="" title="" placeholder="/bin:/usr/sbin(留空关闭)" type="text" />
@@ -66,11 +65,11 @@
         </action>
          <action>
             <title>Enable QEMU-USER Support</title>
-              <param name="qemu">
-                <option value="x86_64">qemu-x86_64</option>
-                <option value="x86">qemu-i386</option>
-                <option value="arm_64">qemu-aarch64</option>
-                <option value="arm">qemu-arm</option>
+             <param name="qemu">
+                <option value="$TOOLKIT/qemu-user-aarch64">qemu-user-aarch64</option>
+                <option value="$TOOLKIT/qemu-user-arm">qemu-user-arm</option>
+                <option value="$TOOLKIT/qemu-user-x86_64">qemu-user-x86_64</option>
+                <option value="$TOOLKIT/qemu-user-x86_64">qemu-user-x86</option>
                 <option value="0">关闭</option>
             </param>
             <set>$TOOLKIT/cli.sh set_emulator_qemu</set>
@@ -96,7 +95,6 @@
             </set>
        </action>
     </group>
-    
      <group title="Other">
             <action>
             <title>修改 GNU / Linux 系统密码</title>

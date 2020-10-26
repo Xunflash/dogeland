@@ -15,6 +15,6 @@ mount_part
 set_env
 # Change Status and Start
 echo "Run">$rootfs/dogeland/status
-$chroot $addcmd $rootfs $cmd
+$TOOLKIT/busybox chroot $addcmd $rootfs $cmd
 fi
 }

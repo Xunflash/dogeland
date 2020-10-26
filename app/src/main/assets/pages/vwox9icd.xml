@@ -15,7 +15,6 @@
             <set>$TOOLKIT/cli.sh $start</set>
             </action>
             </group>
-            
             <group>
               <action>
             <title>LiteTerminal</title>
@@ -32,19 +31,11 @@
         </action>
     </group>
 </items>
-
-
 <items>
  <group>
 <page config="pages/wyr1nmlc.xml" title="设置" />
  </group>
-
-<group>
-   <page config="pages/p2Y8F6le.xml" title="FAQ" />
-  </group>
- 
   <group>
    <page config="pages/5YoxqlDU.xml" title="商店" />
   </group>
- 
 </items>

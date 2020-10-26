@@ -13,7 +13,6 @@
             <set>$TOOLKIT/cli.sh shmem_patch</set>
 </action>
 </group>
-
 <group>
 <action>
             <title>XstartupAdd</title>
@@ -26,7 +25,6 @@
             <set>$TOOLKIT/cli.sh xstartup_add</set>
 </action>
 </group>
-
 <group>
 <action>
             <title>DebianGroupAdd</title>
@@ -35,8 +33,6 @@
             <set>$TOOLKIT/cli.sh debiangroup_add</set>
 </action>
 </group>
-
-
 <group>
 <action>
             <title>fs-perm</title>
@@ -45,7 +41,6 @@
             <set>chmod -R $perm $rootfs/</set>
 </action>
 </group>
-
 <group>
 <action>
             <title>proot_secomp</title>
@@ -56,7 +51,6 @@
             <set>$TOOLKIT/cli.sh $type</set>
 </action>
 </group>
-
 <group title="插件 ">
 <action>
             <title>安装插件</title>
@@ -65,15 +59,3 @@
             <set>$TOOLKIT/app-addon/plugin_installer.sh</set>
         </action>
 </group>
-
- <group>
-   <page config="pages/hp4zq7bl.xml" title="GNU/Linux 扩展组件" />
- </group>
-
-<group>
-         <action>
-            <title>QEMU-User-Emulator</title>
-            <desc>开启PRoot/Chroot跨平台运行工具</desc>
-            <set>am start --user 0 -a android.intent.action.VIEW -d https://github.com/dogelands/dogeland-assets</set>
-        </action>
-        </group>
