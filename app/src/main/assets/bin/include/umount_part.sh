@@ -11,7 +11,6 @@ umount $rootfs/dev/shm
 umount $rootfs/dev
 rm $rootfs/mnt/host-rootfs
 else
- rm $rootfs/mnt/host-rootfs
- echo "!Check NonRoot,then ignore."
+ echo "!Running in NonRoot mode , ignoring."
 fi
 }

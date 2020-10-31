@@ -6,7 +6,7 @@ exec_chroot(){
 check_rootfs
 mount_part
 set_env
-
+export chroot="$TOOLKIT/busybox chroot"
 echo "$cmd2">$rootfs/dogeland/runcmd.sh
 chmod 755 $rootfs/dogeland/runcmd.sh
 # Search Login Shell

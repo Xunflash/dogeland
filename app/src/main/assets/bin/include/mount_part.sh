@@ -50,7 +50,7 @@ if [ ! -e "/dev/fd" -o ! -e "/dev/stdin" -o ! -e "/dev/stdout" -o ! -e "/dev/std
     [ -e "/dev/stderr" ] || ln -s /proc/self/fd/2 /dev/stderr
 fi
         
-if [ -d "$rootfs/mnt/host-rootfs/" ];then
+if [ -e "$rootfs/mnt/host-rootfs" ];then
   echo "">/dev/null
   else
   echo "- /mnt/host-rootfs ..."

@@ -16,7 +16,6 @@ if [ -f "$TOOLKIT/install_bin_done" ];then
 quit
 else
 
-echo "- Initializing resource"
 
 if [[ "$platform" != "unknown" ]]
 then
@@ -76,7 +75,7 @@ if [ -d "$DATA2_DIR" ];then
   else
   echo "!Data initialization failed"
   echo "----------"
-  echo "Please create a new folder named me.flytree.dogeland in the (internal storage/Android/data/) folder before reopening the application."
+  echo "Please create a new folder named me.flytree.dogeland in the [internal storage/Android/data/] folder before reopening the application."
   exit 2
   fi
 fi
