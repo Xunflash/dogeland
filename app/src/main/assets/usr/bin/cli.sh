@@ -15,7 +15,7 @@ TOOLKIT=./
 else
   echo "">/dev/null
 fi
-. $TOOLKIT/app-addon/filetran.sh
+. $TOOLKIT/include/filetran.sh
 . $TOOLKIT/include/others.sh
 . $TOOLKIT/include/stop_rootfs.sh
 . $TOOLKIT/include/del_rootfs.sh

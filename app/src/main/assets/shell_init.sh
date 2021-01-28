@@ -12,7 +12,14 @@ export PATH="/system/bin:$TOOLKIT"
 export DATA2_DIR="$SDCARD_PATH/Android/data/$PACKAGE_NAME/files/"
 export CONFIG_DIR="$DATA2_DIR/config/"
 
-export PROOT_TMP_DIR="$TMPDIR/"
+export PROOT_TMP_DIR="$TMPDIR"
+export PROOT_LOADER="$PREFIX/libexec/loader"
+if [[ "$platform" != "x86_64" ]] && [[ "$platform" != "arm64" ]]
+then
+echo "">/dev/null
+else
+export PROOT_LOADER_32="$PREFIX/libexec/loader32"
+fi
 export platform=$(sh $TOOLKIT/cli.sh platform)
 export cmd=$(cat $CONFIG_DIR/cmd.conf)
 export rootfs=$(cat $CONFIG_DIR/rootfs.conf)

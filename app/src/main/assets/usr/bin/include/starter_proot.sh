@@ -2,14 +2,6 @@
 #
 # license: gpl-v3
 start_proot(){
-export PROOT_TMP_DIR="$TMPDIR"
-export PROOT_LOADER="$PREFIX/libexec/loader"
-if [[ "$platform" != "x86_64" ]] && [[ "$platform" != "arm64" ]]
-then
-echo "">/dev/null
-else
-export PROOT_LOADER_32="$PREFIX/libexec/loader32"
-fi
 check_rootfs
 # Check RunStatus
 if [[ "$(cat $rootfs/dogeland/status)" != "Stop" ]]
