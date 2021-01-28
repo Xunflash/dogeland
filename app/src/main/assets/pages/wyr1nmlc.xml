@@ -36,6 +36,16 @@
              <param name="dir" type="folder" value="/sdcard/Android/data/me.flytree.dogeland/" editable="true"/>
             <set>$TOOLKIT/cli.sh backup_rootfs</set>
         </action>
+         <action>
+            <title>上传文件到容器</title>
+            <param name="file" label="选择文件" type="file" value="" editable="true" />
+            <set>$TOOLKIT/cli.sh filetran_send</set>
+        </action>
+        <action>
+            <title>接收文件从容器</title>
+             <param name="savedir" label="" title="选择保存目录" placeholder="$DATA2_DIR/filetran/" type="text" editable="true" />
+            <set>$TOOLKIT/cli.sh filetran_receive</set>
+        </action>
         <action>
             <title>Export Logs</title>
             <set>$TOOLKIT/app-addon/env_info.sh</set>
