@@ -64,7 +64,7 @@ if [ -d "$DATA2_DIR" ];then
   mkdir $CONFIG_DIR
   touch >$CONFIG_DIR/rootfs.conf
   touch >$CONFIG_DIR/cmd.conf
-  mkdir $DATA2_DIR/filetran
+  touch >$CONFIG_DIR/path.conf
   else
   echo "!数据初始化失败"
   echo "----------"

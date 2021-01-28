@@ -82,7 +82,7 @@
                 <option value="$TOOLKIT/qemu-user-x86_64">qemu-user-x86</option>
                 <option value="0">关闭</option>
             </param>
-            <set>$TOOLKIT/cli.sh set_emulator_qemu</set>
+            <set>$TOOLKIT/app-addon/set_all.sh set_emulator_qemu</set>
         </action>
     </group>
     <group title="PRoot">
@@ -119,7 +119,7 @@
         <action>
             <title>关闭App</title>
             <set>
-            $TOOLKIT/proot -r $PREFIX -b /system -b /proc -b /sys /bin/pkill $PACKAGE_NAME
+            $TOOLKIT/proot -r $TOOLKIT -b /system -b /proc -b /sys /pkill $PACKAGE_NAME
             pkill $PACKAGE_NAME
             </set>
         </action>

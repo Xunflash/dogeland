@@ -146,6 +146,8 @@ EOF
 # Install dogeland addon
 cp $TOOLKIT/cli.sh $rootfs2/dogeland/
 mkdir $rootfs2/dogeland/include/
+mkdir $rootfs2/dogeland/filetran_r/
+mkdir $rootfs2/dogeland/.filetran_s/
 cp -R $TOOLKIT/include/* $rootfs2/dogeland/include/
 # Run Other Setup
 . $TOOLKIT/include/extra_linuxconfigure.sh configure

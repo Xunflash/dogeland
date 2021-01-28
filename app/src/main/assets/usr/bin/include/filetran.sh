@@ -13,7 +13,7 @@ rm -rf $rootfs/dogeland/.filetran_s/*
 echo "!接收完成"
 }
 filetran_sender(){
-echo "- 正在上传 $2"
-cp -R $2 /dogeland/.filetran_s/
+echo "- 正在上传 $target"
+cp -R $target /dogeland/.filetran_s/
 echo "!上传完成"
 }

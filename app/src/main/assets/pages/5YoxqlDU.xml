@@ -15,18 +15,6 @@
 </group>
 <group>
 <action>
-            <title>XstartupAdd</title>
-            <desc>只在启动图形界面只有X时，才使用此补丁</desc>
-            <param name="archs">
-                <option value="startxfce4">xfce</option>
-                <option value="startlxde">lxde</option>
-                <option value="PULSE_SERVER=tcp:0.0.0.0:4713">PulseAudio</option>
-            </param>
-            <set>$TOOLKIT/cli.sh xstartup_add</set>
-</action>
-</group>
-<group>
-<action>
             <title>DebianGroupAdd</title>
             <desc>只在登录终端提示缺少group组时，才使用此补丁</desc>
             <param name="bug" label="" title="GroupID" placeholder="" type="text" />
