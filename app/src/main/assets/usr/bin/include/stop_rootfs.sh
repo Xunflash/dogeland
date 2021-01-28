@@ -14,7 +14,7 @@ rm -rf $rootfs/dogeland/status
 echo "Stop">$rootfs/dogeland/status
 # Stop Core
 pkill proot
-pkill busybox
-pkill sh
+$TOOLKIT/proot -r $PREFIX -b /system -b /proc -b /sys /bin/pkill $PACKAGE_NAME
+pkill $PACKAGE_NAME
 fi
 }

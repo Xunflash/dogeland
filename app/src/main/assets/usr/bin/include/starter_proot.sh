@@ -47,7 +47,7 @@ echo "Run">$rootfs/dogeland/status
 startcmd="$addcmd -0 --link2symlink "
 startcmd+="-r $rootfs -b /dev -b /sys -b /proc -b $rootfs/home:/dev/shm "
 startcmd+="-b /proc/self/fd:/dev/fd -b /dev/null:/dev/tty0 "
-startcmd+="-b /dev/urandom:/dev/random -b /:/mnt/host-rootfs "
+startcmd+="-b /dev/urandom:/dev/random "
 #startcmd+="-b /proc/self/fd/0:/dev/stdin -b /proc/self/fd/1:/dev/stdout -b /proc/self/fd/2:/dev/stderr "
 startcmd+="-w /root $cmd"
 $TOOLKIT/proot $startcmd

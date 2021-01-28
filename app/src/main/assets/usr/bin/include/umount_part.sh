@@ -9,7 +9,6 @@ umount $rootfs/sys
 umount $rootfs/dev/pts
 umount $rootfs/dev/shm
 umount $rootfs/dev
-rm $rootfs/mnt/host-rootfs
 else
  echo "!Running in NonRoot mode , ignoring."
 fi

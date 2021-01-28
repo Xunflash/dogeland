@@ -119,8 +119,8 @@
         <action>
             <title>关闭App</title>
             <set>
-            $TOOLKIT/proot -r $START_DIR -b /system -b /proc -b /sys /bin/pkill $PACKAGE_NAME
-            pkill me.flytree.dogeland
+            $TOOLKIT/proot -r $PREFIX -b /system -b /proc -b /sys /bin/pkill $PACKAGE_NAME
+            pkill $PACKAGE_NAME
             </set>
         </action>
     </group>
