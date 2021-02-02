@@ -25,7 +25,7 @@
     <string name="kr_write_external_storage">需要存储权限!</string>
     <string name="kr_download_create_fail"></string>
     <string name="kr_download_create_success"></string>
-    <string name="kr_download_confirm">/string>
+    <string name="kr_download_confirm"></string>
     <string name="kr_download_completed"></string>
     <string name="kr_download_downloading"></string>
     <string name="kr_color_picker"></string>
