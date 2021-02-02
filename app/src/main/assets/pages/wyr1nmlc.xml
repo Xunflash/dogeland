@@ -52,7 +52,7 @@
         </action>
            </group>
            <group title="高级">
-             <action>
+             <action warning="这将会删除容器上的系统和用户数据,并且操作不可逆,仍要继续吗？">
             <title>移除已安装Rootfs</title>
              <param name="type">
                 <option value="">取消还是</option>
@@ -116,7 +116,7 @@
             <title>修复运行环境权限</title>
             <set>chmod -R 0777 $TOOLKIT/*</set>
         </action>
-        <action>
+        <action warning="处于无root用户注意:此操作会将正在运行中的系统杀死,请保存好数据之后再继续(chroot用户随意啦)">
             <title>关闭App</title>
             <set>
             $TOOLKIT/proot -r $START_DIR -b /system -b /proc -b /sys /usr/bin/busybox pkill $PACKAGE_NAME
