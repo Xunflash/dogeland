@@ -123,5 +123,19 @@
             pkill $PACKAGE_NAME
             </set>
         </action>
+        <action warning="本功能为安装的Rootfs提供一个静态ssh服务,目的是为了其他镜像中的容器Shell,仅支持ARM64或模拟ARM64,可能造成不能挽回的后果,确定要继续启用吗?">
+            <title>[实验性]使用预编译的dropbear</title>
+            <set>
+           echo "- 安装dropbear ..."
+           cp $TOOLKIT/dropbearmulti_arm64 $rootfs/bin/dropbear
+           cp $TOOLKIT/dropbearmulti_arm64 $rootfs/bin/dropbearkey
+           chmod 0770 $rootfs/bin/dropbear
+           chmod 0770 $rootfs/bin/dropbearkey
+           echo "- 更新配置文件 ..."
+           rm -rf $CONFIG_DIR/cmd.conf
+           echo "/bin/sh /dogeland/cli.sh dropbear_start">$CONFIG_DIR/cmd.conf
+           echo "完成,现在重新打开测试吧!"
+            </set>
+        </action>
     </group>
     </page>
