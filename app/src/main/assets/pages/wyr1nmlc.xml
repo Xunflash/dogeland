@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- SettingsPage -->
+<page>
+ <group title="基础">
+     <action>
+         <title>Rootfs</title>
+             <param name="Input" label="" title="" placeholder="/data/data/me.flytree.dogeland/files/linux/" type="text" />
+            <set>$TOOLKIT/app-addon/set_all.sh set_rootfsdir</set>
+             </action>
+        <action>
+            <title>初始化命令行</title>
+            <param name="Input" label="" title="" placeholder="/bin/sh" type="text" />
+            <set>$TOOLKIT/app-addon/set_all.sh set_initcmd</set>
+        </action>
+          <action>
+            <title>LinuxAddon启动设置</title>
+             <param name="type">
+                <option value="/bin/sh /dogeland/cli.sh sshd_start">启动openssh-sshd</option>
+                <option value="/bin/sh /dogeland/cli.sh dropbear_start">启动dropbear</option>
+                <option value="/bin/sh /dogeland/cli.sh vncserver_start">启动vncserver</option>
+            </param>
+            <set>
+            rm -rf $CONFIG_DIR/cmd.conf
+            echo "$type">$CONFIG_DIR/cmd.conf
+            </set>
+             </action>
+          </group>
+       <group title="进阶">
+         <action bg-task="true">
+            <title>开启通知常驻</title>
+            <desc>保持应用前台运行和CPU唤醒,防止容器卡顿或被杀死</desc>
+            <set>sleep 9999</set>
+        </action>
+        <action>
+            <title>导出Rootfs</title>
+             <param name="dir" type="folder" value="/sdcard/Android/data/me.flytree.dogeland/" editable="true"/>
+            <set>$TOOLKIT/cli.sh backup_rootfs</set>
+        </action>
+         <action>
+            <title>上传文件到容器</title>
+            <param name="file" label="选择文件" type="file" value="" editable="true" />
+            <set>$TOOLKIT/cli.sh filetran_send</set>
+        </action>
+        <action>
+            <title>接收文件从容器</title>
+             <param name="savedir" label="" title="选择保存目录" placeholder="$DATA2_DIR/filetran/" type="text" editable="true" />
+            <set>$TOOLKIT/cli.sh filetran_receive</set>
+        </action>
+        <action>
+            <title>Export Logs</title>
+            <set>$TOOLKIT/app-addon/env_info.sh</set>
+        </action>
+           </group>
+           <group title="高级">
+             <action>
+            <title>移除已安装Rootfs</title>
+             <param name="type">
+                <option value="">取消还是</option>
+                <option value="del_rootfs">确定删除(将永远消失!)</option>
+            </param>
+            <set>$TOOLKIT/cli.sh $type</set>
+        </action>
+        <action>
+            <title>设置自定义 PATH 环境</title>
+            <param name="Input" label="" title="" placeholder="/bin:/usr/sbin(留空关闭)" type="text" />
+            <set>
+            echo "$Input">$DATA2_DIR/custom_path.conf
+            if [[ "$Input" != "" ]]
+            then
+            echo "">/dev/null
+            else
+            rm -rf $DATA2_DIR/custom_path.conf
+            fi
+            </set>
+        </action>
+         <action>
+            <title>Enable QEMU-USER Support</title>
+             <param name="qemu">
+                <option value="aarch64">qemu-user-aarch64</option>
+                <option value="arm">qemu-user-arm</option>
+                <option value="x86_64">qemu-user-x86_64</option>
+                <option value="x86">qemu-user-x86</option>
+                <option value="0">关闭</option>
+            </param>
+            <set>$TOOLKIT/app-addon/set_all.sh set_emulator_qemu</set>
+        </action>
+    </group>
+    <group title="PRoot">
+    <action>
+            <title>Enable FakeKernel</title>
+             <param name="kernel" label="" title="" placeholder="5.4.0-fakehost(留空关闭)" type="text" />
+            <set>$TOOLKIT/cli.sh enable_proot_fakekernel</set>
+        </action>
+      <action>
+            <title>Enable DebugMessage</title>
+             <param name="data" label="" title="输出级别" placeholder="(值越大,输出多,留空关闭)" type="text" />
+            <set>
+            echo "$data">$CONFIG_DIR/.debug
+            if [[ "$data" != "" ]]
+            then
+            echo "">/dev/null
+            else
+            rm -rf $CONFIG_DIR/.debug
+            fi
+            </set>
+       </action>
+    </group>
+     <group title="Other">
+            <action>
+            <title>修改 GNU / Linux 系统密码</title>
+            <param name="username" label="" title="用户名" placeholder="" type="text" />
+            <param name="password" label="" title="密码" placeholder="" type="text" />
+            <set>$TOOLKIT/cli.sh edit_passwd</set>
+        </action>
+          <action>
+            <title>修复运行环境权限</title>
+            <set>chmod -R 0777 $TOOLKIT/*</set>
+        </action>
+        <action>
+            <title>关闭App</title>
+            <set>
+            $TOOLKIT/proot -r $START_DIR -b /system -b /proc -b /sys /usr/bin/busybox pkill $PACKAGE_NAME
+            pkill $PACKAGE_NAME
+            </set>
+        </action>
+    </group>
+    </page>
