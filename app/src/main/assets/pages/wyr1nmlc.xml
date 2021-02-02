@@ -54,10 +54,6 @@
            <group title="高级">
              <action warning="这将会删除容器上的系统和用户数据,并且操作不可逆,仍要继续吗？">
             <title>移除已安装Rootfs</title>
-             <param name="type">
-                <option value="">取消还是</option>
-                <option value="del_rootfs">确定删除(将永远消失!)</option>
-            </param>
             <set>$TOOLKIT/cli.sh $type</set>
         </action>
         <action>

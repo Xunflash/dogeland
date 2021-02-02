@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!-- InstallPage -->
 <group>
-      <action warning="确认无误后继续？">
+      <action>
             <title>导入→tgz/tar.gz</title>
             <param name="file" label="源文件" type="file" value="" editable="true" />
             <param name="rootfs2" label="安装路径" title="" placeholder="" type="text" editable="true" />
@@ -12,7 +12,7 @@
         </action>
         </group>
         <group>
-        <action warning="确认无误后继续？">
+        <action>
             <title>导入→tar.xz</title>
             <param name="file" label="源文件" type="file" value="" editable="true" />
             <param name="rootfs2" label="安装路径" title="" placeholder="" type="text" editable="true" />
@@ -23,7 +23,7 @@
         </action>
         </group>
          <group>
-        <action warning="确认无误后继续？">
+        <action>
             <title>从http源安装→LXCImage</title>
             <param name="image_url" label="http源文件" type="image_url" value="" editable="true" />
             <param name="rootfs2" label="安装路径" title="" placeholder="" type="text" editable="true" />
