@@ -4,9 +4,9 @@
 export START_DIR=$({START_DIR})
 export SDCARD_PATH=$({SDCARD_PATH})
 export PACKAGE_NAME=$({PACKAGE_NAME})
-export TOOLKIT=$START_DIR/usr/bin
-export TMPDIR=$START_DIR/cache
 export PREFIX=$START_DIR/usr
+export TOOLKIT=$PREFIX/bin/
+export TMPDIR=$PREFIX/tmp/
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$PREFIX/lib/"
 export PATH="/system/bin:$TOOLKIT"
 export DATA2_DIR="$SDCARD_PATH/Android/data/$PACKAGE_NAME/files/"
