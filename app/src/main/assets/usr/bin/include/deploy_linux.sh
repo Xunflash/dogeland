@@ -142,7 +142,7 @@ procs_running 3
 procs_blocked 0
 softirq 21789749 8160 7915061 16681 457270 8160 8160 580778 6955475 12121 5827883
 EOF
-
+chmod 0770 $rootfs2/proc/.stat
 # Install dogeland addon
 cp $TOOLKIT/cli.sh $rootfs2/dogeland/
 mkdir $rootfs2/dogeland/include/
