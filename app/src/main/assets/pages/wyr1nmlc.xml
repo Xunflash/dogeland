@@ -54,7 +54,7 @@
            <group title="高级">
              <action warning="这将会删除容器上的系统和用户数据,并且操作不可逆,仍要继续吗？">
             <title>移除已安装Rootfs</title>
-            <set>$TOOLKIT/cli.sh $type</set>
+            <set>$TOOLKIT/cli.sh del_rootfs</set>
         </action>
         <action>
             <title>设置自定义 PATH 环境</title>
