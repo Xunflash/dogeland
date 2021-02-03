@@ -3,6 +3,13 @@
 # license: gpl-v3
 exec_proot(){
 check_rootfs 
+set_env
+# Enable Fake ProcStat
+if [ -e "$rootfs/proc/.stat" ];then
+export addcmd="$addcmd -b $rootfs/proc/.stat:/proc/stat"
+else
+echo "">/dev/null
+fi 
 # Enable DebugMessage
 if [ -e "$CONFIG_DIR/.debug" ];then
 export addcmd="$addcmd -v $(cat $CONFIG_DIR/.debug)"
@@ -27,10 +34,9 @@ fi
 startcmd="$addcmd --kill-on-exit "
 startcmd+="--link2symlink -0 --sysvipc -r $rootfs -b /dev  -b $rootfs/home:/dev/shm "
 startcmd+="-b /proc -b /sys -b /proc/self/fd:/dev/fd -b /dev/null:/dev/tty0 "
-startcmd+="-b /dev/urandom:/dev/random -b $rootfs/proc/.stat:/proc/stat"
+startcmd+="-b /dev/urandom:/dev/random "
 #startcmd+="-b /proc/self/fd/0:/dev/stdin -b /proc/self/fd/1:/dev/stdout -b /proc/self/fd/2:/dev/stderr "
 startcmd+="-w /root $cmd2"
-set_env
 $TOOLKIT/proot $startcmd
 unset startcmd
 }

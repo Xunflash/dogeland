@@ -16,7 +16,14 @@ if [ -e "$CONFIG_DIR/.debug" ];then
 export addcmd="$addcmd -v $(cat $CONFIG_DIR/.debug)"
 else
 echo "">/dev/null
-fi
+fi 
+
+# Enable Fake ProcStat
+if [ -e "$rootfs/proc/.stat" ];then
+export addcmd="$addcmd -b $rootfs/proc/.stat:/proc/stat"
+else
+echo "">/dev/null
+fi 
 
 # Enable FakeKernel
 if [ -e "$CONFIG_DIR/fake_kernel" ];then
@@ -40,7 +47,7 @@ echo "Run">$rootfs/dogeland/status
 startcmd="$addcmd -0 --link2symlink --sysvipc "
 startcmd+="-r $rootfs -b /dev -b /sys -b /proc -b $rootfs/home:/dev/shm "
 startcmd+="-b /proc/self/fd:/dev/fd -b /dev/null:/dev/tty0 "
-startcmd+="-b /dev/urandom:/dev/random -b $rootfs/proc/.stat:/proc/stat"
+startcmd+="-b /dev/urandom:/dev/random "
 #startcmd+="-b /proc/self/fd/0:/dev/stdin -b /proc/self/fd/1:/dev/stdout -b /proc/self/fd/2:/dev/stderr "
 startcmd+="-w /root $cmd"
 $TOOLKIT/proot $startcmd
