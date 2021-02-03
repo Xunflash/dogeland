@@ -42,6 +42,7 @@ cd "$TOOLKIT"
 busybox_install
 export PATH=$PATH:$TOOLKIT
 mkdir $PREFIX/lib
+mkdir $PREFIX/tmp
 mkdir $PREFIX/libexec
 cp $PREFIX/preload/lib/$platform/* $PREFIX/lib/
 cp $PREFIX/preload/libexec/$platform/* $PREFIX/libexec/
@@ -53,8 +54,8 @@ if [ -d "$DATA2_DIR" ];then
   mkdir -p $DATA2_DIR
   if [ -d "$DATA2_DIR" ];then
   mkdir $CONFIG_DIR
-  touch >$CONFIG_DIR/rootfs.conf
-  touch >$CONFIG_DIR/cmd.conf
+  touch $CONFIG_DIR/rootfs.conf
+  touch $CONFIG_DIR/cmd.conf
   mkdir $DATA2_DIR/filetran
   else
   echo "!数据初始化失败"

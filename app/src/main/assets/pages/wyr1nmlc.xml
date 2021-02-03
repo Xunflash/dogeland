@@ -115,7 +115,7 @@
         <action warning="处于无root用户注意:此操作会将正在运行中的系统杀死,请保存好数据之后再继续(chroot用户随意啦)">
             <title>关闭App</title>
             <set>
-            $TOOLKIT/proot -r $START_DIR -b /system -b /proc -b /sys /usr/bin/busybox pkill $PACKAGE_NAME
+            $TOOLKIT/proot -r $TOOLKIT -b /system -b /proc -b /sys -b /dev /busybox pkill $PACKAGE_NAME
             pkill $PACKAGE_NAME
             </set>
         </action>
