@@ -66,6 +66,37 @@ touch $rootfs2/dogeland/cmd.conf
 touch $rootfs2/dogeland/patch.sh
 # Repair NetworkResolv
 echo "nameserver 8.8.8.8">$rootfs2/etc/resolv.conf
+echo "- 正在安装dropbear"
+    # for pacman
+    if [ ! -n "$rootfs2/usr/bin/pacman" ]; then
+    rm -rf $rootfs2/*
+    echo "!暂不支持此发行版"
+    exit 2
+    else
+    cmd2="pacman -S --confirm dropbear"
+    exec_auto && unset cmd2
+    rm -rf $rootfs2/etc/dropbear/*
+    fi
+    # for Apt
+    if [ ! -n "$rootfs2/usr/bin/apt" ]; then
+    rm -rf $rootfs2/*
+    echo "!暂不支持此发行版"
+    exit 2
+    else
+    cmd2="apt install dropbear -y"
+    exec_auto && unset cmd2
+    rm -rf $rootfs2/etc/dropbear/*
+    fi
+    # for Alpine
+    if [ ! -n "$rootfs2/usr/bin/apk" ]; then
+    rm -rf $rootfs2/*
+    echo "!暂不支持此发行版"
+    exit 2
+    else
+    cmd2="apk add dropbear"
+    exec_auto && unset cmd2
+    rm -rf $rootfs2/etc/dropbear/*
+    fi
 deploy_linux_step2
 }
 
