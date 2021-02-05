@@ -24,8 +24,8 @@ else
 echo "">/dev/null
 fi 
 # Enable QEMU Emulator
-if [ -f "$CONFIG_DIR/emulator_qemu" ];then
-export qemu="$TOOLKIT/qemu-user-$(cat $CONFIG_DIR/emulator_qemu)"
+if [ -f "$CONFIG_DIR/emulator_qemu.config" ];then
+export qemu="$TOOLKIT/qemu-user-$(cat $CONFIG_DIR/emulator_qemu.config)"
 export addcmd="$addcmd -q $qemu"
 else
 echo "">/dev/null
