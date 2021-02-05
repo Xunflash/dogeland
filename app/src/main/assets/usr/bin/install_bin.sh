@@ -54,8 +54,9 @@ if [ -d "$DATA2_DIR" ];then
   mkdir -p $DATA2_DIR
   if [ -d "$DATA2_DIR" ];then
   mkdir $CONFIG_DIR
-  touch $CONFIG_DIR/rootfs.conf
-  touch $CONFIG_DIR/cmd.conf
+  touch $CONFIG_DIR/rootfs.config
+  touch $CONFIG_DIR/cmd.config
+  touch $CONFIG_DIR/patch_proot-secomp.config
   mkdir $DATA2_DIR/filetran
   else
   echo "!数据初始化失败"

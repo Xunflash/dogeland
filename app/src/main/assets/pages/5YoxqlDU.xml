@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- StorePage -->
 <group title="补丁 ">
-<action>
+<switch shell="hidden">
             <title>Ashmem</title>
             <desc>只在运行某些图形界面程序出现问题时，才使用此补丁</desc>
-            <param name="archs">
-                <option value="arm_64">arm64</option>
-                <option value="arm">arm</option>
-                <option value="x86">x86</option>
-                <option value="x86_64">x86_64</option>
-            </param>
-            <set>$TOOLKIT/cli.sh shmem_patch</set>
-</action>
+            <get>
+             if [ -e "$rootfs/usr/local/lib/libandroid-shmem.so" ];then
+             echo "1"
+             else
+             echo "0"
+             fi
+            </get>
+            <set>
+            if [ -e "$rootfs/usr/local/lib/libandroid-shmem.so" ];then
+             echo "1"
+             else
+             $TOOLKIT/cli.sh check_rootfs
+             cp $PREFIX/lib/libandroid-shmem.so $rootfs/usr/local/lib/
+             fi
+            </set>
+</switch>
 </group>
 <group>
 <action>
@@ -22,21 +30,29 @@
 </action>
 </group>
 <group>
+           <switch shell="hidden">
+            <title>PROOT_NO_SECOMP</title>
+            <desc>解决极少数设备PROOT无法使用的问题</desc>
+            <get>
+             cat $CONFIG_DIR/patch_proot-secomp.config
+            </get>
+            <set>
+            if [[ "$(cat $CONFIG_DIR/patch_proot-secomp.config)" != "1" ]]
+            then
+            sed -i '14i\PROOT_NO_SECCOMP=1' $START_DIR/shell_init.sh
+            echo "1">$CONFIG_DIR/patch_proot-secomp.config
+            else
+            echo "">/dev/null
+            fi
+            </set>
+        </switch>
+</group>
+<group>
 <action>
             <title>fs-perm</title>
             <desc>全局更改Linux文件系统权限,用于解决一些bug</desc>
            <param name="perm" label="" title="" placeholder="0755" type="text" />
             <set>chmod -R $perm $rootfs/</set>
-</action>
-</group>
-<group>
-<action>
-            <title>proot_secomp</title>
-            <param name="type">
-                <option value="enable_proot_seccomp">开!</option>
-                <option value="">取消</option>
-            </param>
-            <set>$TOOLKIT/cli.sh $type</set>
 </action>
 </group>
 <group title="插件 ">

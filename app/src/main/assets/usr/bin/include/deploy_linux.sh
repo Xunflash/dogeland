@@ -137,15 +137,15 @@ fi
 echo "- 正在执行附加操作"
 if [ -d "$rootfs2/dogeland/" ];then
  # Setup from RootfsPackageData
-  cat $rootfs2/dogeland/cmd.conf >$CONFIG_DIR/cmd.conf
+  cat $rootfs2/dogeland/cmd.conf >$CONFIG_DIR/cmd.config
   . $rootfs2/dogeland/patch.sh
   rm -rf  $rootfs2/dogeland/*
-  echo "$rootfs2" >$CONFIG_DIR/rootfs.conf
+  echo "$rootfs2" >$CONFIG_DIR/rootfs.config
   else
   mkdir $rootfs2/dogeland/
   # Use Empty ConfigData
-  echo "$type">$CONFIG_DIR/cmd.conf
-  echo "$rootfs2" >$CONFIG_DIR/rootfs.conf
+  echo "$type">$CONFIG_DIR/cmd.config
+  echo "$rootfs2" >$CONFIG_DIR/rootfs.config
 fi
 
 # make empty status 

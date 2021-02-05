@@ -25,7 +25,7 @@
                 <option value="exec_chroot">[chroot]</option>
                 <option value="exec_proot">[proot]</option>
                 <option value="exec_unshare">[unshare]</option>
-                <option value="exec_localshell">[系统Shell]</option>
+                <option value="exec_localshell">[AppShell]</option>
             </param>
             <set>$TOOLKIT/cli.sh $exec</set>
         </action>
