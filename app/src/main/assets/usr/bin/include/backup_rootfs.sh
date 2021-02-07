@@ -21,6 +21,6 @@ else
 echo "!An error occurred while exporting"
 exit 1
 fi
-echo "- 完成"
+echo "- done"
 
 }

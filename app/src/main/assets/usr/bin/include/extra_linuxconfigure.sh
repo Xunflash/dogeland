@@ -8,13 +8,13 @@ export rootfs="$rootfs2"
 #
 configure()
 {
-    echo "- 正在设置 mtab ..."
+    echo "- Setting up mtab ..."
     rm -rf $rootfs/etc/mtab && cp /proc/mounts $rootfs/etc/mtab
 
-    echo "- 正在设置 hostname ... "
+    echo "- Setting up hostname ... "
     echo 'localhost' > "$rootfs/etc/hostname"
 
-    echo "- 正在设置 hosts ... "
+    echo "- Setting up hosts ... "
 		cat <<- EOF > "$rootfs/etc/hosts"
 		# IPv4.
 		127.0.0.1   localhost.localdomain localhost
@@ -28,7 +28,7 @@ configure()
 		ff02::3     ipv6-allhosts
 		EOF
 
-    echo "- 正在设置 locale ... "
+    echo "- Setting up locale ... "
     LOCALE="C"
     if $(echo ${LOCALE} | grep -q '$rootfs\.'); then
         local inputfile=$(echo ${LOCALE} | awk -F. '{print $1}')
@@ -38,7 +38,7 @@ configure()
         unset cmd2
     fi
     
-    echo "- 正在设置 su ... "
+    echo "- Setting up su ... "
     local item pam_su
     for item in $rootfs/etc/pam.d/su $rootfs/etc/pam.d/su-l
     do
@@ -51,7 +51,7 @@ configure()
     done
     chmod a+s $rootfs/bin/su
     
-    echo "- 正在设置 timezone ... "
+    echo "- Setting up timezone ... "
     # for android
     if [ -n "$(which getprop)" ]; then
         timezone=$(getprop persist.sys.timezone)
@@ -63,7 +63,7 @@ configure()
     cp "$rootfs/usr/share/zoneinfo/$timezone" "$rootfs/etc/localtime"
     echo $timezone > "$rootfs/etc/timezone"
 
-    echo "- 正在设置 profile ... "
+    echo "- Setting up profile ... "
    [ -n "$USER_NAME" ] || USER_NAME="root"
    [ -n "$USER_PASSWORD" ] || USER_PASSWORD="root"
     # user profile
@@ -79,7 +79,7 @@ configure()
     # env
     echo "PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games:/usr/local/sbin:/sbin">>$rootfs/etc/profile
     
-    echo "- 正在设置 sudo ... "
+    echo "- Setting up sudo ... "
     sudo_str="$USER_NAME ALL=(ALL:ALL) NOPASSWD:ALL"
     if ! grep -q "$sudo_str" "$rootfs/etc/sudoers"; then
         chmod 640 "$rootfs/etc/sudoers"
@@ -90,7 +90,7 @@ configure()
         echo '[ -n "$PS1" -a "$(whoami)" = "'$USER_NAME'" ] || return 0' > "$rootfs/etc/profile.d/sudo.sh"
         echo 'alias su="sudo su"' >> "$rootfs/etc/profile.d/sudo.sh"
     fi
-    echo "- 正在设置 group ... "
+    echo "- Setting up group ... "
     # set min uid and gid
     login_defs="$rootfs/etc/login.defs"
     if [ ! -e "$login_defs" ]; then

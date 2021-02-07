@@ -1,0 +1,73 @@
+<resources>
+    <string name="kr_script_config">master.conf</string>
+    <bool name="force_root">false</bool>
+    <string name="app_name">dogeland</string>
+    <string name="shell_executor">Command execution</string>
+    <string name="cannot_get_root_access"></string>
+    <string name="execute_success"></string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+    <string name="custom">custom</string>
+    <string name="switchs">switchs</string>
+    <string name="btn_exit">back</string>
+    <string name="btn_hide">hide</string>
+    <string name="float_monitor_tips"></string>
+    <string name="permission_float"></string>
+    <string name="please_wait"></string>
+    <string name="load_ratio"></string>
+    <string name="mhz"></string>
+    <string name="core"></string>
+    <string name="title_activity_action_page"></string>
+
+    <string name="author_name"></string>
+    <string name="about_title">About ·</string>
+    <string name="appliction_desc">This application installs the specified GNU / Linux distribution and runs in the container.</string>
+    <string name="appliction_name">dogeland</string>
+    <string name="appliction_author">Lightweight open source Linux container App</string>
+    <string name="engine_version_name">[Kr-Script3.9.x]</string>
+    <string name="system_ram"></string>
+    <string name="hardware_ram"></string>
+    <string name="swap"></string>
+    <string name="total_load"></string>
+    <string name="core_load"></string>
+    <string name="core_details"></string>
+
+    <string name="tab_home"></string>
+    <string name="tab_favorites"></string>
+    <string name="tab_pages"></string>
+
+    <string name="monitor_laod"></string>
+    <string name="monitor_core_count"></string>
+    <string name="monitor_cache_cleared"></string>
+    <string name="monitor_ram_cleared"></string>
+
+    <string name="btn_copy"></string>
+    <string name="copy_success">Copy Success</string>
+    <string name="copy_fail">Copy Faild</string>
+    <string name="btn_retry">Retry</string>
+
+    <string name="pio_starting"></string>
+    <string name="pop_before_start"></string>
+    <string name="pop_started"></string>
+    <string name="pio_permission_checking"></string>
+    <string name="error_root"></string>
+    <string name="error_su_timeout"></string>
+    <string name="transparent_ui"></string>
+    <string name="title_activity_file_selector"></string>
+    <string name="title_activity_folder_selector"></string>
+
+    <string name="power_shutdown">Shutdown</string>
+    <string name="power_reboot">Reboot</string>
+    <string name="power_hot_reboot">QuickReboot</string>
+    <string name="power_fastboot">Fastboot</string>
+    <string name="power_recovery">Recovery</string>
+    <string name="power_emergency">Qualcomm EDL</string>
+    <string name="power_menu">Menu</string>
+
+    <string name="power_shutdown_cmd">sync;svc power shutdown || reboot -p;</string>
+    <string name="power_reboot_cmd">sync;svc power reboot || reboot;</string>
+    <string name="power_hot_reboot_cmd">sync;am restart || busybox killall system_server;</string>
+    <string name="power_fastboot_cmd">sync;reboot bootloader;</string>
+    <string name="power_recovery_cmd">sync;reboot recovery;</string>
+    <string name="power_emergency_cmd">sync;reboot edl;</string>
+</resources>

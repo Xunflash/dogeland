@@ -3,7 +3,7 @@
 #
 
 if [ ! $TOOLKIT ];then
-    echo "!致命失败"
+    echo "!Fatal failure"
     exit 2
 else
     echo  "">/dev/null
@@ -13,10 +13,10 @@ then
 echo "">/dev/null
 else
 if [ ! -f "$DATA2_DIR/bin/busybox" ]; then
- echo "! $platform ,你的设备缺少命令或者不受支持"
+ echo "! $platform ,Your device lacks commands or is not supported"
  exit 5
  else
- echo "检测到预加载busybox"
+ echo "!Preloaded busybox detected"
  cp $DATA2_DIR/bin/busybox $TMPDIR/busybox
  chmod 0770 $TMPDIR/busybox
  unset platform
@@ -59,9 +59,9 @@ if [ -d "$DATA2_DIR" ];then
   touch $CONFIG_DIR/patch_proot-secomp.config
   mkdir $DATA2_DIR/filetran
   else
-  echo "!数据初始化失败"
+  echo "!Data initialization failed"
   echo "----------"
-  echo "在重新打开应用程序之前，请在[内部存储/ Android / data /]文件夹中创建一个名为me.flytree.dogeland的新文件夹"
+  echo "Before reopening the application, please create a new folder named me.flytree.dogeland in the [internal storage/Android/data/] folder."
   exit 3
   fi
 fi

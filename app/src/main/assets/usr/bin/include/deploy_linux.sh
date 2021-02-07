@@ -3,7 +3,7 @@
 # license: gpl-v3
 deploy_linux(){
 deploy_linux_step1
-echo "- 正在安装 Rootfs"
+echo "- Installing Rootfs"
 rm -rf $rootfs2
 mkdir -p $rootfs2/
 # Enbale Link2SymLink for NonRoot
@@ -18,7 +18,7 @@ deploy_linux_step2
 
 deploy_linux1(){
 deploy_linux_step1
-echo "- 正在安装Rootfs"
+echo "- Installing Rootfs"
 rm -rf $rootfs2
 mkdir -p $rootfs2/
 # Enbale Link2SymLink for NonRoot
@@ -39,7 +39,7 @@ echo "">/dev/null
 else
 export rootfs2="$START_DIR/$rootfs2/"
 fi
-echo "- 正在下载 LXC Image"
+echo "- Downloading LXC Image"
 rm -rf $rootfs2
 mkdir -p $rootfs2/
 $TOOLKIT/wget $image_url -O $TMPDIR/image_tmp.tar.xz
@@ -47,10 +47,10 @@ $TOOLKIT/wget $image_url -O $TMPDIR/image_tmp.tar.xz
 if [ -e "$TMPDIR/image_tmp.tar.xz" ];then
 echo "">/dev/null
 else
-echo "! 下载失败"
+echo "! Download Failed"
 exit 1
 fi
-echo "- 正在安装 LXC Image"
+echo "- Installing LXC Image"
 # Enbale Link2SymLink for NonRoot
 if [ `id -u` -eq 0 ];then
     tar="$TOOLKIT/busybox tar -xJf $TMPDIR/image_tmp.tar.xz -C $rootfs2"
@@ -58,7 +58,7 @@ else
     tar="$TOOLKIT/proot --link2symlink -0 $TOOLKIT/busybox tar --no-same-owner -xJf $TMPDIR/image_tmp.tar.xz -C $rootfs2"
 fi
 $tar >/dev/null
-echo "- 正在清除 LXC Image 缓存"
+echo "- Cleaning LXC Image Cache"
 rm $TMPDIR/image_tmp.tar.xz
 # Modded for dogeland
 mkdir -p $rootfs2/dogeland/
@@ -66,11 +66,11 @@ touch $rootfs2/dogeland/cmd.conf
 touch $rootfs2/dogeland/patch.sh
 # Repair NetworkResolv
 echo "nameserver 8.8.8.8">$rootfs2/etc/resolv.conf
-echo "- 正在安装dropbear"
+echo "- Installing dropbear"
     # for pacman
     if [ ! -n "$rootfs2/usr/bin/pacman" ]; then
     rm -rf $rootfs2/*
-    echo "!暂不支持此发行版"
+    echo "!This release is not currently supported"
     exit 2
     else
     cmd2="pacman -S --confirm dropbear"
@@ -80,7 +80,7 @@ echo "- 正在安装dropbear"
     # for Apt
     if [ ! -n "$rootfs2/usr/bin/apt" ]; then
     rm -rf $rootfs2/*
-    echo "!暂不支持此发行版"
+    echo "!This release is not currently supported"
     exit 2
     else
     cmd2="apt install dropbear -y"
@@ -90,7 +90,7 @@ echo "- 正在安装dropbear"
     # for Alpine
     if [ ! -n "$rootfs2/usr/bin/apk" ]; then
     rm -rf $rootfs2/*
-    echo "!暂不支持此发行版"
+    echo "!This release is not currently supported"
     exit 2
     else
     cmd2="apk add dropbear"
@@ -103,14 +103,14 @@ deploy_linux_step2
 # Post Installed Before
 deploy_linux_step1(){
 if [ ! -n "$rootfs2" ]; then
-    echo "!选择的路径不可用"
+    echo "!The selected path is not available"
     exit 1
     else
     echo "">/dev/null
 fi
 if [ ! -n "$file" ]; then
     if [ ! -n "$file2" ]; then
-    echo "!选择的源文件不可用"
+    echo "!The selected source file is not available"
     exit 2
     else
     echo "">/dev/null
@@ -131,10 +131,10 @@ deploy_linux_step2(){
 if [ -d "$rootfs2/bin/" ];then
   echo "">/dev/null
   else
-  echo "!解压过程出现异常"
+  echo "!An exception occurred during the decompression process"
   exit 255
 fi
-echo "- 正在执行附加操作"
+echo "- Performing additional operation"
 if [ -d "$rootfs2/dogeland/" ];then
  # Setup from RootfsPackageData
   cat $rootfs2/dogeland/cmd.conf >$CONFIG_DIR/cmd.config
@@ -182,5 +182,5 @@ mkdir $rootfs2/dogeland/.filetran_s/
 cp -R $TOOLKIT/include/* $rootfs2/dogeland/include/
 # Run Other Setup
 . $TOOLKIT/include/extra_linuxconfigure.sh configure
-echo "! 全部完成"
+echo "! All Done"
 }

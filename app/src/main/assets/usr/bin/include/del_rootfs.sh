@@ -4,10 +4,10 @@
 del_rootfs() {
 if [ -d "$rootfs/usr/" ];then
   check_rootfs_status
-  echo "- 正在移除"
+  echo "- Removing"
   rm -rf $rootfs/*
-  echo "- 完成"
+  echo "- done"
   else
-  echo "- 失败"
+  echo "- failed"
 fi
 }

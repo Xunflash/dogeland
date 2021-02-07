@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- MainPage -->
+<items>
+    <group>
+        <action>
+            <title>Start/Stop</title>
+             <desc>Manage  GNU/Linux containers </desc>
+             <param name="start">
+                <option value="start_auto">[auto]</option>
+                <option value="start_chroot">[chroot]</option>
+                <option value="start_proot">[proot]</option>
+                <option value="start_unshare">[unshare]</option>
+            </param>
+            <param name="addcmd" label="AddonCmd" title="" placeholder="" type="text" />
+            <set>$TOOLKIT/cli.sh $start</set>
+            </action>
+            </group>
+            <group>
+              <action>
+            <title>LiteTerminal</title>
+            <desc>Quickly execute LinuxShell commands</desc>
+            <param name="cmd2" label="" title="" placeholder="" type="text" />
+             <param name="exec">
+                <option value="exec_auto">[auto]</option>
+                <option value="exec_chroot">[chroot]</option>
+                <option value="exec_proot">[proot]</option>
+                <option value="exec_unshare">[unshare]</option>
+                <option value="exec_localshell">[AppShell]</option>
+            </param>
+            <set>$TOOLKIT/cli.sh $exec</set>
+        </action>
+    </group>
+</items>
+<items>
+ <group>
+<page config="pages/wyr1nmlc.xml" title="Settings" />
+ </group>
+  <group>
+   <page config="pages/5YoxqlDU.xml" title="Store" />
+  </group>
+</items>

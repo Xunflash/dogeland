@@ -1,17 +1,16 @@
 # dogeland
 ![ic_launcher.png](app/src/main/res/mipmap-xhdpi/ic_launcher.png)
   
-在Android上运行任意 GNU / Linux 发行版.  
-proot + chroot + unshare 三容器引擎全向支持🌸  
-arm(64)与x86_64全向架构支持🌹  
+Run any GNU/Linux distribution on Android.
+proot + chroot + unshare Three container engine omnidirectional support🌸
+ arm(64) and x86_64 omnidirectional architecture support🌹
 ![img1.png](docs/images/img1.png)
 ![img2.png](docs/images/img2.png)
 ![img3.png](docs/images/img3.png)
 ![img4.png](docs/images/img4.png)
   
-[rootfs仓库](https://cloud.189.cn/t/mqay2enyyuMj)
   
-## 组件与依赖
+## Components and dependencies
   
 busybox[GPL]  
 proot[GPL]  
@@ -20,3 +19,5 @@ libtalloc
 util-linux  
 dropbear  
   
+## Wiki
+[Click here](wiki/README.md)

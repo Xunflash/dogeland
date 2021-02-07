@@ -32,6 +32,6 @@ if [[ -f "$1" ]]; then
     cd $PREFIX
     . "$1"
 else
-    echo "未指定命令"
+    echo "No Command"
     exit
 fi
