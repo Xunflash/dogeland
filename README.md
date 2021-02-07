@@ -1,4 +1,5 @@
 # dogeland
+[中文](README_zh.md)  
 ![ic_launcher.png](app/src/main/res/mipmap-xhdpi/ic_launcher.png)
   
 Run any GNU/Linux distribution on Android.
