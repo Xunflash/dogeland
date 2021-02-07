@@ -21,4 +21,5 @@ util-linux
 dropbear  
   
 ## Wiki
+![img5.png](docs/images/img5.gif)  
 [Click here](wiki/README.md)
