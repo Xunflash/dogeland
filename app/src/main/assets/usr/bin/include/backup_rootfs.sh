@@ -4,8 +4,6 @@
 backup_rootfs(){
 check_rootfs_status
 cd $rootfs/
-echo "- Wiping /tmp "
-rm -rf ./tmp/*
 echo "- Exporting rootfs "
 if [[ "$(pwd)" != "/" ]]
 then

@@ -1,16 +1,12 @@
-# dogeland cli module
-#
-# license: gpl-v3
 platform()
 {
     local arch="$1"
-    arch=$(getprop ro.product.cpu.abi)
+   if [[ "$(which uname)" != "" ]]
+   then
     arch=$(uname -m)
-    if [ ! -f "$TMPDIR/busybox" ]; then
-    echo "">/dev/null
-    else
-    arch=$($TMPDIR/busybox uname -m)
-    fi
+   else
+    arch=$(getprop ro.product.cpu.abi)
+   fi
     case "${arch}" in
     arm64-v8a|aarch64|armv8l)
         echo "arm64"

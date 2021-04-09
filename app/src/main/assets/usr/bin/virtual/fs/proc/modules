@@ -1,0 +1,50 @@
+veth 28672 0 - Live 0xbf288000
+xt_conntrack 16384 1 - Live 0xbf272000
+xt_MASQUERADE 16384 1 - Live 0xbf26a000
+nf_conntrack_netlink 45056 0 - Live 0xbf255000
+nft_counter 16384 15 - Live 0xbf22d000
+xt_addrtype 16384 2 - Live 0xbf228000
+nft_compat 20480 4 - Live 0xbf21e000
+nft_chain_nat 16384 4 - Live 0xbf209000
+nf_nat 45056 2 xt_MASQUERADE,nft_chain_nat, Live 0xbf182000
+nf_conntrack 131072 4 xt_conntrack,xt_MASQUERADE,nf_conntrack_netlink,nf_nat, Live 0xbf1d6000
+nf_defrag_ipv6 20480 1 nf_conntrack, Live 0xbf0e8000
+nf_defrag_ipv4 16384 1 nf_conntrack, Live 0xbf0e3000
+nf_tables 196608 45 nft_counter,nft_compat,nft_chain_nat, Live 0xbf1a5000
+nfnetlink 16384 4 nf_conntrack_netlink,nft_compat,nf_tables, Live 0xbf09d000
+br_netfilter 28672 0 - Live 0xbf0b0000
+bridge 167936 1 br_netfilter, Live 0xbf146000
+overlay 106496 1 - Live 0xbf12b000
+8021q 32768 0 - Live 0xbf59b000
+garp 16384 1 8021q, Live 0xbf593000
+stp 16384 2 bridge,garp, Live 0xbf58c000
+llc 16384 3 bridge,garp,stp, Live 0xbf583000
+8188eu 1191936 0 - Live 0xbf427000 (O)
+sha256_generic 16384 0 - Live 0xbf41f000
+libsha256 20480 1 sha256_generic, Live 0xbf417000
+cfg80211 774144 1 8188eu, Live 0xbf31c000
+rfkill 32768 3 cfg80211, Live 0xbf30e000
+raspberrypi_hwmon 16384 0 - Live 0xbf306000
+bcm2835_codec 40960 0 - Live 0xbf2f6000 (C)
+v4l2_mem2mem 36864 1 bcm2835_codec, Live 0xbf2e6000
+bcm2835_v4l2 40960 0 - Live 0xbf2d6000 (C)
+bcm2835_isp 28672 0 - Live 0xbf2ca000 (C)
+snd_bcm2835 24576 0 - Live 0xbf2b3000 (C)
+bcm2835_mmal_vchiq 28672 3 bcm2835_codec,bcm2835_v4l2,bcm2835_isp, Live 0xbf2a3000 (C)
+videobuf2_vmalloc 16384 1 bcm2835_v4l2, Live 0xbf294000
+videobuf2_dma_contig 20480 2 bcm2835_codec,bcm2835_isp, Live 0xbf282000
+videobuf2_memops 16384 2 videobuf2_vmalloc,videobuf2_dma_contig, Live 0xbf27b000
+videobuf2_v4l2 32768 4 bcm2835_codec,v4l2_mem2mem,bcm2835_v4l2,bcm2835_isp, Live 0xbf261000
+snd_pcm 106496 1 snd_bcm2835, Live 0xbf23a000
+videobuf2_common 61440 5 bcm2835_codec,v4l2_mem2mem,bcm2835_v4l2,bcm2835_isp,videobuf2_v4l2, Live 0xbf20e000
+snd_timer 32768 1 snd_pcm, Live 0xbf200000
+snd 77824 3 snd_bcm2835,snd_pcm,snd_timer, Live 0xbf191000
+videodev 241664 6 bcm2835_codec,v4l2_mem2mem,bcm2835_v4l2,bcm2835_isp,videobuf2_v4l2,videobuf2_common, Live 0xbf0ef000
+mc 45056 6 bcm2835_codec,v4l2_mem2mem,bcm2835_isp,videobuf2_v4l2,videobuf2_common,videodev, Live 0xbf0c9000
+vc_sm_cma 32768 2 bcm2835_isp,bcm2835_mmal_vchiq, Live 0xbf0bb000 (C)
+uio_pdrv_genirq 16384 0 - Live 0xbf0ab000
+fixed 16384 0 - Live 0xbf07f000
+uio 20480 1 uio_pdrv_genirq, Live 0xbf075000
+ip_tables 28672 0 - Live 0xbf0a3000
+x_tables 32768 5 xt_conntrack,xt_MASQUERADE,xt_addrtype,nft_compat,ip_tables, Live 0xbf094000
+ipv6 475136 30 br_netfilter,bridge,[permanent], Live 0xbf000000

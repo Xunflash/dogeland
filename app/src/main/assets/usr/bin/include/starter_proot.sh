@@ -9,30 +9,14 @@ then
 # if Run,Then Stop
 stop_rootfs
 else
-# Start
+# Start Process
 
-# Enable DebugMessage
+# Enable DebugOutput
 if [ -e "$CONFIG_DIR/.debug" ];then
 export addcmd="$addcmd -v $(cat $CONFIG_DIR/.debug)"
 else
 echo "">/dev/null
 fi 
-
-# Enable Fake ProcStat
-if [ -e "$rootfs/proc/.stat" ];then
-export addcmd="$addcmd -b $rootfs/proc/.stat:/proc/stat"
-else
-echo "">/dev/null
-fi 
-
-# Enable FakeKernel
-if [ -e "$CONFIG_DIR/fake_kernel" ];then
-export fake_kernel=$(cat $CONFIG_DIR/fake_kernel)
-export addcmd="$addcmd -k $fake_kernel -b $rootfs/proc/.version:/proc/version"
-else
-echo "">/dev/null
-fi 
-
 # Enable QEMU Emulator
 if [ -f "$CONFIG_DIR/emulator_qemu.config" ];then
 export qemu="$TOOLKIT/qemu-user-$(cat $CONFIG_DIR/emulator_qemu.config)"
@@ -40,15 +24,10 @@ export addcmd="$addcmd -q $qemu"
 else
 echo "">/dev/null
 fi 
-
 set_env
-# Change Status and Start
 echo "Run">$rootfs/dogeland/status
-startcmd="$addcmd -0 --link2symlink --sysvipc "
-startcmd+="-r $rootfs -b /dev -b /sys -b /proc -b $rootfs/home:/dev/shm "
-startcmd+="-b /proc/self/fd:/dev/fd -b /dev/null:/dev/tty0 "
-startcmd+="-b /dev/urandom:/dev/random "
-#startcmd+="-b /proc/self/fd/0:/dev/stdin -b /proc/self/fd/1:/dev/stdout -b /proc/self/fd/2:/dev/stderr "
+vkfs_proot_init
+startcmd=" $addcmd -0 --link2symlink --sysvipc "
 startcmd+="-w /root $cmd"
 $TOOLKIT/proot $startcmd
 unset startcmd

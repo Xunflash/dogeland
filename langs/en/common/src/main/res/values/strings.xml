@@ -1,6 +1,0 @@
-<resources>
-    <string name="execute_success">Run Success</string>
-    <string name="execute_fail">Run Faild</string>
-    <string name="execute_wait">Running</string>
-    <string name="btn_confirm">Confirm</string>
-</resources>

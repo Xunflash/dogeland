@@ -57,7 +57,7 @@ if [ -d "$DATA2_DIR" ];then
   touch $CONFIG_DIR/rootfs.config
   touch $CONFIG_DIR/cmd.config
   touch $CONFIG_DIR/patch_proot-secomp.config
-  mkdir $DATA2_DIR/filetran
+  touch $DATA2_DIR/filetran
   else
   echo "!Data initialization failed"
   echo "----------"

@@ -1,33 +1,30 @@
 exec_unshare(){
 check_rootfs
-mount_part
+vkfs_unshare_init
 set_env
-echo "$cmd2">$rootfs/dogeland/runcmd.sh
-chmod 0777 $rootfs/dogeland/runcmd.sh
-export unshare="$TOOLKIT/unshare $addcmd -R $rootfs"
+export unshare="$TOOLKIT/unshare $addcmd -R $rootfs "
 if [ -f "$rootfs/bin/su" ];then
-$unshare /bin/su -c /dogeland/runcmd.sh
+$unshare /bin/su -c $cmd2
 else
 if [ -f "$rootfs/bin/sh" ];then
-$unshare /bin/sh /dogeland/runcmd.sh
+$unshare /bin/sh $cmd2
 pkill sh
 else
 if [ -f "$rootfs/bin/ash" ];then
-$unshare /bin/ash /dogeland/runcmd.sh
+$unshare /bin/ash $cmd2
 pkill ash
 else
 
 if [ -f "$rootfs/bin/bash" ];then
-$unshare /bin/bash /dogeland/runcmd.sh
+$unshare /bin/bash $cmd2
 pkill bash
 else
 
 if [ -f "$rootfs/bin/zsh" ];then
-$unshare /bin/zsh /dogeland/runcmd.sh
+$unshare /bin/zsh $cmd2
 pkill zsh
 else
-echo "?无法启动到Shell入口"
-$unshare "$rootfs" $(cat /dogeland/runcmd.sh)
+$unshare "$rootfs" $cmd2
 fi
 echo "">/dev/null
 fi
@@ -38,5 +35,5 @@ fi
 echo "">/dev/null
 fi
 unset unshare
-rm $rootfs/dogeland/runcmd.sh
+unset cmd2
 }

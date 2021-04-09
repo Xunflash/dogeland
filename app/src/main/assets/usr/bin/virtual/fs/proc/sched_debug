@@ -1,0 +1,948 @@
+Sched Debug Version: v0.11, 5.10.23+ #1
+ktime                                   : 4326889.022948
+sched_clk                               : 4326919.521000
+cpu_clk                                 : 4326919.521000
+jiffies                                 : 402688
+
+sysctl_sched
+  .sysctl_sched_latency                    : 6.000000
+  .sysctl_sched_min_granularity            : 0.750000
+  .sysctl_sched_wakeup_granularity         : 1.000000
+  .sysctl_sched_child_runs_first           : 0
+  .sysctl_sched_features                   : 2067259
+  .sysctl_sched_tunable_scaling            : 1 (logarithmic)
+
+cpu#0
+  .nr_running                    : 1
+  .nr_switches                   : 1313196
+  .nr_uninterruptible            : 0
+  .next_balance                  : 0.000000
+  .curr->pid                     : 2304
+  .clock                         : 4326920.626000
+  .clock_task                    : 4326920.626000
+
+cfs_rq[0]:/system.slice/sys-kernel-debug.mount
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 221.156311
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157732.601960
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 12244.468000
+  .se->vruntime                  : 334.688000
+  .se->sum_exec_runtime          : 301.119000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/autogroup-1
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 9118.310416
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -148835.447855
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 4262918.081000
+  .se->vruntime                  : 153952.478271
+  .se->sum_exec_runtime          : 11079.261000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/run-rpc_pipefs.mount
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 208.170026
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157745.588245
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 12249.753000
+  .se->vruntime                  : 334.823000
+  .se->sum_exec_runtime          : 286.705000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/dev-mqueue.mount
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 195.057408
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157758.700863
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 12247.517000
+  .se->vruntime                  : 334.497000
+  .se->sum_exec_runtime          : 271.621000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/systemd-journald.service
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 2180.957424
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -155772.800847
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 4262916.918000
+  .se->vruntime                  : 93438.196000
+  .se->sum_exec_runtime          : 2182.006000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/sys-kernel-config.mount
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 195.145981
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157758.612290
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 13484.205000
+  .se->vruntime                  : 519.079000
+  .se->sum_exec_runtime          : 276.046000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/systemd-udevd.service
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 2604.669653
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -155349.088618
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 4262912.945000
+  .se->vruntime                  : 93438.165000
+  .se->sum_exec_runtime          : 8578.496000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/system-systemd\x2dfsck.slice
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 685.621418
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157268.136853
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 26652.302000
+  .se->vruntime                  : 7877.862000
+  .se->sum_exec_runtime          : 691.498000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/boot.mount
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 203.380392
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157750.377879
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 27392.183000
+  .se->vruntime                  : 8165.585000
+  .se->sum_exec_runtime          : 265.596000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/systemd-timesyncd.service
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 867.397422
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157086.360849
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 4252913.084000
+  .se->vruntime                  : 93426.520000
+  .se->sum_exec_runtime          : 892.304000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/docker.socket
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 13.969421
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157939.788850
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 30282.385000
+  .se->vruntime                  : 9338.115000
+  .se->sum_exec_runtime          : 14.235000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/cron.service
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 430.986330
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157522.771941
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 4294119.900000
+  .se->vruntime                  : 93807.684000
+  .se->sum_exec_runtime          : 400.771000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/systemd-logind.service
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 629.481424
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157324.276847
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 4262913.805000
+  .se->vruntime                  : 93438.234000
+  .se->sum_exec_runtime          : 630.530000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/avahi-daemon.service
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 391.888424
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157561.869847
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 3798198.099000
+  .se->vruntime                  : 91096.490000
+  .se->sum_exec_runtime          : 397.381000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/rng-tools.service
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 148.558085
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157805.200186
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 4294910.752000
+  .se->vruntime                  : 93807.457000
+  .se->sum_exec_runtime          : 179.301000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/triggerhappy.service
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 155.231424
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157798.526847
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 4325495.723000
+  .se->vruntime                  : 93859.624000
+  .se->sum_exec_runtime          : 156.280000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/dbus.service
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 984.442424
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -156969.315847
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 4126217.274000
+  .se->vruntime                  : 92893.023000
+  .se->sum_exec_runtime          : 985.491000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/wpa_supplicant.service
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 201.220424
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157752.537847
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 4326882.057000
+  .se->vruntime                  : 93863.340000
+  .se->sum_exec_runtime          : 202.269000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/rsyslog.service
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 271.572420
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157682.185851
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 4262190.062000
+  .se->vruntime                  : 93436.492000
+  .se->sum_exec_runtime          : 445.797000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/dhcpcd.service
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 4002.616677
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -153951.141594
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 4317330.886000
+  .se->vruntime                  : 93854.608000
+  .se->sum_exec_runtime          : 4200.456000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/containerd.service
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 20358.018089
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -137595.740182
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 4326106.134000
+  .se->vruntime                  : 93864.885000
+  .se->sum_exec_runtime          : 30950.000000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/ssh.service
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 1086.155412
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -156867.602859
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 3657349.756000
+  .se->vruntime                  : 75288.441000
+  .se->sum_exec_runtime          : 1125.514000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/system-getty.slice
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 27.319424
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157926.438847
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 47102.249000
+  .se->vruntime                  : 12705.650000
+  .se->sum_exec_runtime          : 28.368000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/system-serial\x2dgetty.slice
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 24.508424
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157929.249847
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 48089.996000
+  .se->vruntime                  : 12704.234000
+  .se->sum_exec_runtime          : 25.557000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice/docker.service
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 31923.459052
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -126030.299219
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 4319907.824000
+  .se->vruntime                  : 93857.011000
+  .se->sum_exec_runtime          : 44517.029000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/system.slice
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 93864.885000
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -64088.873271
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 4326882.057000
+  .se->vruntime                  : 157914.196271
+  .se->sum_exec_runtime          : 119551.768000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/autogroup-4
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 7.495422
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157946.262849
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 9691.140000
+  .se->vruntime                  : 7509.823102
+  .se->sum_exec_runtime          : 3.240000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/autogroup-18
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 5.655421
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157948.102850
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 16687.397000
+  .se->vruntime                  : 13409.159102
+  .se->sum_exec_runtime          : 2.608000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/autogroup-26
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 15.248422
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157938.509849
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 28632.768000
+  .se->vruntime                  : 21845.390101
+  .se->sum_exec_runtime          : 12.725000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/autogroup-27
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 6.135421
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157947.622850
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 30339.759000
+  .se->vruntime                  : 23263.992101
+  .se->sum_exec_runtime          : 2.719000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/autogroup-28
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 5.943422
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157947.814849
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 30389.846000
+  .se->vruntime                  : 23287.954101
+  .se->sum_exec_runtime          : 2.742000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/autogroup-30
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 6.598422
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157947.159849
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 30478.777000
+  .se->vruntime                  : 23328.136101
+  .se->sum_exec_runtime          : 2.740000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/autogroup-33
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 1.657424
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157952.100847
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 30625.493000
+  .se->vruntime                  : 23394.775101
+  .se->sum_exec_runtime          : 2.706000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/autogroup-34
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 1.491424
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157952.266847
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 30681.521000
+  .se->vruntime                  : 23420.904101
+  .se->sum_exec_runtime          : 2.540000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/autogroup-35
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 2.734422
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157951.023849
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 30823.708000
+  .se->vruntime                  : 23485.028101
+  .se->sum_exec_runtime          : 2.730000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/autogroup-36
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 2.808422
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157950.949849
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 30876.057000
+  .se->vruntime                  : 23508.381101
+  .se->sum_exec_runtime          : 2.670000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/autogroup-47
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 1.548423
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157952.209848
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 41808.047000
+  .se->vruntime                  : 27306.069101
+  .se->sum_exec_runtime          : 2.313000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/autogroup-48
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 1.981422
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157951.776849
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 42271.536000
+  .se->vruntime                  : 27600.168101
+  .se->sum_exec_runtime          : 2.666000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/autogroup-49
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 2.542424
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157951.215847
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 47008.539000
+  .se->vruntime                  : 29496.455101
+  .se->sum_exec_runtime          : 3.963000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/autogroup-50
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 3.485424
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157950.272847
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 47019.716000
+  .se->vruntime                  : 29498.286101
+  .se->sum_exec_runtime          : 4.519000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/user.slice
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 22803.873382
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -135149.884889
+  .nr_spread_over                : 0
+  .nr_running                    : 1
+  .load                          : 1024
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 4326920.626000
+  .se->vruntime                  : 157953.758271
+  .se->sum_exec_runtime          : 27657.963000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/autogroup-63
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 9.287422
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157944.470849
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 147698.609000
+  .se->vruntime                  : 46665.402101
+  .se->sum_exec_runtime          : 8.797000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/autogroup-65
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 2.427422
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -157951.330849
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 176758.796000
+  .se->vruntime                  : 51596.379101
+  .se->sum_exec_runtime          : 2.220000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/docker/8b02652388c95d4571332364c70accfaffe2a8a75ea8a67d11899cf8a4acf38a
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 1953.003339
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -156000.754932
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 3653448.300000
+  .se->vruntime                  : 2655.142000
+  .se->sum_exec_runtime          : 2157.417000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/docker
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 3291.861000
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : -154661.897271
+  .nr_spread_over                : 0
+  .nr_running                    : 0
+  .load                          : 0
+  .throttled                     : 0
+  .throttle_count                : 0
+  .se->exec_start                : 3779061.469000
+  .se->vruntime                  : 142986.414277
+  .se->sum_exec_runtime          : 3297.861000
+  .se->load.weight               : 1024
+
+cfs_rq[0]:/
+  .exec_clock                    : 0.000000
+  .MIN_vruntime                  : 0.000001
+  .min_vruntime                  : 157953.758271
+  .max_vruntime                  : 0.000001
+  .spread                        : 0.000000
+  .spread0                       : 0.000000
+  .nr_spread_over                : 0
+  .nr_running                    : 1
+  .load                          : 1024
+  .throttled                     : 0
+  .throttle_count                : 0
+
+rt_rq[0]:
+  .rt_nr_running                 : 0
+  .rt_throttled                  : 0
+  .rt_time                       : 0.000000
+  .rt_runtime                    : 950.000000
+
+dl_rq[0]:
+  .dl_nr_running                 : 0
+  .dl_bw->bw                     : 996147
+  .dl_bw->total_bw               : 0
+
+runnable tasks:
+ S            task   PID         tree-key  switches  prio     wait-time             sum-exec        sum-sleep
+-------------------------------------------------------------------------------------------------------------
+ S         systemd     1      9118.310416      2986   120         0.000000     11861.184000         0.000000 /autogroup-1
+ S        kthreadd     2    153446.246273        83   120         0.000000        17.294000         0.000000 /
+ I    mm_percpu_wq     6        15.325257         2   100         0.000000         0.050000         0.000000 /
+ S rcu_tasks_rude_     7        17.348072         2   120         0.000000         0.039000         0.000000 /
+ S rcu_tasks_trace     8        19.366071         2   120         0.000000         0.040000         0.000000 /
+ S     ksoftirqd/0     9    157950.805271     26031   120         0.000000      2433.814000         0.000000 /
+ S       kdevtmpfs    10     17614.399102       146   120         0.000000        15.637000         0.000000 /
+ I           netns    11        34.421402         2   100         0.000000         0.080000         0.000000 /
+ S         kauditd    13        58.407068         2   120         0.000000         0.187000         0.000000 /
+ S      khungtaskd    14    154899.679271        37   120         0.000000         5.113000         0.000000 /
+ S      oom_reaper    15       127.755065         2   120         0.000000         0.037000         0.000000 /
+ I       writeback    16       129.771271         2   100         0.000000         0.054000         0.000000 /
+ S      kcompactd0    17    157485.435271      8483   120         0.000000       640.888000         0.000000 /
+ I         kblockd    32       162.339255         2   100         0.000000         0.059000         0.000000 /
+ I  blkcg_punt_bio    33       164.361266         2   100         0.000000         0.059000         0.000000 /
+ S       watchdogd    34        -2.657002         2    49         0.000000         0.069000         0.000000 /
+ I          rpciod    35      1980.118241         2   100         0.000000         0.050000         0.000000 /
+ I    kworker/u3:0    36      1981.623285         2   100         0.000000         0.039000         0.000000 /
+ I         xprtiod    37      1981.727919         2   100         0.000000         0.056000         0.000000 /
+ S         kswapd0    38    138278.410279        60   120         0.000000       211.317000         0.000000 /
+ I          nfsiod    39      2004.394276         2   100         0.000000         0.065000         0.000000 /
+ I        iscsi_eh    40      2092.942265         2   100         0.000000         0.053000         0.000000 /
+ I   iscsi_destroy    41      2094.467263         2   100         0.000000         0.058000         0.000000 /
+ I         dwc_otg    42      2297.941285         2   100         0.000000         0.059000         0.000000 /
+ I DWC Notificatio    43      2557.158262         2   100         0.000000         0.057000         0.000000 /
+ S    vchiq-slot/0    45     16010.302615        11   101         0.000000         0.620000         0.000000 /
+ S    vchiq-recy/0    46      2589.334296         2   101         0.000000         0.036000         0.000000 /
+ S    vchiq-sync/0    47      2592.334339         2   100         0.000000         0.047000         0.000000 /
+ I    zswap-shrink    48      2605.462269         2   100         0.000000         0.059000         0.000000 /
+ I    mmc_complete    50      3718.854257         2   100         0.000000         0.078000         0.000000 /
+ S jbd2/mmcblk0p2-    52    155752.848271      1555   120         0.000000       222.267000         0.000000 /
+ I ext4-rsv-conver    53      3802.228452         2   100         0.000000         0.094000         0.000000 /
+ I    kworker/0:2H    54    156170.700963      3837   100         0.000000       501.834000         0.000000 /
+ I   ipv6_addrconf    55      4262.073413         2   100         0.000000         0.077000         0.000000 /
+ S systemd-journal    76      2180.957424      1259   120         0.000000      2190.915000         0.000000 /system.slice/systemd-journald.service
+ S   systemd-udevd   188      2604.669653       618   120         0.000000      1205.619000         0.000000 /system.slice/systemd-udevd.service
+ S    vchiq-keep/0   199     15445.784102         2   120         0.000000         0.230000         0.000000 /
+ I    kworker/u2:2   234    157249.232271      2082   120         0.000000       269.397000         0.000000 /
+ I        cfg80211   242     18538.506321         2   100         0.000000         0.083000         0.000000 /
+ S systemd-timesyn   297       867.397422       189   120         0.000000       872.370000         0.000000 /system.slice/systemd-timesyncd.service
+ S      sd-resolve   331       800.884422        23   120         0.000000        37.729000         0.000000 /system.slice/systemd-timesyncd.service
+ S            cron   333       429.651330        89   120         0.000000        72.663000         0.000000 /system.slice/cron.service
+ S  systemd-logind   334       629.481424       816   120         0.000000       638.421000         0.000000 /system.slice/systemd-logind.service
+ S    avahi-daemon   336       391.888424       514   120         0.000000       400.932000         0.000000 /system.slice/avahi-daemon.service
+ S             thd   338       155.231424       890   120         0.000000       164.308000         0.000000 /system.slice/triggerhappy.service
+ S     dbus-daemon   342       984.442424      1169   120         0.000000       993.269000         0.000000 /system.slice/dbus.service
+ S  wpa_supplicant   344       201.220424       511   120         0.000000       210.176000         0.000000 /system.slice/wpa_supplicant.service
+ S        rsyslogd   345       268.812420        53   120         0.000000        88.709000         0.000000 /system.slice/rsyslog.service
+ S     in:imuxsock   363       268.569420       440   120         0.000000       141.504000         0.000000 /system.slice/rsyslog.service
+ S       in:imklog   364       263.959420        42   120         0.000000        29.349000         0.000000 /system.slice/rsyslog.service
+ S   rs:main Q:Reg   366       271.572420       516   120         0.000000       194.165000         0.000000 /system.slice/rsyslog.service
+ S            rngd   356       145.399085         6   120         0.000000         9.209000         0.000000 /system.slice/rng-tools.service
+ S            rngd   360       144.492085        29   120         0.000000        96.711000         0.000000 /system.slice/rng-tools.service
+ S            rngd   361       144.617085        16   120         0.000000        14.127000         0.000000 /system.slice/rng-tools.service
+ S            rngd   362       148.558085        78   120         0.000000        15.001000         0.000000 /system.slice/rng-tools.service
+ S    avahi-daemon   359        74.962424         7   120         0.000000         4.444000         0.000000 /system.slice/avahi-daemon.service
+ S  RTW_CMD_THREAD   403    157784.464271    167157   120         0.000000     17892.117000         0.000000 /
+ S  wpa_supplicant   404      4002.616677       775   120         0.000000       192.100000         0.000000 /system.slice/dhcpcd.service
+ S          dhcpcd   466      3999.213677       497   120         0.000000       295.149000         0.000000 /system.slice/dhcpcd.service
+ S      containerd   473       518.518413       536   120         0.000000       476.514000         0.000000 /system.slice/containerd.service
+ S      containerd   477     20356.172089     39541   120         0.000000      2443.238000         0.000000 /system.slice/containerd.service
+ S      containerd   478       421.906413         3   120         0.000000         0.847000         0.000000 /system.slice/containerd.service
+ S      containerd   479     18511.782385      2737   120         0.000000       653.567000         0.000000 /system.slice/containerd.service
+ S      containerd   480       518.787413         3   120         0.000000         0.549000         0.000000 /system.slice/containerd.service
+ S      containerd   481     19601.765089     10983   120         0.000000      1900.041000         0.000000 /system.slice/containerd.service
+ S      containerd   482     20358.018089     17647   120         0.000000      3641.014000         0.000000 /system.slice/containerd.service
+ S      containerd   484      1520.021403       537   120         0.000000        42.366000         0.000000 /system.slice/containerd.service
+ S      containerd   485     20356.111089      5347   120         0.000000      1160.292000         0.000000 /system.slice/containerd.service
+ S      containerd   486     19597.743089      9330   120         0.000000      1372.361000         0.000000 /system.slice/containerd.service
+ S          agetty   474        24.508424        21   120         0.000000        35.690000         0.000000 /system.slice/system-serial\x2dgetty.slice
+ S          agetty   475        27.319424        24   120         0.000000        37.315000         0.000000 /system.slice/system-getty.slice
+ S            sshd   476      1077.941412        90   120         0.000000       140.436000         0.000000 /system.slice/ssh.service
+ S         systemd   706     15111.880757       554   120         0.000000      1865.971000         0.000000 /user.slice
+ S        (sd-pam)   707       132.060421         2   120         0.000000         2.973000         0.000000 /user.slice
+ S              su   732      1622.926360        39   120         0.000000       321.218000         0.000000 /user.slice
+ S            fish   733      5476.254871       722   120         0.000000      1309.286000         0.000000 /user.slice
+ S         dockerd   817      5399.217073       943   120         0.000000      1123.656000         0.000000 /system.slice/docker.service
+ S         dockerd   818     31923.459052    177023   120         0.000000      9196.186000         0.000000 /system.slice/docker.service
+ S         dockerd   819     31920.518052     28313   120         0.000000      6282.224000         0.000000 /system.slice/docker.service
+ S         dockerd   820       485.429416        20   120         0.000000         1.402000         0.000000 /system.slice/docker.service
+ S         dockerd   821       459.893412         2   120         0.000000         0.134000         0.000000 /system.slice/docker.service
+ S         dockerd   822     30085.176052     32626   120         0.000000      3442.498000         0.000000 /system.slice/docker.service
+ S         dockerd   823      5013.405107       399   120         0.000000       132.587000         0.000000 /system.slice/docker.service
+ S         dockerd   824      5015.961107      2552   120         0.000000       345.785000         0.000000 /system.slice/docker.service
+ S         dockerd   825      5012.148107        86   120         0.000000        36.020000         0.000000 /system.slice/docker.service
+ S         dockerd   826      5013.045107       391   120         0.000000        61.903000         0.000000 /system.slice/docker.service
+ S         dockerd   827     30082.114052       236   120         0.000000        50.504000         0.000000 /system.slice/docker.service
+ S         dockerd   828     30818.045052     73735   120         0.000000     10814.555000         0.000000 /system.slice/docker.service
+ S         dockerd   829     30817.708052     27560   120         0.000000      3861.244000         0.000000 /system.slice/docker.service
+ S         dockerd   830     31920.438052     25200   120         0.000000      3215.770000         0.000000 /system.slice/docker.service
+ S         dockerd   831      5016.082107        23   120         0.000000        11.385000         0.000000 /system.slice/docker.service
+ S         dockerd   832      5013.202107        66   120         0.000000         9.793000         0.000000 /system.slice/docker.service
+ S         dockerd   833      5015.403107       151   120         0.000000        15.600000         0.000000 /system.slice/docker.service
+ S          docker  1209     11268.881855       881   120         0.000000       652.726000         0.000000 /user.slice
+ S          docker  1210     21636.740391      9189   120         0.000000       821.022000         0.000000 /user.slice
+ S          docker  1211     11268.898855      2802   120         0.000000       377.921000         0.000000 /user.slice
+ S          docker  1212     11268.860855        53   120         0.000000         7.857000         0.000000 /user.slice
+ S          docker  1213      5724.590858         2   120         0.000000         0.117000         0.000000 /user.slice
+ S          docker  1214      6234.947858        80   120         0.000000         6.295000         0.000000 /user.slice
+ S          docker  1215     21636.873391      1500   120         0.000000       309.433000         0.000000 /user.slice
+ S          docker  1290     21636.756391      3382   120         0.000000      1887.783000         0.000000 /user.slice
+ S          docker  1361     11809.680834      2169   120         0.000000       855.585000         0.000000 /user.slice
+ S containerd-shim  1238      3872.551967        92   120         0.000000        31.518000         0.000000 /system.slice/containerd.service
+ S containerd-shim  1246     20349.998089     33324   120         0.000000      2109.022000         0.000000 /system.slice/containerd.service
+ S containerd-shim  1247     16653.579702      2583   120         0.000000       461.180000         0.000000 /system.slice/containerd.service
+ S containerd-shim  1248     16653.002702        44   120         0.000000         6.977000         0.000000 /system.slice/containerd.service
+ S containerd-shim  1250     16652.997702        75   120         0.000000        15.249000         0.000000 /system.slice/containerd.service
+ S containerd-shim  1252      3873.764964         2   120         0.000000         0.426000         0.000000 /system.slice/containerd.service
+ S containerd-shim  1253     15483.841715      1003   120         0.000000       222.451000         0.000000 /system.slice/containerd.service
+ S containerd-shim  1254      5091.618512        18   120         0.000000         9.886000         0.000000 /system.slice/containerd.service
+ S containerd-shim  1255      3874.436961         1   120         0.000000         0.166000         0.000000 /system.slice/containerd.service
+ S containerd-shim  1256     20352.748089      1493   120         0.000000       386.738000         0.000000 /system.slice/containerd.service
+ S containerd-shim  1259     20345.857089       590   120         0.000000       142.627000         0.000000 /system.slice/containerd.service
+ S containerd-shim  1318     20349.798089      2579   120         0.000000       517.219000         0.000000 /system.slice/containerd.service
+ S containerd-shim  1319     19855.628089      3354   120         0.000000       673.649000         0.000000 /system.slice/containerd.service
+ S containerd-shim  1320     20351.120089      3341   120         0.000000       739.502000         0.000000 /system.slice/containerd.service
+ S containerd-shim  1321     16653.454702      1579   120         0.000000       314.227000         0.000000 /system.slice/containerd.service
+ S             ash  1269       728.497377      2279   120         0.000000       447.149000         0.000000 /docker/8b02652388c95d4571332364c70accfaffe2a8a75ea8a67d11899cf8a4acf38a
+ S             ash  1494      1953.003339       360   120         0.000000       176.547000         0.000000 /docker/8b02652388c95d4571332364c70accfaffe2a8a75ea8a67d11899cf8a4acf38a
+ I     kworker/0:3  1512    156583.834271     18359   120         0.000000      1968.801000         0.000000 /
+ I     kworker/0:2  1515    153446.809273     16000   120         0.000000      1788.269000         0.000000 /
+ I    kworker/u2:1  1614    151027.203273     28152   120         0.000000       828.970000         0.000000 /
+ S            sshd  1645     11433.731845        90   120         0.000000       451.988000         0.000000 /user.slice
+ S            sshd  1651     22104.264382      1797   120         0.000000      1549.085000         0.000000 /user.slice
+ S            fish  1652     12201.037818       168   120         0.000000       413.153000         0.000000 /user.slice
+ S            sudo  1685     12275.413814        32   120         0.000000        71.249000         0.000000 /user.slice
+ S              su  1686     12394.200814        25   120         0.000000       120.618000         0.000000 /user.slice
+ S            fish  1687     21861.199385      1676   120         0.000000      3370.900000         0.000000 /user.slice
+ I    kworker/0:1H  1728    150245.720999        29   100         0.000000         2.039000         0.000000 /
+ I     kworker/0:0  1731    157921.783271      1537   120         0.000000       180.430000         0.000000 /
+ I     kworker/0:1  2189    157297.680271      3540   120         0.000000       376.347000         0.000000 /
+>R              cp  2304     22803.873382        43   120         0.000000       940.476000         0.000000 /user.slice
+

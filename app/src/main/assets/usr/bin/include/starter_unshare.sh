@@ -6,9 +6,9 @@ then
 # if Run,Then Stop
 stop_rootfs
 else
-mount_part
+# Start Process
+vkfs_unshare_init
 set_env
-# Change Status and Start
 echo "Run">$rootfs/dogeland/status
 $TOOLKIT/unshare $addcmd -R $rootfs $cmd # --mount-proc
 fi

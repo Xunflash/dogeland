@@ -4,7 +4,7 @@
 exec_auto(){
 check_rootfs 
 if [ "$(id -u)" = "0" ]; then
-	exec_chroot
+	exec_unshare
 	else
 	exec_proot
 fi
