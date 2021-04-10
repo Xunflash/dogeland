@@ -1,12 +1,8 @@
 platform()
 {
     local arch="$1"
-   if [[ "$(which uname)" != "" ]]
-   then
-    arch=$(uname -m)
-   else
+   # arch=$(uname -m)
     arch=$(getprop ro.product.cpu.abi)
-   fi
     case "${arch}" in
     arm64-v8a|aarch64|armv8l)
         echo "arm64"
