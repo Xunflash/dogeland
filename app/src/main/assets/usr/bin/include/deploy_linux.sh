@@ -137,14 +137,12 @@ fi
 echo "- Performing additional operation"
 if [ -d "$rootfs2/dogeland/" ];then
  # Setup from RootfsPackageData
-  cat $rootfs2/dogeland/cmd.conf >$CONFIG_DIR/cmd.config
+  cat $rootfs2/dogeland/cmd.conf >$CONFIG_DIR/cmdline.config
   . $rootfs2/dogeland/patch.sh
   rm -rf  $rootfs2/dogeland/*
   echo "$rootfs2" >$CONFIG_DIR/rootfs.config
   else
   mkdir $rootfs2/dogeland/
-  # Use Empty ConfigData
-  echo "$type">$CONFIG_DIR/cmd.config
   echo "$rootfs2" >$CONFIG_DIR/rootfs.config
 fi
 

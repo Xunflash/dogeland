@@ -21,7 +21,7 @@ else
 export PROOT_LOADER_32="$PREFIX/libexec/libloader32.so"
 fi
 export platform=$(sh $TOOLKIT/cli.sh platform)
-export cmd=$(cat $CONFIG_DIR/cmd.config)
+export cmd=$(cat $CONFIG_DIR/cmdline.config)
 export rootfs=$(cat $CONFIG_DIR/rootfs.config)
 if [[ -f "$TOOLKIT/install_bin_done" ]]; then
   echo "">/dev/null

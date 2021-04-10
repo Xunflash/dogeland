@@ -1,7 +1,7 @@
 # dogeland cli module
 #
 # license: gpl-v3
-start_proot(){
+exec_proot(){
 check_rootfs
 # Check RunStatus
 if [[ "$(cat $rootfs/dogeland/status)" != "Stop" ]]

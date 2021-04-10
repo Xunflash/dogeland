@@ -53,9 +53,4 @@ fi
 touch $TOOLKIT/install_bin_done
 rm -rf $PREFIX/preload
 chmod -R 0770 $PREFIX
-sed -i ‘26d’ $START_DIR/shell_init.sh
-sed -i ‘27d’ $START_DIR/shell_init.sh
-sed -i ‘28d’ $START_DIR/shell_init.sh
-sed -i ‘29d’ $START_DIR/shell_init.sh
-sed -i ‘30d’ $START_DIR/shell_init.sh
 mv $TOOLKIT/install_bin.sh $TMPDIR/install_bin.shbak
