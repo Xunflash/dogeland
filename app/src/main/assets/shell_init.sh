@@ -4,13 +4,13 @@
 export START_DIR=$({START_DIR})
 export SDCARD_PATH=$({SDCARD_PATH})
 export PACKAGE_NAME=$({PACKAGE_NAME})
-export TMPDIR=$START_DIR/cache/
-export PREFIX=$START_DIR/usr
-export TOOLKIT=$PREFIX/bin/
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$PREFIX/lib/"
-export PATH="/system/bin:$TOOLKIT"
-export DATA2_DIR="$SDCARD_PATH/Android/data/$PACKAGE_NAME/files/"
-export CONFIG_DIR="$DATA2_DIR/config/"
+export TMPDIR="$START_DIR/cache"
+export PREFIX="$START_DIR/usr"
+export TOOLKIT="$PREFIX/bin"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$PREFIX/lib"
+export PATH="/system/bin:/sbin:$TOOLKIT"
+export DATA2_DIR="$SDCARD_PATH/Android/data/$PACKAGE_NAME/files"
+export CONFIG_DIR="$DATA2_DIR/config"
 
 export PROOT_TMP_DIR="$TMPDIR"
 export PROOT_LOADER="$PREFIX/libexec/libloader.so"

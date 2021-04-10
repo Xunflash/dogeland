@@ -8,21 +8,6 @@ if [ ! $TOOLKIT ];then
 else
     echo  "">/dev/null
 fi
-if [[ "$platform" != "unknown" ]]
-then
-echo "">/dev/null
-else
-if [ ! -f "$DATA2_DIR/bin/busybox" ]; then
- echo "! $platform ,Your device lacks commands or is not supported"
- exit 5
- else
- echo "!Preloaded busybox detected"
- cp $DATA2_DIR/bin/busybox $TMPDIR/busybox
- chmod 0770 $TMPDIR/busybox
- unset platform
- export platform=$(sh $TOOLKIT/cli.sh platform)
-fi
-fi
 $PREFIX/preload/bin/busybox_$platform chmod -R 0777 $PREFIX
 function busybox_install() {
     for applet in `./busybox --list`; do
@@ -55,7 +40,7 @@ if [ -d "$DATA2_DIR" ];then
   if [ -d "$DATA2_DIR" ];then
   mkdir $CONFIG_DIR
   touch $CONFIG_DIR/rootfs.config
-  touch $CONFIG_DIR/cmd.config
+  touch $CONFIG_DIR/cmdline.config
   touch $CONFIG_DIR/patch_proot-secomp.config
   touch $DATA2_DIR/filetran
   else
@@ -68,4 +53,9 @@ fi
 touch $TOOLKIT/install_bin_done
 rm -rf $PREFIX/preload
 chmod -R 0770 $PREFIX
+sed -i ‘26d’ $START_DIR/shell_init.sh
+sed -i ‘27d’ $START_DIR/shell_init.sh
+sed -i ‘28d’ $START_DIR/shell_init.sh
+sed -i ‘29d’ $START_DIR/shell_init.sh
+sed -i ‘30d’ $START_DIR/shell_init.sh
 mv $TOOLKIT/install_bin.sh $TMPDIR/install_bin.shbak

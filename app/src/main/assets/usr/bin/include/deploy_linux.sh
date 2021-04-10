@@ -153,12 +153,9 @@ echo "Stop">$rootfs2/dogeland/status
 mkdir $rootfs2/sys $rootfs2/dev $rootfs2/dev/pts $rootfs2/proc
 chmod 770 $rootfs2/proc
 mkdir -p $rootfs2/dev/net
-
 # Install dogeland addon
 cp $TOOLKIT/cli.sh $rootfs2/dogeland/
 mkdir $rootfs2/dogeland/include/
-mkdir $rootfs2/dogeland/filetran_r/
-mkdir $rootfs2/dogeland/.filetran_s/
 cp -R $TOOLKIT/include/* $rootfs2/dogeland/include/
 # Run Other Setup
 . $TOOLKIT/include/extra_linuxconfigure.sh configure

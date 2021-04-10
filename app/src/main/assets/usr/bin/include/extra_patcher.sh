@@ -9,11 +9,6 @@ debiangroup_add(){
 check_rootfs
 sed -i "$ a\aid_$(id -un):x:$bug:" $rootfs/etc/group
 }
-sh_patcher(){
-check_rootfs
-rm -rf $rootfs/bin/sh
-ln -s $rootfs/bin/bash $rootfs/bin/sh
-}
 enable_proot_seccomp(){
 sed -i '14i\PROOT_NO_SECCOMP=1' $START_DIR/shell_init.sh
 }
