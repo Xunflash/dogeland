@@ -27,7 +27,8 @@ fi
 set_env
 echo "Run">$rootfs/dogeland/status
 vkfs_proot_init
-startcmd=" $addcmd -0 --link2symlink --sysvipc "
+echo "Starting"
+startcmd=" $addcmd -0 --link2symlink --sysvipc -r $rootfs "
 startcmd+="-w /root $cmd"
 $TOOLKIT/proot $startcmd
 unset startcmd

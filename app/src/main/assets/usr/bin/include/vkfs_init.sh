@@ -55,6 +55,7 @@ if [ ! -r "/proc/uptime" ]; then
     -b $TOOLKIT/virtual/fs/proc/cmdline:/proc/cmdline  \
     -b $TOOLKIT/virtual/fs/proc/kmsg:/proc/kmsg  \
     -b $TOOLKIT/virtual/fs/proc/kpageflags:/proc/kpageflags  \
+    -b $TOOLKIT/virtual/fs/proc/kpagecount:/proc/kpagecount  \
     -b $TOOLKIT/virtual/fs/proc/swaps:/proc/swaps  \
     -b $TOOLKIT/virtual/fs/proc/devices:/proc/devices  \
     -b $TOOLKIT/virtual/fs/proc/latency_stats:/proc/latency_stats  \
@@ -70,12 +71,18 @@ if [ ! -r "/proc/uptime" ]; then
     -b $TOOLKIT/virtual/fs/proc/locks:/proc/locks  \
     -b $TOOLKIT/virtual/fs/proc/uptime:/proc/uptime  \
     -b $TOOLKIT/virtual/fs/proc/fb:/proc/fb  \
+    -b $TOOLKIT/virtual/fs/proc/stat:/proc/stat  \
+    -b $TOOLKIT/virtual/fs/proc/config.gz:/proc/config.gz  \
+    -b $TOOLKIT/virtual/fs/proc/crypto:/proc/crypto  \
+    -b $TOOLKIT/virtual/fs/proc/app_info:/proc/app_info  \
+    -b $TOOLKIT/virtual/fs/proc/consoles:/proc/consoles  \
     -b $TOOLKIT/virtual/fs/proc/version:/proc/version  \
     -b $TOOLKIT/virtual/fs/proc/pagetypeinfo:/proc/pagetypeinfo  \
     -b $TOOLKIT/virtual/fs/proc/modules:/proc/modules  \
     -b $TOOLKIT/virtual/fs/proc/filesystems:/proc/filesystems  \
     -b $TOOLKIT/virtual/fs/proc/misc:/proc/misc  \
     -b $TOOLKIT/virtual/fs/proc/interrupts:/proc/interrupts  \
+    -b $TOOLKIT/virtual/fs/proc/softirqs:/proc/softirqs  \
     -b $TOOLKIT/virtual/fs/proc/iomem:/proc/iomem  \
     -b $TOOLKIT/virtual/fs/proc/ioports:/proc/ioports"
     else

@@ -19,9 +19,8 @@ else
 echo "">/dev/null
 fi 
 set_env
-echo "Run">$rootfs/dogeland/status
 vkfs_proot_init
-startcmd=" $addcmd --kill-on-exit -0 --link2symlink --sysvipc "
+startcmd=" $addcmd --kill-on-exit -0 --link2symlink --sysvipc -r $rootfs "
 startcmd+="-w /root $cmd2"
 $TOOLKIT/proot $startcmd
 unset startcmd
