@@ -3,12 +3,6 @@
 # license: gpl-v3
 exec_proot(){
 check_rootfs
-# Check RunStatus
-if [[ "$(cat $rootfs/dogeland/status)" != "Stop" ]]
-then
-# if Run,Then Stop
-stop_rootfs
-else
 # Start Process
 
 # Enable DebugOutput
@@ -31,5 +25,4 @@ startcmd=" $addcmd --kill-on-exit -0 --link2symlink --sysvipc "
 startcmd+="-w /root $cmd2"
 $TOOLKIT/proot $startcmd
 unset startcmd
-fi
 }
