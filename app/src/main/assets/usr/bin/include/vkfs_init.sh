@@ -1,5 +1,5 @@
 vkfs_unshare_init(){
-if [ ! -n "$rootfs/dev/dotest;" ]; then
+if [ ! -n "$rootfs/dev/dotest" ]; then
 echo "creating devfs ..."
 rm -rf $rootfs/dev
 mkdir $rootfs/dev
