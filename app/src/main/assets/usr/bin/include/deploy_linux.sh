@@ -100,8 +100,9 @@ echo "- Installing dropbear"
 deploy_linux_step2
 }
 
-# Post Installed Before
+# Check Configs
 deploy_linux_step1(){
+echo "progress:[1/10]"
 if [ ! -n "$rootfs2" ]; then
     echo "!The selected path is not available"
     exit 1
@@ -124,16 +125,19 @@ echo "">/dev/null
 else
 export rootfs2="$START_DIR/$rootfs2/"
 fi
+echo "progress:[3/10]"
 }
 
 # Post Installed Later
 deploy_linux_step2(){
+echo "progress:[5/10]"
 if [ -d "$rootfs2/bin/" ];then
   echo "">/dev/null
   else
   echo "!An exception occurred during the decompression process"
   exit 255
 fi
+echo "progress:[6/10]"
 echo "- Performing additional operation"
 if [ -d "$rootfs2/dogeland/" ];then
  # Setup from RootfsPackageData

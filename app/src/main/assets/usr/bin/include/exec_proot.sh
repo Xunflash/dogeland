@@ -2,9 +2,9 @@
 #
 # license: gpl-v3
 exec_proot(){
+echo "progress:[1/1]"
 check_rootfs
 # Start Process
-
 # Enable DebugOutput
 if [ -e "$CONFIG_DIR/.debug" ];then
 export addcmd="$addcmd -v $(cat $CONFIG_DIR/.debug)"

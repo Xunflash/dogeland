@@ -2,6 +2,7 @@
 #
 # license: gpl-v3
 start_proot(){
+echo "progress:[1/1]"
 check_rootfs
 # Check RunStatus
 if [[ "$(cat $rootfs/dogeland/status)" != "Stop" ]]

@@ -1,4 +1,5 @@
 start_unshare(){
+echo "progress:[1/1]"
 check_rootfs
 # Check RunStatus
 if [[ "$(cat $rootfs/dogeland/status)" != "Stop" ]]

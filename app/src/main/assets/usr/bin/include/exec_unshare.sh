@@ -1,4 +1,5 @@
 exec_unshare(){
+echo "progress:[1/1]"
 check_rootfs
 fsbind_unshare_init
 set_env
