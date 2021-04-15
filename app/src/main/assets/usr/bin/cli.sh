@@ -24,7 +24,7 @@ fi
 . $TOOLKIT/include/del_rootfs.sh
 . $TOOLKIT/include/backup_rootfs.sh
 . $TOOLKIT/include/deploy_linux.sh
-. $TOOLKIT/include/vkfs_init.sh
+. $TOOLKIT/include/bind_main.sh
 . $TOOLKIT/include/starter_proot.sh
 . $TOOLKIT/include/starter_unshare.sh
 . $TOOLKIT/include/starter_auto.sh

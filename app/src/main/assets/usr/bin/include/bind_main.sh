@@ -1,6 +1,5 @@
-vkfs_unshare_init(){
+fsbind_unshare_init(){
 if [ ! -n "$rootfs/dev/dotest" ]; then
-echo "creating devfs ..."
 rm -rf $rootfs/dev
 mkdir $rootfs/dev
 mount -o bind /dev/console $rootfs/dev/console
@@ -24,25 +23,19 @@ mount -o bind /dev/binder $rootfs/dev/binder
 mount -o bind $TOOLKIT/virtual/dotest $rootfs/dev/dotest
 # Enable FileTran
 mount -o bind $DATA2_DIR/filetran $rootfs/dev/filetran
-echo "creating sysfs ..."
 mount -t sysfs sys $rootfs/sys
 mount -o bind $TOOLKIT/virtual/fs/sys/firmware $rootfs/sys/firmware
 mount -o bind $TOOLKIT/virtual/socket $rootfs/sys/virtual
-echo "creating proc ..."
 mount -t proc proc $rootfs/proc
 else
-echo "created"
+echo "">/dev/null
 fi
 }
-vkfs_proot_init(){
-echo "creating devfs ..."
+fsbind_proot_init(){
 export addcmd=" $addcmd -b /dev/console -b /dev/full -b /dev/null -b /dev/pts -b $rootfs/root:/dev/shm -b /proc/self/fd:/dev/fd -b /proc/self/fd/0:/dev/stdin -b /dev/tty -b /dev/zero -b /dev/fd -b /dev/ptmx -b /dev/random -b /proc/self/fd/2:/dev/stderr -b /proc/self/fd/1:/dev/stdout -b /dev/urandom -b /dev/binder -b /dev/fuse -b $TOOLKIT/virtual/dotest:/dev/mmcblk0 -b $TOOLKIT/virtual/dotest:/dev/mmcblk0p1  -b $TOOLKIT/virtual/dotest:/dev/mmcblk0p2 -b $TOOLKIT/virtual/dotest:/dev/dotest -b $DATA2_DIR/filetran:/dev/filetran "
-echo "creating sysfs ..."
 export addcmd=" $addcmd -b /sys -b $TOOLKIT/virtual/fs/sys/firmware:/sys/firmware -b $TOOLKIT/virtual/socket:/sys/virtual "
-echo "creating proc ..."
 export addcmd=" $addcmd -b /proc "
 if [ ! -r "/proc/uptime" ]; then
-    echo "fixing proc ..."
     export addcmd=" $addcmd \
     -b $TOOLKIT/virtual/fs/proc/buddyinfo:/proc/buddyinfo  \
     -b $TOOLKIT/virtual/fs/proc/kallsyms:/proc/kallsyms  \

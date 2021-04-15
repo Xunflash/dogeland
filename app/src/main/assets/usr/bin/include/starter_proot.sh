@@ -24,13 +24,12 @@ export addcmd="$addcmd -q $qemu"
 else
 echo "">/dev/null
 fi 
-set_env
-echo "Run">$rootfs/dogeland/status
-vkfs_proot_init
 echo "Starting"
+echo "Run">$rootfs/dogeland/status
+fsbind_proot_init
+set_env
 startcmd=" $addcmd -0 --link2symlink --sysvipc -r $rootfs "
 startcmd+="-w /root $cmd"
-$TOOLKIT/proot $startcmd
-unset startcmd
+exec $TOOLKIT/proot $startcmd
 fi
 }

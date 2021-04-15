@@ -7,10 +7,10 @@ then
 stop_rootfs
 else
 # Start Process
-vkfs_unshare_init
-set_env
 echo "Starting"
+fsbind_unshare_init
+set_env
 echo "Run">$rootfs/dogeland/status
-$TOOLKIT/unshare $addcmd -R $rootfs $cmd # --mount-proc
+exec $TOOLKIT/unshare $addcmd -R $rootfs $cmd # --mount-proc
 fi
 }

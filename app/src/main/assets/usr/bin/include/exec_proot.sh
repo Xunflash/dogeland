@@ -19,9 +19,8 @@ else
 echo "">/dev/null
 fi 
 set_env
-vkfs_proot_init
+fsbind_proot_init
 startcmd=" $addcmd --kill-on-exit -0 --link2symlink --sysvipc -r $rootfs "
 startcmd+="-w /root $cmd2"
-$TOOLKIT/proot $startcmd
-unset startcmd
+exec $TOOLKIT/proot $startcmd
 }

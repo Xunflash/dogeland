@@ -32,28 +32,20 @@
 <group>
            <switch shell="hidden">
             <title>PROOT_NO_SECOMP</title>
-            <desc>解决极少数设备PROOT无法使用的问题</desc>
+            <desc>关闭PROOT_SCCOMP</desc>
             <get>
-             cat $CONFIG_DIR/patch_proot-secomp.config
+             cat $CONFIG_DIR/patch_proot-seccomp.config
             </get>
             <set>
-            if [[ "$(cat $CONFIG_DIR/patch_proot-secomp.config)" != "1" ]]
+            if [[ "$(cat $CONFIG_DIR/patch_proot-seccomp.config)" != "1" ]]
             then
             sed -i '14i\PROOT_NO_SECCOMP=1' $START_DIR/shell_init.sh
-            echo "1">$CONFIG_DIR/patch_proot-secomp.config
+            echo "1">$CONFIG_DIR/patch_proot-seccomp.config
             else
             echo "">/dev/null
             fi
             </set>
         </switch>
-</group>
-<group>
-<action>
-            <title>fs-perm</title>
-            <desc>全局更改Linux文件系统权限,用于解决一些bug</desc>
-           <param name="perm" label="" title="" placeholder="0755" type="text" />
-            <set>chmod -R $perm $rootfs/</set>
-</action>
 </group>
 <group title="插件 ">
 <action>
