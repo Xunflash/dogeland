@@ -146,6 +146,7 @@ if [ -d "$rootfs2/pkg_configs/" ];then
   mkdir -p $rootfs2/boot/dogeland/
   echo "$rootfs2" >$CONFIG_DIR/rootfs.config
 fi
+touch $rootfs2/boot/dogeland/status
 echo "Stop">$rootfs2/boot/dogeland/status
 mkdir $rootfs2/sys $rootfs2/dev $rootfs2/dev/pts $rootfs2/proc
 chmod 770 $rootfs2/proc
