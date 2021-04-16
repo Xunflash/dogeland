@@ -146,15 +146,13 @@ if [ -d "$rootfs2/pkg_configs/" ];then
   mkdir -p $rootfs2/boot/dogeland/
   echo "$rootfs2" >$CONFIG_DIR/rootfs.config
 fi
-
-# make empty status 
 echo "Stop">$rootfs2/boot/dogeland/status
 mkdir $rootfs2/sys $rootfs2/dev $rootfs2/dev/pts $rootfs2/proc
 chmod 770 $rootfs2/proc
 mkdir -p $rootfs2/dev/net
 # Install dogeland addon
+mkdir -p $rootfs2/boot/dogeland/include/
 cp $TOOLKIT/cli.sh $rootfs2/boot/dogeland/
-mkdir $rootfs2/boot/dogeland/include/
 cp -R $TOOLKIT/include/* $rootfs2/boot/dogeland/include/
 # Run Other Setup
 . $TOOLKIT/include/extra_linuxconfigure.sh configure

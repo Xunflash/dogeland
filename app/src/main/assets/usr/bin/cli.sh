@@ -5,8 +5,8 @@
 # license: GPL-v3.0
 #
 VERSION=3.0.1_DEBUG
-if [ -d "/dogeland/" ];then
-  TOOLKIT=/dogeland/
+if [ -d "/boot/dogeland/" ];then
+  TOOLKIT=/boot/dogeland/
   else
   echo "">/dev/null
 fi
