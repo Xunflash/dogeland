@@ -8,7 +8,7 @@ export rootfs="$rootfs2"
 #
 configure()
 {
-    echo "progress:[7/10]
+    echo "progress:[7/10]"
     echo "- Setting up mtab ..."
     rm -rf $rootfs/etc/mtab && cp /proc/mounts $rootfs/etc/mtab
 
@@ -28,7 +28,7 @@ configure()
 		ff02::2     ipv6-allrouters
 		ff02::3     ipv6-allhosts
 		EOF
-    echo "progress:[8/10]
+    echo "progress:[8/10]"
     echo "- Setting up locale ... "
     LOCALE="C"
     if $(echo ${LOCALE} | grep -q '$rootfs\.'); then
@@ -62,7 +62,7 @@ configure()
     rm -f "$rootfs/etc/localtime"
     cp "$rootfs/usr/share/zoneinfo/$timezone" "$rootfs/etc/localtime"
     echo $timezone > "$rootfs/etc/timezone"
-    echo "progress:[9/10]
+    echo "progress:[9/10]"
     echo "- Setting up profile ... "
    [ -n "$USER_NAME" ] || USER_NAME="root"
    [ -n "$USER_PASSWORD" ] || USER_PASSWORD="root"
@@ -120,6 +120,6 @@ configure()
                 echo "${xname}:x:${xid}:${xid}::/:/bin/false" >> "$rootfs/etc/passwd"
             fi
         done
-        echo "progress:[10/10]
+        echo "progress:[10/10]"
 }
 $@
