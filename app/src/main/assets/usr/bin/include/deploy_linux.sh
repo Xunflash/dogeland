@@ -61,9 +61,8 @@ $tar >/dev/null
 echo "- Cleaning LXC Image Cache"
 rm $TMPDIR/image_tmp.tar.xz
 # Modded for dogeland
-mkdir -p $rootfs2/dogeland/
-touch $rootfs2/dogeland/cmd.conf
-touch $rootfs2/dogeland/patch.sh
+mkdir -p $rootfs2/boot/dogeland/
+touch $rootfs2/boot/dogeland/cmdline.conf
 # Repair NetworkResolv
 echo "nameserver 8.8.8.8">$rootfs2/etc/resolv.conf
 echo "- Installing dropbear"
@@ -139,26 +138,24 @@ if [ -d "$rootfs2/bin/" ];then
 fi
 echo "progress:[6/10]"
 echo "- Performing additional operation"
-if [ -d "$rootfs2/dogeland/" ];then
- # Setup from RootfsPackageData
-  cat $rootfs2/dogeland/cmd.conf >$CONFIG_DIR/cmdline.config
-  . $rootfs2/dogeland/patch.sh
-  rm -rf  $rootfs2/dogeland/*
+if [ -d "$rootfs2/pkg_configs/" ];then
+ # Get Default PkgConfigs
+  cat $rootfs2/pkg_configs/cmdline.conf >$CONFIG_DIR/cmdline.config
   echo "$rootfs2" >$CONFIG_DIR/rootfs.config
   else
-  mkdir $rootfs2/dogeland/
+  mkdir -p $rootfs2/boot/dogeland/
   echo "$rootfs2" >$CONFIG_DIR/rootfs.config
 fi
 
 # make empty status 
-echo "Stop">$rootfs2/dogeland/status
+echo "Stop">$rootfs2/boot/dogeland/status
 mkdir $rootfs2/sys $rootfs2/dev $rootfs2/dev/pts $rootfs2/proc
 chmod 770 $rootfs2/proc
 mkdir -p $rootfs2/dev/net
 # Install dogeland addon
-cp $TOOLKIT/cli.sh $rootfs2/dogeland/
-mkdir $rootfs2/dogeland/include/
-cp -R $TOOLKIT/include/* $rootfs2/dogeland/include/
+cp $TOOLKIT/cli.sh $rootfs2/boot/dogeland/
+mkdir $rootfs2/boot/dogeland/include/
+cp -R $TOOLKIT/include/* $rootfs2/boot/dogeland/include/
 # Run Other Setup
 . $TOOLKIT/include/extra_linuxconfigure.sh configure
 echo "! All Done"

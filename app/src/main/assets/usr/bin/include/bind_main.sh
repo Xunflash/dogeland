@@ -32,7 +32,7 @@ echo "">/dev/null
 fi
 }
 fsbind_proot_init(){
-export addcmd=" $addcmd -b /dev/console -b /dev/full -b /dev/null -b /dev/pts -b $rootfs/root:/dev/shm -b /proc/self/fd:/dev/fd -b /proc/self/fd/0:/dev/stdin -b /dev/tty -b /dev/zero -b /dev/fd -b /dev/ptmx -b /dev/random -b /proc/self/fd/2:/dev/stderr -b /proc/self/fd/1:/dev/stdout -b /dev/urandom -b /dev/binder -b /dev/fuse -b $TOOLKIT/virtual/dotest:/dev/mmcblk0 -b $TOOLKIT/virtual/dotest:/dev/mmcblk0p1  -b $TOOLKIT/virtual/dotest:/dev/mmcblk0p2 -b $TOOLKIT/virtual/dotest:/dev/dotest -b $DATA2_DIR/filetran:/dev/filetran "
+export addcmd=" $addcmd -b /dev/console -b /dev/full -b /dev/null -b /dev/pts -b $rootfs/root:/dev/shm -b /dev/fd -b /proc/self/fd/0:/dev/stdin -b /dev/tty -b /dev/zero -b /dev/fd -b /dev/ptmx -b /dev/random -b /proc/self/fd/2:/dev/stderr -b /proc/self/fd/1:/dev/stdout -b /dev/urandom -b /dev/binder -b /dev/fuse -b $TOOLKIT/virtual/dotest:/dev/dotest -b $DATA2_DIR/filetran:/dev/filetran "
 export addcmd=" $addcmd -b /sys -b $TOOLKIT/virtual/fs/sys/firmware:/sys/firmware -b $TOOLKIT/virtual/socket:/sys/virtual "
 export addcmd=" $addcmd -b /proc "
 if [ ! -r "/proc/uptime" ]; then

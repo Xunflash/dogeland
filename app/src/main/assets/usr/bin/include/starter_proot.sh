@@ -5,7 +5,7 @@ start_proot(){
 echo "progress:[1/1]"
 check_rootfs
 # Check RunStatus
-if [[ "$(cat $rootfs/dogeland/status)" != "Stop" ]]
+if [[ "$(cat $rootfs/boot/dogeland/status)" != "Stop" ]]
 then
 # if Run,Then Stop
 stop_rootfs
@@ -26,11 +26,11 @@ else
 echo "">/dev/null
 fi 
 echo "Starting"
-echo "Run">$rootfs/dogeland/status
+echo "Run">$rootfs/boot/dogeland/status
 fsbind_proot_init
 set_env
 startcmd=" $addcmd -0 --link2symlink --sysvipc -r $rootfs "
 startcmd+="-w /root $cmd"
-$TOOLKIT/proot $startcmd
+exec $TOOLKIT/proot $startcmd
 fi
 }

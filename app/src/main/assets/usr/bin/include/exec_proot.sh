@@ -22,5 +22,5 @@ set_env
 fsbind_proot_init
 startcmd=" $addcmd --kill-on-exit -0 --link2symlink --sysvipc -r $rootfs "
 startcmd+="-w /root $cmd2"
-$TOOLKIT/proot $startcmd
+exec $TOOLKIT/proot $startcmd
 }

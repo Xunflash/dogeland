@@ -10,7 +10,7 @@ if [ -d "$rootfs" ];then
 fi
 }
 check_rootfs_status(){
-if [[ "$(cat $rootfs/dogeland/status)" != "Run" ]]
+if [[ "$(cat $rootfs/boot/dogeland/status)" != "Run" ]]
 then
 echo "">/dev/null
 else
