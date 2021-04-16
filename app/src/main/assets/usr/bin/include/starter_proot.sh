@@ -31,6 +31,6 @@ fsbind_proot_init
 set_env
 startcmd=" $addcmd -0 --link2symlink --sysvipc -r $rootfs "
 startcmd+="-w /root $cmd"
-exec $TOOLKIT/proot $startcmd
+$TOOLKIT/proot $startcmd
 fi
 }
