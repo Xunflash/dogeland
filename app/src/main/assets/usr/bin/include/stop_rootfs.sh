@@ -4,6 +4,7 @@ then
 echo "">/dev/null
 else
 pkill sshd
+# kill -s 1 `pgrep -f sh`
 pkill dropbear
 echo "Stop">$rootfs/boot/dogeland/status
 pkill proot
