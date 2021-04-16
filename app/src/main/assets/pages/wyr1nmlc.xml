@@ -13,11 +13,10 @@
             <set>$TOOLKIT/app-addon/set_all.sh set_initcmd</set>
         </action>
           <action>
-            <title>LinuxAddon启动设置</title>
+            <title>dogeland-addon启动设置</title>
              <param name="type">
                 <option value="/bin/sh /boot/dogeland/cli.sh sshd_start">启动openssh-sshd</option>
                 <option value="/bin/sh /boot/dogeland/cli.sh dropbear_start">启动dropbear</option>
-                <option value="/bin/sh /boot/dogeland/cli.sh vncserver_start">启动vncserver</option>
             </param>
             <set>
             rm -rf $CONFIG_DIR/cmd.conf
