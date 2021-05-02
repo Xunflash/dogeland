@@ -1,24 +1,6 @@
 fsbind_unshare_init(){
 if [ ! -n "$rootfs/dev/dotest" ]; then
-rm -rf $rootfs/dev
-mkdir $rootfs/dev
-mount -o bind /dev/console $rootfs/dev/console
-mount -o bind /dev/full $rootfs/dev/full
-mount -o bind /dev/null $rootfs/dev/null
-mount -o bind /dev/pts $rootfs/dev/pts
-mount -o bind /dev/shm $rootfs/dev/shm
-mount -o bind /dev/stdin $rootfs/dev/stdin
-mount -o bind /dev/tty $rootfs/dev/tty
-mount -o bind /dev/zero $rootfs/dev/zero
-mount -o bind /dev/fd $rootfs/dev/fd
-mount -o bind /dev/ptmx $rootfs/dev/ptmx
-mount -o bind /dev/random $rootfs/dev/random
-mount -o bind /dev/stderr $rootfs/dev/stderr
-mount -o bind /dev/stdout $rootfs/dev/stdout
-mount -o bind /dev/urandom $rootfs/dev/urandom
-mount -o bind /dev/null $rootfs/dev/tty
-mount -o bind /dev/fuse $rootfs/dev/fuse
-mount -o bind /dev/binder $rootfs/dev/binder
+mount -o bind /dev $rootfs/dev
 # Create a demo device
 mount -o bind $TOOLKIT/virtual/dotest $rootfs/dev/dotest
 # Enable FileTran
@@ -32,7 +14,7 @@ echo "">/dev/null
 fi
 }
 fsbind_proot_init(){
-export addcmd=" $addcmd -b /dev/console -b /dev/full -b /dev/null -b /dev/pts -b $rootfs/root:/dev/shm -b /dev/fd -b /proc/self/fd/0:/dev/stdin -b /dev/tty -b /dev/zero -b /dev/fd -b /dev/ptmx -b /dev/random -b /proc/self/fd/2:/dev/stderr -b /proc/self/fd/1:/dev/stdout -b /dev/urandom -b /dev/binder -b /dev/fuse -b $TOOLKIT/virtual/dotest:/dev/dotest -b $DATA2_DIR/filetran:/dev/filetran "
+export addcmd=" $addcmd -b /dev -b $DATA2_DIR/filetran:/dev/filetran "
 export addcmd=" $addcmd -b /sys -b $TOOLKIT/virtual/fs/sys/firmware:/sys/firmware -b $TOOLKIT/virtual/socket:/sys/virtual "
 export addcmd=" $addcmd -b /proc "
 if [ ! -r "/proc/uptime" ]; then
