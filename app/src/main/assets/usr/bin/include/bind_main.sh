@@ -1,14 +1,15 @@
 fsbind_unshare_init(){
 if [ ! -n "$rootfs/dev/dotest" ]; then
 mount -o bind /dev $rootfs/dev
-# Create a demo device
+# Create a test device
 mount -o bind $TOOLKIT/virtual/dotest $rootfs/dev/dotest
 # Enable FileTran
 mount -o bind $DATA2_DIR/filetran $rootfs/dev/filetran
+mount -t devpts devpts $rootfs/dev/pts
 mount -t sysfs sys $rootfs/sys
+mount -t proc proc $rootfs/proc
 mount -o bind $TOOLKIT/virtual/fs/sys/firmware $rootfs/sys/firmware
 mount -o bind $TOOLKIT/virtual/socket $rootfs/sys/virtual
-mount -t proc proc $rootfs/proc
 else
 echo "">/dev/null
 fi
@@ -47,7 +48,6 @@ if [ ! -r "/proc/uptime" ]; then
     -b $TOOLKIT/virtual/fs/proc/uptime:/proc/uptime  \
     -b $TOOLKIT/virtual/fs/proc/fb:/proc/fb  \
     -b $TOOLKIT/virtual/fs/proc/stat:/proc/stat  \
-    -b $TOOLKIT/virtual/fs/proc/config.gz:/proc/config.gz  \
     -b $TOOLKIT/virtual/fs/proc/crypto:/proc/crypto  \
     -b $TOOLKIT/virtual/fs/proc/app_info:/proc/app_info  \
     -b $TOOLKIT/virtual/fs/proc/consoles:/proc/consoles  \
