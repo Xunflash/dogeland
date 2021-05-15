@@ -3,7 +3,6 @@
 #
 
 if [ ! $TOOLKIT ];then
-    echo "!Fatal failure"
     exit 2
 else
     echo  "">/dev/null

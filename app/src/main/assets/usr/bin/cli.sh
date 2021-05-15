@@ -5,16 +5,17 @@
 # license: GPL-v3.0
 #
 VERSION=3.0.1_DEBUG
+
 if [ -d "/boot/dogeland/" ];then
   TOOLKIT=/boot/dogeland/
   else
+  if [ ! -n "$START_DIR" ]; then
+  TOOLKIT=./
+  else
   echo "">/dev/null
+  fi
 fi
-if [ ! -n "$START_DIR" ]; then
-TOOLKIT=./
-else
-  echo "">/dev/null
-fi
+
 . $TOOLKIT/include/others.sh
 . $TOOLKIT/include/stop_rootfs.sh
 . $TOOLKIT/include/del_rootfs.sh
@@ -37,7 +38,7 @@ fi
 . $TOOLKIT/include/extra_patcher.sh
 . $TOOLKIT/include/exec_proot.sh
 if [ ! -n "${1}" ]; then
-  echo "Tools Start Successfully"
+  echo "success!"
 fi
 umask 000
 ${1}
