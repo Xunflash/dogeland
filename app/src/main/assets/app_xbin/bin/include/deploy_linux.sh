@@ -8,9 +8,9 @@ rm -rf $cache_rootfs
 mkdir -p $cache_rootfs/
 # Enbale Link2SymLink for No Root
 if [ `id -u` -eq 0 ];then
-    tar="$TOOLKIT/busybox tar -xzvf $file -C $cache_rootfs"
+    tar="$TOOLKIT/bin/busybox tar -xzvf $file -C $cache_rootfs"
 else
-    tar="$TOOLKIT/proot --link2symlink -0 $TOOLKIT/busybox tar --no-same-owner -xzvf $file -C $cache_rootfs"
+    tar="$TOOLKIT/bin/proot --link2symlink -0 $TOOLKIT/busybox tar --no-same-owner -xzvf $file -C $cache_rootfs"
 fi
 $tar >/dev/null
 deploy_linux_step2
@@ -23,9 +23,9 @@ rm -rf $cache_rootfs
 mkdir -p $cache_rootfs/
 # Enbale Link2SymLink for No Root
 if [ `id -u` -eq 0 ];then
-    tar="$TOOLKIT/busybox tar -xJf $file -C $cache_rootfs"
+    tar="$TOOLKIT/binbusybox tar -xJf $file -C $cache_rootfs"
 else
-    tar="$TOOLKIT/proot --link2symlink -0 $TOOLKIT/busybox tar --no-same-owner -xJf $file -C $cache_rootfs"
+    tar="$TOOLKIT/bin/proot --link2symlink -0 $TOOLKIT/busybox tar --no-same-owner -xJf $file -C $cache_rootfs"
 fi
 $tar >/dev/null
 deploy_linux_step2
