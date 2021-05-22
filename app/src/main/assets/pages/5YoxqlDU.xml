@@ -15,7 +15,7 @@
             if [ -e "$rootfs/usr/local/lib/libandroid-shmem.so" ];then
              echo "1"
              else
-             $TOOLKIT/cli.sh check_rootfs
+              $TOOLKIT/bin/cli.sh check_rootfs
              cp $PREFIX/lib/libandroid-shmem.so $rootfs/usr/local/lib/
              fi
             </set>
@@ -26,7 +26,7 @@
             <title>debian-groupaddon</title>
             <desc>只在登录终端提示缺少group组时，才使用此补丁</desc>
             <param name="bug" label="" title="GroupID" placeholder="" type="text" />
-            <set>$TOOLKIT/cli.sh debiangroup_add</set>
+            <set> $TOOLKIT/bin/cli.sh debiangroup_add</set>
 </action>
 </group>
 <group>

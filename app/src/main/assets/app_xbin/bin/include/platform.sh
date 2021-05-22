@@ -1,4 +1,4 @@
-platform()
+platform_check()
 {
     local arch="$1"
    # arch=$(uname -m)
@@ -12,9 +12,6 @@ platform()
     ;;
     x86_64|amd64)
         echo "x86_64"
-    ;;
-    x86|i[3-6]86)
-        echo "x86"
     ;;
     *)
         echo "unknown"

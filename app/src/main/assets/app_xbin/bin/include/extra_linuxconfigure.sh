@@ -1,10 +1,10 @@
 #
-# dogeland CLI LinuxConfigure
+# dogeland LinuxAutoSetupTool
 # 
 #
 
 # Set your rootfs path.
-export rootfs="$rootfs2"
+export rootfs="$cache_rootfs"
 #
 configure()
 {

@@ -4,7 +4,6 @@
 exec_proot(){
 echo "progress:[1/1]"
 check_rootfs
-# Start Process
 # Enable DebugOutput
 if [ -e "$CONFIG_DIR/.debug" ];then
 export addcmd="$addcmd -v $(cat $CONFIG_DIR/.debug)"
@@ -22,5 +21,5 @@ set_env
 fsbind_proot_init
 startcmd=" $addcmd --kill-on-exit -0 --link2symlink --sysvipc -r $rootfs "
 startcmd+="-w /root $cmd2"
-exec $TOOLKIT/proot $startcmd
+exec $TOOLKIT/bin/proot $startcmd
 }

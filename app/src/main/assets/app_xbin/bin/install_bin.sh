@@ -7,7 +7,7 @@ if [ ! $TOOLKIT ];then
 else
     echo  "">/dev/null
 fi
-$PREFIX/preload/bin/busybox_$platform chmod -R 0777 $PREFIX
+$TOOLKIT/preload_res/bin/busybox_$platform chmod -R 0777 $TOOLKIT
 function busybox_install() {
     for applet in `./busybox --list`; do
         case "$applet" in
@@ -20,36 +20,31 @@ function busybox_install() {
         esac
     done
 }
-$PREFIX/preload/bin/busybox_$platform cp $PREFIX/preload/bin/busybox_$platform $TOOLKIT/busybox
-chmod 0770 $TOOLKIT/busybox
-cd "$TOOLKIT"
+$TOOLKIT/preload_res/bin/busybox_$platform cp $TOOLKIT/preload_res/bin/busybox_$platform $TOOLKIT/bin/busybox
+chmod 0770 $TOOLKIT/bin/busybox
+cd "$TOOLKIT/bin"
 busybox_install
-export PATH=$PATH:$TOOLKIT
-mkdir $PREFIX/lib
-mkdir $PREFIX/tmp
-mkdir $PREFIX/libexec
-cp $PREFIX/preload/lib/$platform/* $PREFIX/lib/
-cp $PREFIX/preload/libexec/$platform/* $PREFIX/libexec/
-cp $PREFIX/preload/bin/proot_$platform $TOOLKIT/proot
-cp $PREFIX/preload/bin/unshare_$platform $TOOLKIT/unshare
-if [ -d "$DATA2_DIR" ];then
-  echo "">/dev/null
-  else
-  mkdir -p $DATA2_DIR
-  if [ -d "$DATA2_DIR" ];then
+mkdir $TOOLKIT/lib
+mkdir $TOOLKIT/tmp
+mkdir $TOOLKIT/libexec
+cp $TOOLKIT/preload_res/lib/$platform/* $TOOLKIT/lib/
+cp $TOOLKIT/preload_res/libexec/$platform/* $TOOLKIT/libexec/
+cp $TOOLKIT/preload_res/bin/proot_$platform $TOOLKIT/bin/proot
+cp $TOOLKIT/preload_res/bin/unshare_$platform $TOOLKIT/bin/unshare
+mkdir -p $APP_FILES_DIR
+if [ -d "$APP_FILES_DIR" ];then
   mkdir $CONFIG_DIR
   touch $CONFIG_DIR/rootfs.config
   touch $CONFIG_DIR/cmdline.config
   touch $CONFIG_DIR/patch_proot-seccomp.config
-  touch $DATA2_DIR/filetran
-  else
+  touch $APP_FILES_DIR/filetran
+ else
   echo "!Data initialization failed"
   echo "----------"
   echo "Before reopening the application, please create a new folder named me.flytree.dogeland in the [internal storage/Android/data/] folder."
   exit 3
-  fi
 fi
 touch $TOOLKIT/install_bin_done
-rm -rf $PREFIX/preload
-chmod -R 0770 $PREFIX
-mv $TOOLKIT/install_bin.sh $TMPDIR/install_bin.shbak
+rm -rf $TOOLKIT/preload_res
+chmod -R 0770 $TOOLKIT
+rm $TOOLKIT/bin/install_bin.sh

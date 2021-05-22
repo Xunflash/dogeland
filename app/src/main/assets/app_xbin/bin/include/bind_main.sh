@@ -1,22 +1,19 @@
 fsbind_unshare_init(){
 if [ ! -n "$rootfs/dev/dotest" ]; then
 mount -o bind /dev $rootfs/dev
-# Create a test device
-mount -o bind $TOOLKIT/virtual/dotest $rootfs/dev/dotest
-# Enable FileTran
-mount -o bind $DATA2_DIR/filetran $rootfs/dev/filetran
 mount -t devpts devpts $rootfs/dev/pts
 mount -t sysfs sys $rootfs/sys
 mount -t proc proc $rootfs/proc
-mount -o bind $TOOLKIT/virtual/fs/sys/firmware $rootfs/sys/firmware
+mount -o bind $TOOLKIT/virtual/dotest $rootfs/dev/dotest
+mount -o bind $APP_FILES_DIR/filetran $rootfs/dev/filetran
 mount -o bind $TOOLKIT/virtual/socket $rootfs/sys/virtual
 else
 echo "">/dev/null
 fi
 }
 fsbind_proot_init(){
-export addcmd=" $addcmd -b /dev -b $DATA2_DIR/filetran:/dev/filetran "
-export addcmd=" $addcmd -b /sys -b $TOOLKIT/virtual/fs/sys/firmware:/sys/firmware -b $TOOLKIT/virtual/socket:/sys/virtual "
+export addcmd=" $addcmd -b /dev -b $APP_FILES_DIR/filetran:/dev/filetran "
+export addcmd=" $addcmd -b /sys -b /dev/null:/sys/firmware -b $TOOLKIT/virtual/socket:/sys/virtual "
 export addcmd=" $addcmd -b /proc "
 if [ ! -r "/proc/uptime" ]; then
     export addcmd=" $addcmd \

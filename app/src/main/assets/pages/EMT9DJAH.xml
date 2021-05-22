@@ -4,32 +4,21 @@
       <action>
             <title>导入→tgz/tar.gz</title>
             <param name="file" label="源文件" type="file" value="" editable="true" />
-            <param name="rootfs2" label="安装路径" title="" placeholder="" type="text" editable="true" />
+            <param name="cache_rootfs" label="安装路径" title="" placeholder="" type="text" editable="true" />
                 <param name="USER_NAME" label="登录用户" title="" placeholder="" type="text" />
                 <param name="USER_PASSWORD" label="登录密码" title="" placeholder="" type="text" />
                 <param name="datas" label="安装到数据目录" type="bool" />
-            <set>$TOOLKIT/cli.sh deploy_linux</set>
+            <set>$TOOLKIT/bin/cli.sh deploy_linux_tgz</set>
         </action>
         </group>
         <group>
         <action>
             <title>导入→tar.xz</title>
             <param name="file" label="源文件" type="file" value="" editable="true" />
-            <param name="rootfs2" label="安装路径" title="" placeholder="" type="text" editable="true" />
+            <param name="cache_rootfs" label="安装路径" title="" placeholder="" type="text" editable="true" />
                 <param name="USER_NAME" label="登录用户" title="" placeholder="" type="text" />
                 <param name="USER_PASSWORD" label="登录密码" title="" placeholder="" type="text" />
                 <param name="datas" label="安装到数据目录" type="bool" />
-            <set>$TOOLKIT/cli.sh deploy_linux1</set>
-        </action>
-        </group>
-         <group>
-        <action>
-            <title>从http源安装→LXCImage</title>
-            <param name="image_url" label="http源文件" type="image_url" value="" editable="true" />
-            <param name="rootfs2" label="安装路径" title="" placeholder="" type="text" editable="true" />
-                <param name="USER_NAME" label="登录用户" title="" placeholder="" type="text" />
-                <param name="USER_PASSWORD" label="登录密码" title="" placeholder="" type="text" />
-                <param name="datas" label="安装到数据目录" type="bool" />
-            <set>$TOOLKIT/cli.sh deploy_from_lxcimage</set>
+            <set>$TOOLKIT/bin/cli.sh deploy_linux_txz</set>
         </action>
         </group>

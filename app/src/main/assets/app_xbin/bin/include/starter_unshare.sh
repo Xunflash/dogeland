@@ -11,7 +11,7 @@ else
 echo "Starting"
 fsbind_unshare_init
 set_env
-echo "Run">$rootfs/dogeland/status
-exec $TOOLKIT/unshare $addcmd -R $rootfs $cmd # --mount-proc
+echo "Run">$rootfs/boot/dogeland/status
+exec $TOOLKIT/bin/unshare $addcmd -R $rootfs $cmd # --mount-proc
 fi
 }

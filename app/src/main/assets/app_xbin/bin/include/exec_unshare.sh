@@ -3,7 +3,7 @@ echo "progress:[1/1]"
 check_rootfs
 fsbind_unshare_init
 set_env
-export unshare="exec $TOOLKIT/unshare $addcmd -R $rootfs "
+export unshare="exec $TOOLKIT/bin/unshare $addcmd -R $rootfs "
 if [ -f "$rootfs/bin/su" ];then
 $unshare /bin/su -c $cmd2
 else

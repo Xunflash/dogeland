@@ -6,10 +6,7 @@ check_rootfs
 cp $PREFIX/lib/libandroid-shmem.so $rootfs/usr/local/lib/
 chmod 0770 $rootfs/usr/local/lib/libandroid-shmem.so
 }
-debiangroup_add(){
-check_rootfs
-sed -i "$ a\aid_$(id -un):x:$bug:" $rootfs/etc/group
-}
+
 disable_proot_seccomp(){
 sed -i '14i\PROOT_NO_SECCOMP=1' $START_DIR/shell_init.sh
 }
