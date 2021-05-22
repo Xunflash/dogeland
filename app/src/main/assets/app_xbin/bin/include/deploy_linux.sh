@@ -10,7 +10,7 @@ mkdir -p $cache_rootfs/
 if [ `id -u` -eq 0 ];then
     tar="$TOOLKIT/bin/busybox tar -xzvf $file -C $cache_rootfs"
 else
-    tar="$TOOLKIT/bin/proot --link2symlink -0 $TOOLKIT/busybox tar --no-same-owner -xzvf $file -C $cache_rootfs"
+    tar="$TOOLKIT/bin/proot --link2symlink -0 $TOOLKIT/bin/busybox tar --no-same-owner -xzvf $file -C $cache_rootfs"
 fi
 $tar >/dev/null
 deploy_linux_step2
@@ -25,7 +25,7 @@ mkdir -p $cache_rootfs/
 if [ `id -u` -eq 0 ];then
     tar="$TOOLKIT/binbusybox tar -xJf $file -C $cache_rootfs"
 else
-    tar="$TOOLKIT/bin/proot --link2symlink -0 $TOOLKIT/busybox tar --no-same-owner -xJf $file -C $cache_rootfs"
+    tar="$TOOLKIT/bin/proot --link2symlink -0 $TOOLKIT/bin/busybox tar --no-same-owner -xJf $file -C $cache_rootfs"
 fi
 $tar >/dev/null
 deploy_linux_step2
