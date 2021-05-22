@@ -1,14 +1,14 @@
 #
 # dogeland shell init
 #
-export PATH="/system/bin:/sbin:$TOOLKIT"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$PREFIX/lib"
 export START_DIR=$({START_DIR})
 export SDCARD_PATH=$({SDCARD_PATH})
 export PACKAGE_NAME=$({PACKAGE_NAME})
-export APP_FILES_DIR="$SDCARD_PATH/Android/data/$PACKAGE_NAME/files/"
-export TMPDIR="$START_DIR/../../cache"
 export TOOLKIT="$START_DIR/app_xbin"
+export APP_FILES_DIR="$SDCARD_PATH/Android/data/$PACKAGE_NAME/files/"
+export PATH="/system/bin:/sbin:$TOOLKIT"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$TOOLKIT/lib"
+export TMPDIR="$START_DIR/../../cache"
 export CONFIG_DIR="$APP_FILES_DIR/config"
 export PROOT_TMP_DIR="$TMPDIR"
 export PROOT_LOADER="$TOOLKIT/libexec/libloader.so"
