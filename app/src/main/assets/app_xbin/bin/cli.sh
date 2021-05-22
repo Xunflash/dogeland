@@ -8,7 +8,7 @@ VERSION=3.0.1_DEBUG
 CLI_RES=$TOOLKIT/bin/include
 # Container Mode
 if [ -d "/boot/dogeland/" ];then
-  CLI_RES=/boot/dogeland/
+  CLI_RES=/boot/dogeland/include
   else
   echo "">/dev/null
 fi
