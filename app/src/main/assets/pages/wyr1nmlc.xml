@@ -19,8 +19,8 @@
                 <option value="/bin/sh /boot/dogeland/cli.sh dropbear_start">启动dropbear</option>
             </param>
             <set>
-            rm -rf $CONFIG_DIR/cmd.conf
-            echo "$type">$CONFIG_DIR/cmd.conf
+            rm -rf $CONFIG_DIR/cmdline.config
+            echo "$type">$CONFIG_DIR/cmdline.config
             </set>
              </action>
           </group>

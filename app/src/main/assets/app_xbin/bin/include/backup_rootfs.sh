@@ -9,9 +9,9 @@ if [[ "$(pwd)" != "/" ]]
 then
 
 if [ `id -u` -eq 0 ];then
-    $TOOLKIT/busybox tar czvf "$dir/backup.tgz" --exclude='./dev' --exclude='./sys' --exclude='./proc' --exclude='./mnt' --exclude='./boot' ./ >/dev/null
+    $TOOLKIT/bin/busybox tar czvf "$dir/backup.tgz" --exclude='./dev' --exclude='./sys' --exclude='./proc' --exclude='./mnt' --exclude='./boot' ./ >/dev/null
 else
-    $TOOLKIT/proot --link2symlink -0 $TOOLKIT/busybox tar czvf "$dir/backup.tgz" --exclude='./dev' --exclude='./sys' --exclude='./proc' --exclude='./mnt'  --exclude='./boot' ./ >/dev/null
+    $TOOLKIT/bin/proot --link2symlink -0 $TOOLKIT/bin/busybox tar czvf "$dir/backup.tgz" --exclude='./dev' --exclude='./sys' --exclude='./proc' --exclude='./mnt'  --exclude='./boot' ./ >/dev/null
 fi
 
 echo "Saved to $dir/backup.tgz"
