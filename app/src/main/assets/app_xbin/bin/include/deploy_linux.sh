@@ -74,6 +74,7 @@ if [ -d "$cache_rootfs/pkg_configs/" ];then
  # Get Default PkgConfigs
   cp $cache_rootfs/pkg_configs/cmdline.conf $CONFIG_DIR/cmdline.config
   echo "$cache_rootfs" >$CONFIG_DIR/rootfs.config
+  rm -rf $cache_rootfs/pkg_configs
   else
   mkdir -p $cache_rootfs/boot/dogeland/
   echo "$cache_rootfs" >$CONFIG_DIR/rootfs.config
