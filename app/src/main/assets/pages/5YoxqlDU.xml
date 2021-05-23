@@ -16,7 +16,7 @@
              echo "1"
              else
               $TOOLKIT/bin/cli.sh check_rootfs
-             cp $PREFIX/lib/libandroid-shmem.so $rootfs/usr/local/lib/
+             cp $TOOLKIT/lib/libandroid-shmem.so $rootfs/usr/local/lib/
              fi
             </set>
 </switch>
@@ -52,6 +52,6 @@
             <title>安装插件</title>
             <param name="file" label="插件包" type="file"
                 value="" editable="true" />
-            <set>$TOOLKIT/app-addon/plugin_installer.sh</set>
+            <set>$TOOLKIT/bin/app-addon/plugin_installer.sh</set>
         </action>
 </group>
