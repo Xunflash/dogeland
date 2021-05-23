@@ -23,7 +23,7 @@ configure()
     echo 'dogeland-vhost' > "$rootfs/etc/hostname"
 
     echo "- Setting up hosts ... "
-    cat <<- EOF > "$rootfs/etc/hosts"
+    cat <<- EOF2 > "$rootfs/etc/hosts"
 	# IPv4.
 	127.0.0.1   localhost.localdomain localhost
 
@@ -34,7 +34,7 @@ configure()
 	ff02::1     ipv6-allnodes
 	ff02::2     ipv6-allrouters
 	ff02::3     ipv6-allhosts
-	EOF
+	EOF2
     echo "progress:[8/10]"
     echo "- Setting up locale ... "
     LOCALE="C"
