@@ -10,24 +10,31 @@ configure()
 {
     echo "progress:[7/10]"
     echo "- Setting up mtab ..."
-    rm -rf $rootfs/etc/mtab && cp /proc/mounts $rootfs/etc/mtab
-
+    rm -rf $rootfs/etc/mtab 
+    cat <<- EOF > "$rootfs/etc/mtab"
+    tmpfs / tmpfs rw,seclabel,relatime,size=1397620k,nr_inodes=349405,mode=755 0 0
+    proc /proc proc rw,relatime,gid=3009,hidepid=2 0 0
+    sys /sys sysfs rw,seclabel,relatime 0 0
+    tmpfs /dev tmpfs rw,seclabel,nosuid,relatime,size=1397620k,nr_inodes=349405,mode=755 0 0
+    tmpfs /dev/shm tmpfs rw,seclabel,nosuid,nodev,relatime 0 0
+    devpts /dev/pts devpts rw,seclabel,relatime,mode=600 0 0
+    EOF
     echo "- Setting up hostname ... "
-    echo 'localhost' > "$rootfs/etc/hostname"
+    echo 'dogeland-vhost' > "$rootfs/etc/hostname"
 
     echo "- Setting up hosts ... "
-		cat <<- EOF > "$rootfs/etc/hosts"
-		# IPv4.
-		127.0.0.1   localhost.localdomain localhost
+    cat <<- EOF > "$rootfs/etc/hosts"
+	# IPv4.
+	127.0.0.1   localhost.localdomain localhost
 
-		# IPv6.
-		::1         localhost.localdomain localhost ipv6-localhost ipv6-loopback
-		fe00::0     ipv6-localnet
-		ff00::0     ipv6-mcastprefix
-		ff02::1     ipv6-allnodes
-		ff02::2     ipv6-allrouters
-		ff02::3     ipv6-allhosts
-		EOF
+	# IPv6.
+	::1         localhost.localdomain localhost ipv6-localhost ipv6-loopback
+	fe00::0     ipv6-localnet
+	ff00::0     ipv6-mcastprefix
+	ff02::1     ipv6-allnodes
+	ff02::2     ipv6-allrouters
+	ff02::3     ipv6-allhosts
+	EOF
     echo "progress:[8/10]"
     echo "- Setting up locale ... "
     LOCALE="C"
