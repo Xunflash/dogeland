@@ -83,9 +83,9 @@
             <title>关闭App</title>
             <set>
             if [ -d "/apex" ];then
-             $TOOLKIT/proot -r $TOOLKIT/bin/ -b /system -b /proc -b /sys -b /dev -b /vendor -b /apex /busybox pkill $PACKAGE_NAME
+             $TOOLKIT/proot -r $TOOLKIT -b /system -b /proc -b /sys -b /dev -b /vendor -b /apex /bin/busybox pkill $PACKAGE_NAME
             else
-             $TOOLKIT/proot -r $TOOLKIT/bin/ -b /system -b /proc -b /sys -b /dev -b /vendor /busybox pkill $PACKAGE_NAME
+             $TOOLKIT/proot -r $TOOLKIT -b /system -b /proc -b /sys -b /dev -b /vendor /bin/busybox pkill $PACKAGE_NAME
             fi
             pkill $PACKAGE_NAME
             </set>
