@@ -17,6 +17,8 @@
              <param name="type">
                 <option value="/bin/sh /boot/dogeland/cli.sh sshd_start">启动openssh-sshd</option>
                 <option value="/bin/sh /boot/dogeland/cli.sh dropbear_start">启动dropbear</option>
+                <option value="/lib/systemd --system">[fullns]systemd</option>
+                <option value="/sbin/init">[fullns]init</option>
             </param>
             <set>
             rm -rf $CONFIG_DIR/cmdline.config

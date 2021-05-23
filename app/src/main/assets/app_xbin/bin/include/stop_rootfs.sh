@@ -9,10 +9,12 @@ pkill dropbear
 pkill sshd
 echo "Stop">$rootfs/boot/dogeland/status
 pkill proot
+pkill systemd
+pkill unshare
 if [ -d "/apex" ];then
-  $TOOLKIT/bin/proot -r $TOOLKIT -b /system -b /proc -b /sys -b /dev -b /vendor -b /apex /busybox pkill $PACKAGE_NAME
+  $TOOLKIT/bin/proot -r $TOOLKIT -b /system -b /proc -b /sys -b /dev -b /vendor -b /apex /bin/busybox pkill $PACKAGE_NAME
   else
-  $TOOLKIT/bin/proot -r $TOOLKIT -b /system -b /proc -b /sys -b /dev -b /vendor /busybox pkill $PACKAGE_NAME
+  $TOOLKIT/bin/proot -r $TOOLKIT -b /system -b /proc -b /sys -b /dev -b /vendor /bin/busybox pkill $PACKAGE_NAME
 fi
 pkill $PACKAGE_NAME
 pkill sh # for chroot

@@ -28,9 +28,11 @@ fi
 . $CLI_RES/backup_rootfs.sh
 . $CLI_RES/deploy_linux.sh
 . $CLI_RES/bind_main.sh
+. $CLI_RES/starter_fullns.sh
 . $CLI_RES/starter_proot.sh
 . $CLI_RES/starter_unshare.sh
 . $CLI_RES/starter_auto.sh
+. $CLI_RES/exec_fullns.sh
 . $CLI_RES/exec_unshare.sh
 . $CLI_RES/exec_auto.sh
 . $CLI_RES/exec_local-shell.sh

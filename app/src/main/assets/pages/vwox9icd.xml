@@ -9,6 +9,7 @@
                 <option value="start_auto">[自动选择]</option>
                 <option value="start_proot">[proot]</option>
                 <option value="start_unshare">[unshare]</option>
+                <option value="start_fullns">[fullns]</option>
             </param>
             <param name="addcmd" label="AddonCmd" title="" placeholder="" type="text" />
             <set> $TOOLKIT/bin/cli.sh $start</set>
@@ -23,6 +24,7 @@
                 <option value="exec_auto">[自动选择]</option>
                 <option value="exec_proot">[proot]</option>
                 <option value="exec_unshare">[unshare]</option>
+                <option value="exec_fullns">[fullns]</option>
                 <option value="exec_localshell">[sh]</option>
             </param>
             <set> $TOOLKIT/bin/cli.sh $exec</set>
