@@ -17,6 +17,7 @@ export addcmd=" $addcmd -b /sys -b /dev/null:/sys/firmware -b $TOOLKIT/virtual/s
 export addcmd=" $addcmd -b /proc "
 if [ ! -r "/proc/uptime" ]; then
     export addcmd=" $addcmd \
+    -k "3.10.108-lineageos-g6f027fb"
     -b $TOOLKIT/virtual/fs/proc/buddyinfo:/proc/buddyinfo  \
     -b $TOOLKIT/virtual/fs/proc/kallsyms:/proc/kallsyms  \
     -b $TOOLKIT/virtual/fs/proc/partitions:/proc/partitions  \
