@@ -2,10 +2,12 @@ name: Android CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ stable ]
   pull_request:
-    branches: [ master ]
+    branches: [ stable ]
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 jobs:
   build:
 
@@ -24,5 +26,5 @@ jobs:
     - name: Store generated APK file
       uses: actions/upload-artifact@v1
       with:
-        name: app-zh_CN
-        path: ./app/build/outputs/apk/
+        name: app-stable
+        path: ./app/build/outputs/apk/release_mini/
