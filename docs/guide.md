@@ -9,7 +9,6 @@ The full name of fullns is Full-Namespace, which is the complete Linux namespace
 CONFIG_NAMESPACES=y  
 CONFIG_UTS_NS=y  
 CONFIG_IPC_NS=y  
-# CONFIG_USER_NS is not set  
 CONFIG_PID_NS=y  
 CONFIG_NET_NS=y  
 Turn on the kernel functions listed above, then recompile the kernel and flash into your device to use the fullns container.  
