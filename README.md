@@ -13,8 +13,8 @@ proot + chroot + unshare Three container engine omnidirectional support🌸
   
 ## Components and dependencies
   
-busybox[GPL]  
-proot[GPL]  
+busybox  
+proot  
 libandroid-shmem  
 libtalloc  
 util-linux  
@@ -22,4 +22,4 @@ dropbear
   
 ## Wiki
 ![img5.png](docs/images/img5.gif)  
-[Click here](wiki/README.md)
+[Click here](docs/guide.md)

@@ -13,12 +13,13 @@ arm(64)与x86_64全向架构支持🌹
   
 ## 组件与依赖
   
-busybox[GPL]  
-proot[GPL]  
+busybox  
+proot  
 libandroid-shmem  
 libtalloc  
 util-linux  
 dropbear  
   
-![img5.png](docs/images/img5.gif)
-  
+## Wiki
+![img5.png](docs/images/img5.gif)  
+[Click here](docs/guide.md)  
