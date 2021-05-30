@@ -3,7 +3,7 @@
 <group title="补丁 ">
 <switch shell="hidden">
             <title>Ashmem</title>
-            <desc>只在运行某些图形界面程序出现问题时，才使用此补丁</desc>
+            <desc>Use this patch only when there are problems running certain graphical interface programs</desc>
             <get>
              if [ -e "$rootfs/usr/local/lib/libandroid-shmem.so" ];then
              echo "1"
@@ -24,7 +24,7 @@
 <group>
 <action>
             <title>debian-groupaddon</title>
-            <desc>只在登录终端提示缺少group组时，才使用此补丁</desc>
+            <desc>Use this patch only when the login terminal prompts that the group is missing</desc>
             <param name="bug" label="" title="GroupID" placeholder="" type="text" />
             <set> $TOOLKIT/bin/cli.sh debiangroup_add</set>
 </action>
@@ -32,7 +32,7 @@
 <group>
            <switch shell="hidden">
             <title>PROOT_NO_SECOMP</title>
-            <desc>关闭PROOT_SCCOMP</desc>
+            <desc>Disable PROOT_SCCOMP</desc>
             <get>
              cat $CONFIG_DIR/patch_proot-seccomp.config
             </get>
@@ -47,10 +47,10 @@
             </set>
         </switch>
 </group>
-<group title="插件 ">
+<group title="Plugin ">
 <action>
-            <title>安装插件</title>
-            <param name="file" label="插件包" type="file"
+            <title>Install Plugin</title>
+            <param name="file" label="File" type="file"
                 value="" editable="true" />
             <set>$TOOLKIT/bin/app-addon/plugin_installer.sh</set>
         </action>

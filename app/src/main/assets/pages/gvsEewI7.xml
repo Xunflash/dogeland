@@ -4,21 +4,21 @@
     <text>
         <title></title>
         <desc>
-           帮助：
+       help:
 
-           本应用程序安装选定的 GNU/Linux 发行版，并在容器中运行。
+            This application installs the selected GNU/Linux distribution and runs in a container.
 
-           使用步骤：
-           1. 正常连接至互联网。
-           2. 从LXC镜像源或tar.gz压缩包安装发行版。
-           3. 等待安装完成。
-           4. 点击"开启/关闭"选项来启动或关闭容器。
-           5. 使用 SSH、VNC、XSDL、CLI 等方式连接到容器。
+            Steps for usage:
+            1. Connect to the Internet normally.
+            2. Install the distribution from the LXC mirror source or the tar.gz compressed package.
+            3. Wait for the installation to complete.
+            4. Click the "Open/Close" option to start or close the container.
+            5. Use SSH, VNC, XSDL, CLI, etc. to connect to the container.
 
         </desc>
     </text>
 </group>
 
 <group>
-<page config="pages/EMT9DJAH.xml" title="快速开始↗" />
+<page config="pages/EMT9DJAH.xml" title="Quick start↗" />
 </group>
