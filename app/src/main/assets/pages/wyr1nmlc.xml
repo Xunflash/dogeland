@@ -5,12 +5,12 @@
      <action>
          <title>RootfsPath</title>
              <param name="Input" label="" title="" placeholder="/data/data/me.flytree.dogeland/files/linux/" type="text" />
-            <set>$TOOLKIT/app-addon/set_all.sh set_rootfsdir</set>
+            <set>$TOOLKIT/bin/app-addon/set_all.sh set_rootfsdir</set>
              </action>
         <action>
             <title>Cmdline </title>
             <param name="Input" label="" title="" placeholder="/bin/sh" type="text" />
-            <set>$TOOLKIT/app-addon/set_all.sh set_initcmd</set>
+            <set>$TOOLKIT/bin/app-addon/set_all.sh set_initcmd</set>
         </action>
           <action>
             <title>dogeland-addon Startup</title>
@@ -52,7 +52,7 @@
                 <option value="x86">qemu-user-x86</option>
                 <option value="0">Disable</option>
             </param>
-            <set>$TOOLKIT/app-addon/set_all.sh set_emulator_qemu</set>
+            <set>$TOOLKIT/bin/app-addon/set_all.sh set_emulator_qemu</set>
         </action>
     </group>
     <group title="PRoot">
@@ -85,9 +85,9 @@
             <title>KillApp</title>
             <set>
             if [ -d "/apex" ];then
-             $TOOLKIT/proot -r $TOOLKIT -b /system -b /proc -b /sys -b /dev -b /vendor -b /apex /bin/busybox pkill $PACKAGE_NAME
+             $TOOLKIT/bin/proot -r $TOOLKIT -b /system -b /proc -b /sys -b /dev -b /vendor -b /apex /bin/busybox pkill $PACKAGE_NAME
             else
-             $TOOLKIT/proot -r $TOOLKIT -b /system -b /proc -b /sys -b /dev -b /vendor /bin/busybox pkill $PACKAGE_NAME
+             $TOOLKIT/bin/proot -r $TOOLKIT -b /system -b /proc -b /sys -b /dev -b /vendor /bin/busybox pkill $PACKAGE_NAME
             fi
             pkill $PACKAGE_NAME
             </set>
