@@ -2,7 +2,7 @@ exec_fullns(){
 echo "progress:[1/1]"
 check_rootfs
 set_env
-export unshare="exec $TOOLKIT/bin/unshare $addcmd --mount --uts --ipc --net --pid --cgroup --mount-proc -R $rootfs "
+export unshare="exec $TOOLKIT/bin/unshare $addcmd --mount --uts --ipc --pid --cgroup --mount-proc -R $rootfs "
 if [ -f "$rootfs/bin/su" ];then
 $unshare /bin/su -c $cmd2
 else
