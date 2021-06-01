@@ -11,6 +11,6 @@ else
 echo "Starting"
 set_env
 echo "Run">$rootfs/boot/dogeland/status
-exec $TOOLKIT/bin/unshare $addcmd --mount --uts --ipc --net --pid --cgroup --mount-proc -R $rootfs $cmd
+exec $TOOLKIT/bin/unshare $addcmd --mount --uts --ipc --pid --cgroup --mount-proc -R $rootfs $cmd
 fi
 }
