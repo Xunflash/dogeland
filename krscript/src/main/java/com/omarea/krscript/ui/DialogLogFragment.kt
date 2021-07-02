@@ -49,10 +49,6 @@ class DialogLogFragment : androidx.fragment.app.DialogFragment() {
         super.onActivityCreated(savedInstanceState)
         if (nodeInfo != null) {
             nodeInfo?.run {
-                // 如果执行完以后需要刷新界面，那么就不允许隐藏日志窗口到后台执行
-                if (reloadPage) {
-                    btn_hide.visibility = View.GONE
-                }
 
                 val shellHandler = openExecutor(this)
 

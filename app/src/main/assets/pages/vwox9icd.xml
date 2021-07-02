@@ -12,7 +12,8 @@
                 <option value="start_fullns">[fullns]</option>
             </param>
             <param name="addcmd" label="AddonCmd" title="" placeholder="" type="text" />
-            <set> $TOOLKIT/bin/cli.sh $start</set>
+            <param name="boxenv" label="Sandbox Mode" type="switch" />
+            <set>$TOOLKIT/bin/cli.sh $start</set>
             </action>
             </group>
             <group>
@@ -27,7 +28,8 @@
                 <option value="exec_fullns">[fullns]</option>
                 <option value="exec_localshell">[sh]</option>
             </param>
-            <set> $TOOLKIT/bin/cli.sh $exec</set>
+            <param name="boxenv" label="Sandbox Mode" type="switch" />
+            <set>$TOOLKIT/bin/cli.sh $exec</set>
         </action>
     </group>
 </items>

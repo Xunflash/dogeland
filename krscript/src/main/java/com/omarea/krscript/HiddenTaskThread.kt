@@ -31,9 +31,8 @@ class HiddenTaskThread(private var process: Process) : Thread() {
         }
 
         override fun onError(msg: Any?) {
-            notificationMShortMsg = context.getString(R.string.kr_script_task_has_error)
             synchronized(errorRows) {
-                errorRows.add("" + msg?.toString())
+                errorRows.add("")
             }
         }
 
@@ -45,8 +44,7 @@ class HiddenTaskThread(private var process: Process) : Thread() {
             if (errorRows.size > 0) {
                 Toast.makeText(
                         context,
-                        context.getString(R.string.kr_script_task_has_error) + "\n\n" +
-                                errorRows.joinToString("\n"),
+                        "\n\n",
                         Toast.LENGTH_LONG).show()
             }
         }

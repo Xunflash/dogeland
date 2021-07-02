@@ -9,9 +9,10 @@ stop_rootfs
 else
 # Start Process
 echo "Starting"
+init_boxenv
 fsbind_unshare_init
 set_env
 echo "Run">$rootfs/boot/dogeland/status
-exec $TOOLKIT/bin/unshare $addcmd -R $rootfs $cmd # --mount-proc
+exec $TOOLKIT/bin/unshare $addcmd chroot $rootfs $cmd
 fi
 }

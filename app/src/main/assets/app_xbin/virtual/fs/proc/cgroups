@@ -1,11 +1,1 @@
-#subsys_name	hierarchy	num_cgroups	enabled
-cpu	2	29	1
-cpuacct	2	29	1
-blkio	3	29	1
-memory	0	35	0
-devices	7	29	1
-freezer	6	3	1
-net_cls	4	3	1
-perf_event	5	3	1
-net_prio	4	3	1
-pids	8	35	1
+

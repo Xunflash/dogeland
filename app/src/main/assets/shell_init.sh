@@ -10,14 +10,6 @@ export PATH="/system/bin:/sbin:$TOOLKIT/bin"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$TOOLKIT/lib"
 export TMPDIR="$TOOLKIT/tmp"
 export CONFIG_DIR="$APP_FILES_DIR/config"
-export PROOT_TMP_DIR="$TMPDIR"
-export PROOT_LOADER="$TOOLKIT/libexec/libloader.so"
-if [[ "$platform" != "x86_64" ]] && [[ "$platform" != "arm64" ]]
-then
-echo "">/dev/null
-else
-export PROOT_LOADER_32="$TOOLKIT/libexec/libloader32.so"
-fi
 export platform=$(sh $TOOLKIT/bin/cli.sh platform_check)
 export cmd=$(cat $CONFIG_DIR/cmdline.config)
 export rootfs=$(cat $CONFIG_DIR/rootfs.config)

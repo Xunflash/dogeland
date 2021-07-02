@@ -13,11 +13,11 @@ if [ -d "/boot/dogeland/" ];then
   echo "">/dev/null
 fi
 # Test Mode
-#if [ ! -n "$START_DIR" ]; then
-#  CLI_RES=./include
-# else
-#  echo "">/dev/null
-#fi
+if [ ! -n "$START_DIR" ]; then
+  CLI_RES=./include
+ else
+  echo "">/dev/null
+fi
 . $CLI_RES/others.sh
 . $CLI_RES/stop_rootfs.sh
 . $CLI_RES/del_rootfs.sh
@@ -35,6 +35,7 @@ fi
 . $CLI_RES/exec_fullns.sh
 . $CLI_RES/exec_unshare.sh
 . $CLI_RES/exec_auto.sh
+. $CLI_RES/init_boxenv.sh
 . $CLI_RES/exec_local-shell.sh
 . $CLI_RES/extra_dropbear.sh
 . $CLI_RES/extra_sshd.sh

@@ -39,10 +39,9 @@
     <string name="kr_ushortcut_nsupported"></string>
     <string name="kr_script_task_notification">后台任务通知</string>
     <string name="kr_bg_task_start">后台任务开始运行</string>
-    <string name="kr_script_task_running">开始运行</string>
-    <string name="kr_script_task_has_error">出现错误</string>
+    <string name="kr_script_task_running"></string>
     <string name="kr_script_task_finished">--done--</string>
-    <string name="kr_bg_task_start_desc">你可以通过系统通知，查看任务运行进度和日志</string>
+    <string name="kr_bg_task_start_desc">通过通知查看任务运行进度和日志</string>
     <string name="kr_slice_script_result"></string>
     <string name="kr_slice_activity_fail"></string>
 

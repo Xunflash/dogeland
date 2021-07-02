@@ -21,7 +21,6 @@
                 <option value="/sbin/init">[fullns]init</option>
             </param>
             <set>
-            rm -rf $CONFIG_DIR/cmdline.config
             echo "$type">$CONFIG_DIR/cmdline.config
             </set>
              </action>
@@ -75,7 +74,7 @@
             <title>修改 GNU / Linux 系统密码</title>
             <param name="username" label="" title="用户名" placeholder="" type="text" />
             <param name="password" label="" title="密码" placeholder="" type="text" />
-            <set> $TOOLKIT/bin/cli.sh edit_passwd</set>
+            <set> $TOOLKIT/app-addon/set_all.sh edit_passwd</set>
         </action>
           <action>
             <title>修复运行环境权限</title>

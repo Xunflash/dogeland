@@ -11,7 +11,7 @@ $TOOLKIT/preload_res/bin/busybox_$platform chmod -R 0777 $TOOLKIT
 function busybox_install() {
     for applet in `./busybox --list`; do
         case "$applet" in
-        "swapon"|"swapoff"|"mkswap"|"unshare")
+        "swapon"|"swapoff"|"mkswap")
             echo 'Skip' > /dev/null
         ;;
         *)
@@ -30,7 +30,6 @@ mkdir $TOOLKIT/libexec
 cp $TOOLKIT/preload_res/lib/$platform/* $TOOLKIT/lib/
 cp $TOOLKIT/preload_res/libexec/$platform/* $TOOLKIT/libexec/
 cp $TOOLKIT/preload_res/bin/proot_$platform $TOOLKIT/bin/proot
-cp $TOOLKIT/preload_res/bin/unshare_$platform $TOOLKIT/bin/unshare
 mkdir -p $APP_FILES_DIR
 if [ -d "$APP_FILES_DIR" ];then
   mkdir $CONFIG_DIR

@@ -122,9 +122,8 @@ class BgTaskThread(private var process: Process) : Thread() {
         }
 
         override fun onError(msg: Any?) {
-            notificationMShortMsg = context.getString(R.string.kr_script_task_has_error)
             synchronized(notificationMessageRows) {
-                notificationMessageRows.add("" + msg?.toString())
+                notificationMessageRows.add("")
                 updateNotification()
             }
         }

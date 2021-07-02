@@ -1,10 +1,9 @@
 fsbind_unshare_init(){
-if [ ! -n "$rootfs/dev/dotest" ]; then
+if [ ! -n "$rootfs/sys/virtual/dotest" ]; then
 mount -o bind /dev $rootfs/dev
 mount -t devpts devpts $rootfs/dev/pts
 mount -t sysfs sys $rootfs/sys
 mount -t proc proc $rootfs/proc
-mount -o bind $TOOLKIT/virtual/dotest $rootfs/dev/dotest
 mount -o bind $APP_FILES_DIR/filetran $rootfs/dev/filetran
 mount -o bind $TOOLKIT/virtual/socket $rootfs/sys/virtual
 else

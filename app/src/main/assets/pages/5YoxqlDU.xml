@@ -22,17 +22,9 @@
 </switch>
 </group>
 <group>
-<action>
-            <title>debian-groupaddon</title>
-            <desc>只在登录终端提示缺少group组时，才使用此补丁</desc>
-            <param name="bug" label="" title="GroupID" placeholder="" type="text" />
-            <set> $TOOLKIT/bin/cli.sh debiangroup_add</set>
-</action>
-</group>
-<group>
            <switch shell="hidden">
             <title>PROOT_NO_SECOMP</title>
-            <desc>关闭PROOT_SCCOMP</desc>
+            <desc>禁用PROOT_SCCOMP</desc>
             <get>
              cat $CONFIG_DIR/patch_proot-seccomp.config
             </get>
@@ -47,6 +39,13 @@
             </set>
         </switch>
 </group>
+   <group>
+        <action warning="转换需要2倍的rootfs所占空间，且中途中断将导致rootfs彻底损坏,重新使用proot时此补丁将失效。">
+            <title>proot2chroot-fs</title>
+            <desc>将rootfs从proot模式转换到unshare</desc>
+            <set>$TOOLKIT/bin/app-addon/set_all.sh proot2chroot</set>
+        </action>
+    </group>
 <group title="插件 ">
 <action>
             <title>安装插件</title>
