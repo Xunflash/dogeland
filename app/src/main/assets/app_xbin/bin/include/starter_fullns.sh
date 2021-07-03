@@ -12,6 +12,6 @@ echo "Starting"
 init_boxenv
 set_env
 echo "Run">$rootfs/boot/dogeland/status
-exec $TOOLKIT/bin/unshare $addcmd -f --mount --uts --ipc --pid --mount-proc chroot $rootfs $cmd
+exec $TOOLKIT/bin/unshare $addcmd -f --mount --uts --ipc --pid --mount-proc  $TOOLKIT/bin/chroot $rootfs $cmd
 fi
 }

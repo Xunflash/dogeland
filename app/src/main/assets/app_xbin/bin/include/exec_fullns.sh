@@ -3,7 +3,7 @@ echo "progress:[1/1]"
 check_rootfs
 set_env
 init_boxenv
-export unshare="exec $TOOLKIT/bin/unshare $addcmd -f --mount --uts --ipc --pid --mount-proc chroot $rootfs"
+export unshare="exec $TOOLKIT/bin/unshare $addcmd -f --mount --uts --ipc --pid --mount-proc  $TOOLKIT/bin/chroot $rootfs"
 if [ -f "$rootfs/bin/su" ];then
 $unshare /bin/su -c $cmd2
 else
