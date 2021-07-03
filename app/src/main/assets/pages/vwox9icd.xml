@@ -11,7 +11,7 @@
                 <option value="start_unshare">[unshare]</option>
                 <option value="start_fullns">[fullns]</option>
             </param>
-            <param name="addcmd" label="AddonCmd" title="" placeholder="" type="text" />
+            <param name="addcmd" label="AddonCmd" type="text" />
             <param name="boxenv" label="Sandbox Mode" type="switch" />
             <set>$TOOLKIT/bin/cli.sh $start</set>
             </action>
