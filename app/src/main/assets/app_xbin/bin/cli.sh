@@ -18,7 +18,6 @@ if [ ! -n "$START_DIR" ]; then
  else
   echo "">/dev/null
 fi
-. $CLI_RES/others.sh
 . $CLI_RES/stop_rootfs.sh
 . $CLI_RES/del_rootfs.sh
 . $CLI_RES/platform.sh

@@ -23,7 +23,7 @@ rm -rf $cache_rootfs
 mkdir -p $cache_rootfs/
 # Enbale Link2SymLink for No Root
 if [ `id -u` -eq 0 ];then
-    tar="$TOOLKIT/binbusybox tar -xJf $file -C $cache_rootfs"
+    tar="$TOOLKIT/bin/busybox tar -xJf $file -C $cache_rootfs"
 else
     tar="$TOOLKIT/bin/proot --link2symlink -0 $TOOLKIT/bin/busybox tar --no-same-owner -xJf $file -C $cache_rootfs"
 fi
@@ -33,6 +33,14 @@ deploy_linux_step2
 
 # Check Configs
 deploy_linux_step1(){
+export PROOT_TMP_DIR="$TMPDIR"
+export PROOT_LOADER="$TOOLKIT/libexec/libloader.so"
+if [[ "$platform" != "x86_64" ]] && [[ "$platform" != "arm64" ]]
+then
+echo "">/dev/null
+else
+export PROOT_LOADER_32="$TOOLKIT/libexec/libloader32.so"
+fi
 echo "progress:[1/10]"
 if [ ! -n "$cache_rootfs" ]; then
     echo "!The selected path is not available"
