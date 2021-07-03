@@ -2,7 +2,6 @@ fsbind_unshare_init(){
 if [ ! -n "$rootfs/sys/virtual/dotest" ]; then
 mount -o bind /dev $rootfs/dev
 mount -t devpts devpts $rootfs/dev/pts
-mount -t sysfs sys $rootfs/sys
 mount -t proc proc $rootfs/proc
 mount -o bind $APP_FILES_DIR/filetran $rootfs/dev/filetran
 mount -o bind $TOOLKIT/virtual/socket $rootfs/sys/virtual
@@ -12,9 +11,9 @@ fi
 }
 fsbind_proot_init(){
 export addcmd=" $addcmd -b /dev -b $APP_FILES_DIR/filetran:/dev/filetran "
-export addcmd=" $addcmd -b /sys -b /dev/null:/sys/firmware -b $TOOLKIT/virtual/socket:/sys/virtual "
+export addcmd=" $addcmd -b /dev/null:/sys/firmware -b $TOOLKIT/virtual/socket:/sys/virtual "
 export addcmd=" $addcmd -b /proc "
-if [ ! -r "/proc/uptime" ]; then
+#if [ ! -r "/proc/uptime" ]; then
     export addcmd=" $addcmd \
     -k "3.10.108-lineageos-g6f027fb"
     -b $TOOLKIT/virtual/fs/proc/buddyinfo:/proc/buddyinfo  \
@@ -57,7 +56,7 @@ if [ ! -r "/proc/uptime" ]; then
     -b $TOOLKIT/virtual/fs/proc/softirqs:/proc/softirqs  \
     -b $TOOLKIT/virtual/fs/proc/iomem:/proc/iomem  \
     -b $TOOLKIT/virtual/fs/proc/ioports:/proc/ioports"
-    else
-    echo "">/dev/null
-fi
+#    else
+#    echo "">/dev/null
+#fi
 }
