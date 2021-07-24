@@ -28,10 +28,10 @@ unset cmd2
 proot2chroot(){
 echo "- Processing rootfs"
 cd $rootfs
-$TOOLKIT/bin/proot --link2symlink -0 $TOOLKIT/bin/busybox tar czvf "$TMPDIR/cache.tgz" --exclude='./dev' --exclude='./sys' --exclude='./proc' --exclude='./mnt'  --exclude='./boot' ./ >/dev/null
+$TOOLKIT/bin/proot --link2symlink -0 $TOOLKIT/bin/busybox tar czf "$TMPDIR/cache.tgz" --exclude='./dev' --exclude='./sys' --exclude='./proc' --exclude='./mnt'  --exclude='./boot' ./ >/dev/null
 echo "- Converting rootfs"
 rm -rf $rootfs/*
-$TOOLKIT/bin/busybox tar -xzvf $TMPDIR/cache.tgz -C $rootfs
+$TOOLKIT/bin/busybox tar -xzf $TMPDIR/cache.tgz -C $rootfs
 rm $TMPDIR/cache.tgz
 echo "done"
 }
