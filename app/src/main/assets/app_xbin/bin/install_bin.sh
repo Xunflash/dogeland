@@ -47,9 +47,9 @@ fi
 # Unlock Full Toolkit
 rm $TOOLKIT/bin/toolkit.sh
 mv $TOOLKIT/bin/toolkit.shl $TOOLKIT/bin/toolkit.sh
-mv $TOOLKIT/app-addon/extra_linuxconfigure.shl $TOOLKIT/app-addon/extra_linuxconfigure.sh
-mv $TOOLKIT/app-addon/plugin_installer.shl $TOOLKIT/app-addon/plugin_installer.sh
-mv $TOOLKIT/app-addon/set_all.shl $TOOLKIT/app-addon/set_all.sh
+mv $TOOLKIT/bin/app-addon/extra_linuxconfigure.shl $TOOLKIT/bin/app-addon/extra_linuxconfigure.sh
+mv $TOOLKIT/bin/app-addon/plugin_installer.shl $TOOLKIT/bin/app-addon/plugin_installer.sh
+mv $TOOLKIT/bin/app-addon/set_all.shl $TOOLKIT/bin/app-addon/set_all.sh
 chmod -R a+x $TOOLKIT
 # Write Tag
 touch $TOOLKIT/install_bin_done
