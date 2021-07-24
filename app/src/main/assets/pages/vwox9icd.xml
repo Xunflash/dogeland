@@ -13,7 +13,7 @@
             </param>
             <param name="addcmd" label="AddonCmd" type="text" />
             <param name="boxenv" label="Sandbox Mode" type="switch" />
-            <set>$TOOLKIT/bin/cli.sh $start</set>
+            <set>$TOOLKIT/bin/toolkit.sh $start</set>
             </action>
             </group>
             <group>
@@ -29,7 +29,7 @@
                 <option value="exec_localshell">[sh]</option>
             </param>
             <param name="boxenv" label="Sandbox Mode" type="switch" />
-            <set>$TOOLKIT/bin/cli.sh $exec</set>
+            <set>$TOOLKIT/bin/toolkit.sh $exec</set>
         </action>
     </group>
 </items>

@@ -15,7 +15,7 @@
             if [ -e "$rootfs/usr/local/lib/libandroid-shmem.so" ];then
              echo "1"
              else
-              $TOOLKIT/bin/cli.sh check_rootfs
+              $TOOLKIT/bin/toolkit.sh check_rootfs
              cp $TOOLKIT/lib/libandroid-shmem.so $rootfs/usr/local/lib/
              fi
             </set>

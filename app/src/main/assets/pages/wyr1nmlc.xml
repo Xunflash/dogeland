@@ -15,8 +15,8 @@
           <action>
             <title>dogeland-addon启动设置</title>
              <param name="type">
-                <option value="/bin/sh /boot/dogeland/cli.sh sshd_start">启动openssh-sshd</option>
-                <option value="/bin/sh /boot/dogeland/cli.sh dropbear_start">启动dropbear</option>
+                <option value="/bin/sh /boot/dogeland/toolkit.sh sshd_start">启动openssh-sshd</option>
+                <option value="/bin/sh /boot/dogeland/toolkit.sh dropbear_start">启动dropbear</option>
                 <option value="/lib/systemd --system">[fullns]systemd</option>
                 <option value="/sbin/init">[fullns]init</option>
             </param>
@@ -34,13 +34,13 @@
         <action>
             <title>导出Rootfs</title>
              <param name="dir" type="folder" value="/sdcard/Android/data/me.flytree.dogeland/" editable="true"/>
-            <set> $TOOLKIT/bin/cli.sh backup_rootfs</set>
+            <set> $TOOLKIT/bin/toolkit.sh backup_rootfs</set>
         </action>
            </group>
            <group title="高级">
              <action warning="这将会删除容器上的系统和用户数据,并且操作不可逆,仍要继续吗？">
             <title>移除已安装Rootfs</title>
-            <set> $TOOLKIT/bin/cli.sh del_rootfs</set>
+            <set> $TOOLKIT/bin/toolkit.sh del_rootfs</set>
         </action>
          <action>
             <title>开启 QEMU-USER 支持</title>

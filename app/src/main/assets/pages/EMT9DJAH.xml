@@ -8,7 +8,7 @@
                 <param name="USER_NAME" label="登录用户" title="" placeholder="" type="text" />
                 <param name="USER_PASSWORD" label="登录密码" title="" placeholder="" type="text" />
                 <param name="datas" label="安装到数据目录" type="switch" />
-            <set>$TOOLKIT/bin/cli.sh deploy_linux_tgz</set>
+            <set>$TOOLKIT/bin/toolkit.sh deploy_linux_tgz</set>
         </action>
         </group>
         <group>
@@ -19,6 +19,6 @@
                 <param name="USER_NAME" label="登录用户" title="" placeholder="" type="text" />
                 <param name="USER_PASSWORD" label="登录密码" title="" placeholder="" type="text" />
                 <param name="datas" label="安装到数据目录" type="switch" />
-            <set>$TOOLKIT/bin/cli.sh deploy_linux_txz</set>
+            <set>$TOOLKIT/bin/toolkit.sh deploy_linux_txz</set>
         </action>
         </group>

@@ -1,0 +1,36 @@
+#
+# dogeland toolkit
+# v3.0.7
+# 
+# license: GPL-v3.0
+#
+TOOLKIT_RES=$TOOLKIT/bin/include
+# System Mode
+if [ -d "/boot/dogeland/" ];then
+  TOOLKIT_RES=/boot/dogeland/include
+  else
+  echo "">/dev/null
+fi
+. $TOOLKIT_RES/stop_rootfs.res
+. $TOOLKIT_RES/del_rootfs.res
+. $TOOLKIT_RES/platform.res
+. $TOOLKIT_RES/set_env.res
+. $TOOLKIT_RES/check_rootfs.res
+. $TOOLKIT_RES/del_rootfs.res
+. $TOOLKIT_RES/backup_rootfs.res
+. $TOOLKIT_RES/deploy_linux.res
+. $TOOLKIT_RES/bind_main.res
+. $TOOLKIT_RES/starter_fullns.res
+. $TOOLKIT_RES/starter_proot.res
+. $TOOLKIT_RES/starter_unshare.res
+. $TOOLKIT_RES/starter_auto.res
+. $TOOLKIT_RES/exec_fullns.res
+. $TOOLKIT_RES/exec_unshare.res
+. $TOOLKIT_RES/exec_auto.res
+. $TOOLKIT_RES/init_boxenv.res
+. $TOOLKIT_RES/exec_local-shell.res
+. $TOOLKIT_RES/extra_dropbear.res
+. $TOOLKIT_RES/extra_sshd.res
+. $TOOLKIT_RES/extra_patcher.res
+. $TOOLKIT_RES/exec_proot.res
+${1}

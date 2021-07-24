@@ -3,18 +3,18 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
+    compileSdkVersion 29
+    buildToolsVersion '29.0.2'
 
     lintOptions {
           abortOnError false
      }
     defaultConfig {
         resConfigs "zh"
-        minSdkVersion 21
-        targetSdkVersion 28
-        versionCode 1509
-        versionName "1.5.1-dev"
+        minSdkVersion 25
+        targetSdkVersion 29
+        versionCode 1520
+        versionName "1.5.2-dev"
     }
     buildTypes {
         release {

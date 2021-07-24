@@ -94,9 +94,9 @@ chmod 770 $cache_rootfs/proc
 mkdir -p $cache_rootfs/dev/net
 # Install dogeland addon
 mkdir -p $cache_rootfs/boot/dogeland/include/
-cp $TOOLKIT/bin/cli.sh $cache_rootfs/boot/dogeland/
+cp $TOOLKIT/bin/toolkit.sh $cache_rootfs/boot/dogeland/
 cp -R $TOOLKIT/bin/include/* $cache_rootfs/boot/dogeland/include/
 # Run Other Setup
-. $TOOLKIT/bin/include/extra_linuxconfigure.sh configure
+. $TOOLKIT/bin/app-addon/extra_linuxconfigure.sh configure
 echo "! All Done"
 }

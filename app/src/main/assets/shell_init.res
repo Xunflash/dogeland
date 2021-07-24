@@ -1,6 +1,3 @@
-#
-# dogeland shell init
-#
 export START_DIR=$({START_DIR})
 export SDCARD_PATH=$({SDCARD_PATH})
 export PACKAGE_NAME=$({PACKAGE_NAME})
@@ -10,7 +7,7 @@ export PATH="/system/bin:/sbin:$TOOLKIT/bin"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$TOOLKIT/lib"
 export TMPDIR="$TOOLKIT/tmp"
 export CONFIG_DIR="$APP_FILES_DIR/config"
-export platform=$(sh $TOOLKIT/bin/cli.sh platform_check)
+export platform=$(sh $TOOLKIT/bin/toolkit.sh platform_check)
 export cmd=$(cat $CONFIG_DIR/cmdline.config)
 export rootfs=$(cat $CONFIG_DIR/rootfs.config)
 if [[ -f "$TOOLKIT/install_bin_done" ]]; then
