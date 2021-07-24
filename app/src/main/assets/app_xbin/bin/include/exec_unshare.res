@@ -5,9 +5,9 @@ init_boxenv
 fsbind_unshare_init
 set_env
 export unshare="exec $TOOLKIT/bin/unshare $addcmd $TOOLKIT/bin/chroot $rootfs "
-if [ -f "$rootfs/bin/su" ];then
-$unshare /bin/su -c $cmd2
-else
+#if [ -f "$rootfs/bin/su" ];then
+#$unshare /bin/su root -c $cmd2
+#else
 if [ -f "$rootfs/bin/sh" ];then
 $unshare /bin/sh $cmd2
 else
@@ -28,6 +28,6 @@ echo "">/dev/null
 fi
 echo "">/dev/null
 fi
-echo "">/dev/null
-fi
+#echo "">/dev/null
+#fi
 }

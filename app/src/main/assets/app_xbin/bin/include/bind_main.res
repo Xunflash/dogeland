@@ -1,5 +1,5 @@
 fsbind_unshare_init(){
-if [ ! -n "$rootfs/sys/virtual/dotest" ]; then
+if [ ! -f "$rootfs/sys/virtual/dotest" ]; then
 mount -o bind /dev $rootfs/dev
 mount -t devpts devpts $rootfs/dev/pts
 mount -t proc proc $rootfs/proc
