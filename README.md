@@ -2,6 +2,7 @@
 [中文](README_zh.md)  
 ![ic_launcher.png](app/src/main/res/mipmap-xhdpi/ic_launcher.png)
   
+## This project has been refactored recently, and the stable branch has been temporarily deleted, bringing new features after the sun  
 Run any GNU/Linux distribution on Android.  
 proot + chroot + unshare Three container engine omnidirectional support🌸  
  arm(64) and x86_64 omnidirectional architecture support🌹  
